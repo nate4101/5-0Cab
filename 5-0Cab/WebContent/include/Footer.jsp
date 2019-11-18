@@ -21,7 +21,7 @@ TO-DO------FIX this for future use of custom CSS and Bootstrap...
 
 <div class="container">
 	
-	<nav class="navbar fixed-bottom navbar-expand-lg navbar-custom">
+	<nav class="navbar navbar-expand-lg navbar-custom">
 	<div class="container-fluid">
     			<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/login.jsp">
   					<h3 class="active">| About Us |</h1>

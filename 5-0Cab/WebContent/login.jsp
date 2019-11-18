@@ -10,8 +10,6 @@
 </head>
 
 <body>
-	<div class="headCont">
-	</div>
 	<div class="page-header">
 		<div class="jumbotron jumbotron-fluid"></div>
 	</div>
@@ -20,7 +18,8 @@
     <div class="container">
         <div class="row justify-content-center">		
             <div class="col-lg-6">
-                <div class="card g-light text-dark">
+            <div class="accordian">
+                <div class="card bg-light text-dark">
                     <div class="card-header text-center">
                     	<a class="card-link" data-toggle="collapse" href="#Login" style="color:black">
                         	<h1>Login</h1>
@@ -48,15 +47,16 @@
                         </form>			
                     	</div><!-- card body -->
                     </div>
-                    <div class="card-header text-center">
-                    	<a class="card-link" data-toggle="collapse" href="#Signup" style="color:black">
-                        	<h1>Sign Up</h1>
-                        </a>
-                    </div>
-                    <div id="Signup" class="collapse show">
-    					<div class="card-body">
-                
-                        <form action="SignUp" method="post">
+             	</div>
+             <div class="card bg-light text-dark">
+                 <div class="card-header text-center">
+                  	<a class="card-link" data-toggle="collapse" href="#Signup" style="color:black">
+                        <h1>Sign Up</h1>
+                    </a>
+                 </div>
+                 <div id="Signup" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    				<div class="card-body">
+                      <form action="SignUp" method="post">
                             <div class="form-group">
                             	<label for="email">Email:</label>
                             	<input type="email" class="form-control" name="email" placeholder="Enter email" maxlength="100" required>
@@ -73,8 +73,12 @@
                     	</div><!-- card body -->
                     </div>
                 </div><!-- main card -->
+             </div>
             </div><!-- login form -->
         </div><!-- row -->
     </div><!-- container -->
 </body>
+<footer>
+	<%@ include  file="/include/Footer.jsp"%>
+</footer>
 </html>
