@@ -3,6 +3,7 @@
 	<name>5-0Cab</name>
 	<comment></comment>
 	<projects>
+		<project>5-0 Cab Project</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
