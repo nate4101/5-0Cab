@@ -8,7 +8,11 @@
 <%@ include  file="/include/Header.jsp"%>
 
 </head>
+
 <body>
+	<div class="headCont">
+		<p>Bacon</p>
+	</div>
 	<div class="page-header">
 		<div class="jumbotron jumbotron-fluid"></div>
 	</div>
