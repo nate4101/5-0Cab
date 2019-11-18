@@ -6,12 +6,14 @@
 <title>Upload Problem</title>
 
 <%@ include  file="/include/Header.jsp"%>
-<%@ include file="/include/LoginRedirect.jsp" %>
 
 </head>
 <body>
-	<div class="page-header">
-		<div class="jumbotron jumbotron-fluid"></div>
+	<div class="row">
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 	</div>
 
 <!-- Page Content -->
@@ -21,45 +23,44 @@
                 <div class="card g-light text-dark">
                     <div class="card-header text-center">
                     	<a class="card-link" data-toggle="collapse" href="#Upload" style="color:black">
-                        	<h1>Upload A Scheduling Problem</h1>
+                        	<h1>Request A Cab</h1>
                         </a>
                     </div>
                     <div id="Upload" class="collapse show">
     					<div class="card-body">
                 
-                        <form action="UploadSchedule" method="get">
+                        <form action="UploadSchedule" method="post">
                             <div class="form-group">
-                            	<label for="email">Schedule Name:</label>
+                            	<label for="email">Location:</label>
                             	<input type="text" class="form-control" name="ScheduleName" maxlength="255" required>
                             </div>
                             <div class="form-group">
-                            	<label for="Text Decription">Schedule Description:</label>
+                            	<label for="Text Decription">Special Instruction:</label>
                             	<textarea class="form-control" name="ScheduleDescription" rows= "4" maxlength="255" style="resize: none;"> </textarea>
                             <small id="passwordHelpInline" class="text-muted">
       							Maximum of 255 Characters.
     						</small>
-                            </div>
-                            <div class="custom-file">
-    							<input type="file" class="custom-file-input" id="validatedCustomFile" required>
-   					 				<label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-    							<div class="invalid-feedback">Example invalid custom file feedback</div>
-                           	</div>
-                            <br/><br/>
-                            <div class="text-center">
-                            <button class="btn btn-outline-light btn-secondary" type="submit" role="button">
-									Upload Schedule
-								</button>
-                            </div>
-                                <!-- 
-                                <input type="hidden" name="auth" value="login"> 
-                                -> Something Dillon did for the controller class, might be useful concept later
-                                -->            
-                        </form>			
+    						</div>
+    						<div class="form-group">
+  								<label for="example-number-input">Number of Passengers:</label>
+  								<div>
+  								  <input class="form-control" type="number" min="1" step="1" id="num-input">
+ 							    </div>
+						    </div>
+                           <div class="text-center">
+                                <input type="submit" class="btn btn-outline-dark" value="Send Request"> 
+                            </div>      
+                        </form>		
+ 						</div>	
                     	</div><!-- card body -->
                     </div>
                 </div><!-- main card -->
             </div><!-- login form -->
         </div><!-- row -->
     </div><!-- container -->
+    
 </body>
+<footer>
+<%@ include  file="/include/Footer.jsp"%>
+</footer>
 </html>

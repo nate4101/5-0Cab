@@ -21,54 +21,24 @@ TO-DO------FIX this for future use of custom CSS and Bootstrap...
 
 <div class="container">
 	
-	<nav class="navbar fixed-top navbar-expand-lg navbar-custom">
+	<nav class="navbar fixed-bottom navbar-expand-lg navbar-custom">
 	<div class="container-fluid">
-  		<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
-  			<img src="${pageContext.request.contextPath}/images/Logo.png" alt="" height="45" width="100">
-  		</a>
-  		<a class="navbar-brand">
-  			<h3 class="active">Serving North Bay Since 1978</h1>
-  		</a>
+    			<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/login.jsp">
+  					<h3 class="active">| About Us |</h1>
+  				</a>
+  		<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/login.jsp">
+  					<h3 class="active">| Contact Us |</h1>
+  				</a>
+  				<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/login.jsp">
+  					<h3 class="active">| Terms and Conditions |</h1>
+  				</a>
+  				<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/login.jsp">
+  					<h3 class="active">| Privacy Policy |</h1>
+  				</a>
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     		<span class="sr-only"></span>
     		<span class="navbar-toggler-icon"></span>
   		</button>
-  		
-  		<div class="collapse navbar-collapse" id="navbar">
-    <% if(request.getSession(false).getAttribute("Name") == null) { %>
-    	<ul class="nav navbar-nav ml-auto">
-    		<li class="navbar-brand navbar-custom">
-    			<a href="${pageContext.request.contextPath}/login.jsp">
-  					<h1 class="navbar-brand"  class="active">Login / SignUp</h1>
-  				</a>
-  			</li>
-  			<li class="navbar-brand navbar-custom">
-    			<a href="${pageContext.request.contextPath}/help.jsp">
-  					<h1 class="navbar-brand"  class="active">Help</h1>
-  				</a>
-  			</li>
-    	</ul> <% } %>
-<% if(request.getSession(false).getAttribute("Name") != null){%>
-
-<ul class="nav navbar-nav ml-auto">
-	<li class="list-group-item list-groupitem-secondary">
-	Welcome: 
-		<%= request.getSession(false).getAttribute("Name") %>
-	</li>
-	<li>
-	<form class="nav navbar-nav ml-auto" action="EndSession" method="get">
-		<button class="btn btn-outline-light btn-secondary" type="submit" role="button">
-		<i class="fas fa-sign-out-alt"></i>
-		Logout
-		</button>
-	</form>
-	</li>
-</ul>
-
-
-	<% } %>
-	
-   		 </div>
   	</div>
 	</nav>
 </div>

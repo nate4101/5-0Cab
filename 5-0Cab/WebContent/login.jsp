@@ -66,6 +66,9 @@
                             	<input type="password" class="form-control" name="password" placeholder="Enter password" maxlength="64" required>
                             </div>
                             <br/>
+                            <div class="text-center">
+                                <input type="submit" class="btn btn-outline-primary" value="Sign Up"> 
+                            </div>
                         </form>			
                     	</div><!-- card body -->
                     </div>
