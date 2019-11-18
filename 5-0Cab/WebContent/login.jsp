@@ -11,8 +11,6 @@
 
 <body>
 	<div class="headCont">
-		<p>Bacon</p>
-		<p>Bacon</p>
 	</div>
 	<div class="page-header">
 		<div class="jumbotron jumbotron-fluid"></div>
@@ -43,14 +41,19 @@
                             <br/>
                             <div class="text-center">
                                 <input type="submit" class="btn btn-outline-primary" value="Login"> 
-                                <a href="${pageContext.request.contextPath}/register.jsp" >Register</a>
-                                <br/>
-                                <small><a class="btn btn-link" href="${ pageContext.request.contextPath }/forgotPassword.jsp" role="button">Forgot Password?</a></small>
+                            </div>
+                            <div class="text-center">
+                               <small><a class="btn btn-link" href="${ pageContext.request.contextPath }/forgotPassword.jsp" role="button">Forgot Password?</a></small>
                             </div>
                         </form>			
                     	</div><!-- card body -->
                     </div>
-                    <div id="SignUp" class="collapse show">
+                    <div class="card-header text-center">
+                    	<a class="card-link" data-toggle="collapse" href="#Signup" style="color:black">
+                        	<h1>Sign Up</h1>
+                        </a>
+                    </div>
+                    <div id="Signup" class="collapse show">
     					<div class="card-body">
                 
                         <form action="SignUp" method="post">
@@ -63,10 +66,6 @@
                             	<input type="password" class="form-control" name="password" placeholder="Enter password" maxlength="64" required>
                             </div>
                             <br/>
-                            <div class="text-center">
-                                <input type="submit" class="btn btn-outline-primary" value="Login"> 
-                                <a href="${pageContext.request.contextPath}/register.jsp" >Register</a>
-                           </div>
                         </form>			
                     	</div><!-- card body -->
                     </div>

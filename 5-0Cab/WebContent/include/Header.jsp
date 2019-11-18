@@ -16,30 +16,38 @@ TO-DO------FIX this for future use of custom CSS and Bootstrap...
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 -->
 <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/39c11639e3.js"></script>
 
 <div class="container">
 	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-custom">
 	<div class="container-fluid">
-  		<a href="${pageContext.request.contextPath}/index.jsp"><h1 class="navbar-brand"  class="active">Your All in One Scheduling Service</h1></a>
+  		<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
+  			<img src="${pageContext.request.contextPath}/images/Logo.png" alt="" height="60" width="100">
+  		</a>
+  		<a class="navbar-brand">
+  			<h1 class="navbar-brand"  class="active">Serving North Bay Since 1978</h1>
+  		</a>
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     		<span class="sr-only"></span>
     		<span class="navbar-toggler-icon"></span>
   		</button>
   		
   		<div class="collapse navbar-collapse" id="navbar">
-   			<ul class="nav navbar-nav ml-auto">
-   			<li class="navbar-brand"> Message List:  </li>
-   				<li class="list-group-item list-group-item-success"><%= request.getAttribute("Success_Msg")==null?"":request.getAttribute("Success_Msg") %></li>
-  				<li class="list-group-item list-group-item-danger"><%= request.getAttribute("Error_Msg")==null?"":request.getAttribute("Error_Msg") %></li>
-    		</ul>
     <% if(request.getSession(false).getAttribute("Name") == null) { %>
     	<ul class="nav navbar-nav ml-auto">
-    		<li class="navbar-brand"><a href="${pageContext.request.contextPath}/login.jsp"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-  			<li class="navbar-brand"><a href="${pageContext.request.contextPath}/register.jsp"><i class="fas fa-user-plus"></i> Sign up</a></li>
-  		</ul>
-<% } %>
+    		<li class="navbar-brand navbar-custom">
+    			<a href="${pageContext.request.contextPath}/login.jsp">
+  					<h1 class="navbar-brand"  class="active">Login / SignUp</h1>
+  				</a>
+  			</li>
+  			<li class="navbar-brand navbar-custom">
+    			<a href="${pageContext.request.contextPath}/help.jsp">
+  					<h1 class="navbar-brand"  class="active">Help</h1>
+  				</a>
+  			</li>
+    	</ul> <% } %>
 <% if(request.getSession(false).getAttribute("Name") != null){%>
 
 <ul class="nav navbar-nav ml-auto">
