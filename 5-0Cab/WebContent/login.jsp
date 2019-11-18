@@ -12,6 +12,7 @@
 <body>
 	<div class="headCont">
 		<p>Bacon</p>
+		<p>Bacon</p>
 	</div>
 	<div class="page-header">
 		<div class="jumbotron jumbotron-fluid"></div>
