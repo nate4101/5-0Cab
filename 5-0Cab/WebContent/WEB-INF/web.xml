@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <description></description>
+	<display-name>RegisterUser</display-name>  
+    <servlet-name>RegisterUser</servlet-name>
+    <servlet-class>servlets.RegisterUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterUser</servlet-name>
+    <url-pattern>/RegisterUser</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+	<display-name>EndSession</display-name>  
+    <servlet-name>EndSession</servlet-name>
+    <servlet-class>servlets.EndSession</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EndSession</servlet-name>
+    <url-pattern>/EndSession</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+	<display-name>UploadSchedule</display-name>  
+    <servlet-name>UploadSchedule</servlet-name>
+    <servlet-class>servlets.UploadSchedule</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadSchedule</servlet-name>
+    <url-pattern>/UploadSchedule</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description></description>
+  	<display-name>LoginUser</display-name>
+  	<servlet-name>LoginUser</servlet-name>
+  	<servlet-class>servlets.LoginUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginUser</servlet-name>
+  	<url-pattern>/LoginUser</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
