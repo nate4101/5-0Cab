@@ -31,7 +31,6 @@ public class LoginUser extends HttpServlet{
 				req.getRequestDispatcher("/login.jsp").forward(req, res);
 			}
 			else
-			
 			{
 				String FullName = user.getuserfName() +" "+ user.getuserlName();
 				HttpSession session = req.getSession();
