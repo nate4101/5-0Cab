@@ -45,6 +45,26 @@
                         </form>			
                     	</div><!-- card body -->
                     </div>
+                    <div id="SignUp" class="collapse show">
+    					<div class="card-body">
+                
+                        <form action="SignUp" method="post">
+                            <div class="form-group">
+                            	<label for="email">Email:</label>
+                            	<input type="email" class="form-control" name="email" placeholder="Enter email" maxlength="100" required>
+                            </div>
+                            <div class="form-group">
+                            	<label for="password">Password:</label>
+                            	<input type="password" class="form-control" name="password" placeholder="Enter password" maxlength="64" required>
+                            </div>
+                            <br/>
+                            <div class="text-center">
+                                <input type="submit" class="btn btn-outline-primary" value="Login"> 
+                                <a href="${pageContext.request.contextPath}/register.jsp" >Register</a>
+                           </div>
+                        </form>			
+                    	</div><!-- card body -->
+                    </div>
                 </div><!-- main card -->
             </div><!-- login form -->
         </div><!-- row -->
