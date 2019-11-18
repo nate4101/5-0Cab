@@ -10,19 +10,7 @@ TO-DO------FIX this for future use of custom CSS and Bootstrap...
 <script src="${ pageContext.request.contextPath }/jquery/jquery.min.js"></script>
 <script src="${ pageContext.request.contextPath }/bootstrap/js/bootstrap.bundle.min.js"></script>
 -->
-<%
-    /* @Source: Amazon AWS Documentation
-     * AWS Elastic Beanstalk checks your application's health by periodically
-     * sending an HTTP HEAD request to a resource in your application. By
-     * default, this is the root or default resource in your application,
-     * but can be configured for each environment.
-     *
-     * Here, we report success as long as the app server is up, but skip
-     * generating the whole page since this is a HEAD request only. You
-     * can employ more sophisticated health checks in your application.
-     */
-    if (request.getMethod().equals("HEAD")) return;
-%>
+
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/39c11639e3.js"></script>
