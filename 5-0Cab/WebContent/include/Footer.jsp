@@ -12,7 +12,7 @@
   		<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/contactus.jsp">
   					<h3 class="active">| Contact Us |</h1>
   				</a>
-  				<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/login.jsp">
+  				<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/TandC.jsp">
   					<h3 class="active">| Terms and Conditions |</h1>
   				</a>
   				<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/login.jsp">
