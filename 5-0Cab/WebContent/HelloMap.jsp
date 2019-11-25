@@ -15,7 +15,7 @@
    crossorigin=""></script>
 </head>
 <body style="padding-top: 65px;">
-<div class="container-fluid display-1 mt-2">
+<div class="container-fluid display-1 mt-2" style="padding-bottom: 25px;">
 		<div class="row">
 			<div class="col-2 d-none d-lg-block" style="height:790px"></div>
 			<div class="col-8 width-100 align items center">
@@ -24,7 +24,7 @@
 			<div class="col-2 d-none d-lg-block"></div>
 		</div>
 </div>		
-	
+
 
 
 <script type="text/javascript" src="js/helloMap.js"></script> 
