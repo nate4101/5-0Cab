@@ -11,7 +11,8 @@
 </head>
 
 <body>
-
+<h1 style="background-color:#00FF00; font-size: 60px"> About Us</h>
+	<h2> 5-0 Cab has been serving the North Bay and surrounding area for almost 40 years. We were founded in 1978 and to this day, still one of the most sought after taxis in the area. We are family owned and locally run for two generations.  </h2>
 </body>
 <footer>
 <%@ include  file="/include/Footer.jsp"%>
