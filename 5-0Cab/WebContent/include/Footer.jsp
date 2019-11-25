@@ -23,7 +23,7 @@ TO-DO------FIX this for future use of custom CSS and Bootstrap...
 	
 	<nav class="navbar navbar-expand-lg navbar-custom">
 	<div class="container-fluid">
-    			<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/login.jsp">
+    			<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/AboutUs.jsp">
   					<h3 class="active">| About Us |</h1>
   				</a>
   		<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/login.jsp">
