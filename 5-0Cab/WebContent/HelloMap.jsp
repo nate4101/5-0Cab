@@ -17,9 +17,9 @@
 <body style="padding-top: 65px;">
 <div class="container-fluid display-1 mt-2" style="padding-bottom: 25px;">
 		<div class="row">
-			<div class="col-2 d-none d-lg-block" style="height:790px"></div>
+			<div class="col-2 d-none d-lg-block" style="height:500px"></div>
 			<div class="col-8 width-100 align items center">
-				<div id="mapid" style="width: 100%; height: 790px;"></div> <!--  Screen cutoffs height: 480, 640, 790 (800 creates scrollbar)  Width: 900-->
+				<div id="mapid" style="width: 100%; height: 500px;"></div> <!--  Screen cutoffs height: 480, 640, 790 (800 creates scrollbar)  Width: 900-->
 			</div>
 			<div class="col-2 d-none d-lg-block"></div>
 		</div>
