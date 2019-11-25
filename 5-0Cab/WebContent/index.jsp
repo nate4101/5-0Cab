@@ -47,10 +47,10 @@
         <!-- Sponsoring -->
         <div class="sponsorsCont">
             <h2>Proudly Sponsoring</h2>
-            <img class="sponsored" src="images/logo.png">
-            <img class="sponsored" src="images/logo.png">
-            <img class="sponsored" src="images/logo.png">
-            <img class="sponsored" src="images/logo.png">
+            <img class="sponsored" src="images/Logo.png">
+            <img class="sponsored" src="images/Logo.png">
+            <img class="sponsored" src="images/Logo.png">
+            <img class="sponsored" src="images/Logo.png">
         </div><!-- End Sponsoring -->
 
         <!-- Footer -->
