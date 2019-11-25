@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Mapping</title>
 <%@ include  file="/include/Header.jsp"%>
-<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/custom.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
@@ -15,7 +15,7 @@
    crossorigin=""></script>
 </head>
 <body style="padding-top: 65px;">
-<div class="container-fluid display-1 mt-2 mapCont">
+<div class="container-fluid display-1 mt-2">
 		<div class="row">
 			<div class="col-2 d-none d-lg-block" style="height:790px"></div>
 			<div class="col-8 width-100 align items center">
