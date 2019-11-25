@@ -11,11 +11,10 @@
 </head>
 
 <body>
-	<body>
 	<h1 style="background-color:#00FF00; font-size: 60px"> Contact Us </h1>
 	<a href="tel:519-270-7648" style="font-size: 35px"; >Phone Us</a>
 
-	<h2>For information on corporate accounts or concerns contact; Manager: Nicky Neal</h2>
+	<h2>For information on corporate accounts or concerns contact Manager: Nicky Neal</h2>
 
 <form action="mailto:nicky.5-0cab@sympatico.ca" method="post" enctype="text/plain">
 Name:<br>
