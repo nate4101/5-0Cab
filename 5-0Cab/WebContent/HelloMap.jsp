@@ -23,12 +23,14 @@
 </div>
 <div class="container">
 
-<div class="row align-items-center">
-	<div class="col"> </div>
-	<div class="col">
-		<div id="mapid" style="width: 600px; height: 400px;"></div>
-	</div>
-</div>
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-8 width-100 align items center">
+				<div id="mapid" style="width: 100%; height: 400px;"></div>
+			</div>
+			<div class="col-2"></div>
+		</div>
 </div>		
 	
 
