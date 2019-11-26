@@ -8,6 +8,8 @@
 
 <%@ include  file="/include/Header.jsp"%>
 <link rel="stylesheet" href="css/home.css">
+
+<link href="js/mapbox/mapbox.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body style="padding-top: 65px;">
