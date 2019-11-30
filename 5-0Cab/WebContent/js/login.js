@@ -16,12 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
         function initializeGeotabApi() {
-            api = GeotabApi(function (detailsCallback) {
+            api = GeotabApi(
+            	function (detailsCallback) 
+            	{
                 authenticationCallback = detailsCallback;
-
                 document.getElementById("signin-content").style.display = "block";
                 document.getElementById("example-content").style.display = "none";
-            }, {
+            	}, 
+            	{
                 rememberMe: false
             });
         }
