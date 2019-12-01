@@ -15,11 +15,13 @@ TO-DO------FIX this for future use of custom CSS and Bootstrap...
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 -->
+<link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+
 <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
 <link href="css/custom.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/39c11639e3.js"></script>
 
-<div class="container">
+<div class="container border">
 	
 	<nav class="navbar fixed-top navbar-expand-lg navbar-custom">
 	<div class="container-fluid">

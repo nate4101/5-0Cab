@@ -9,10 +9,14 @@
 <%@ include  file="/include/Header.jsp"%>
 <link rel="stylesheet" href="css/home.css">
 </head>
+<body style="padding-top: 65px;">
+	<div class="p-3 text-center" style="background-color: #57bc90;/*green*/">
+		<h1>Our Mission</h1>
+		<h2>About Us</h2>
+		<p style="font-size:18px;">5-0 Cab has been serving the North Bay and surrounding area for almost 40 years. We were 
+		founded in 1978 and to this day, still one of the most sought after taxis in the area. We are family owned and locally run for two generations [...]</p>
 
-<body>
-<h1 style="background-color:#00FF00; font-size: 60px"> About Us</h>
-	<h2> 5-0 Cab has been serving the North Bay and surrounding area for almost 40 years. We were founded in 1978 and to this day, still one of the most sought after taxis in the area. We are family owned and locally run for two generations.  </h2>
+	</div>
 </body>
 <footer>
 <%@ include  file="/include/Footer.jsp"%>

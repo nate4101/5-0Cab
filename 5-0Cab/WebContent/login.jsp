@@ -82,8 +82,3 @@
 	<%@ include  file="/include/Footer.jsp"%>
 </footer>
 </html>
-</body>
-<footer>
-	<%@ include  file="/include/Footer.jsp"%>
-</footer>
-</html>
