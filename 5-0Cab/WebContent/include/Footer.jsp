@@ -24,27 +24,6 @@
     		<span class="navbar-toggler-icon"></span>
   		</button>
   	</div>
-=======
-		<div class="container-fluid">
-	    			<a class="navbar-brand" href="${pageContext.request.contextPath}/AboutUs.jsp">
-	  					<h3 class="active">About Us</h1>
-	  				</a>
-	  				<a class="navbar-brand" href="${pageContext.request.contextPath}/contactus.jsp">
-	  					<h3 class="active">Contact Us</h1>
-	  				</a>
-	  				<a class="navbar-brand" href="${pageContext.request.contextPath}/login.jsp">
-	  					<h3 class="active">Terms and Conditions</h1>
-	  				</a>
-	  				<a class="navbar-brand" href="${pageContext.request.contextPath}/login.jsp">
-	  					<h3 class="active">Privacy Policy</h1>
-	  				</a>
-	  		<!--
-	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-	    		<span class="sr-only"></span>
-	    		<span class="navbar-toggler-icon"></span>
-	  		</button> -->
-	  	</div>
->>>>>>> branch 'master' of https://github.com/nate4101/5-0Cab.git
 	</nav>
 </div>
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
