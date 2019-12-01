@@ -2,12 +2,17 @@
 
 /* change the background color */
 .navbar-custom {
-    background-color: #ff5500;
+    background-color: white;
 }
 /* change the brand and text color */
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
-    color: rgba(20,20,20,.8);
+	color:black;
+    font-weight:bold;
+    font-family:"Cairo";
+}
+.navbar-brand:hover{
+	color: #57bc90;
 }
 /* change the link color */
 .navbar-custom .navbar-nav .nav-link {
