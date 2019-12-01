@@ -1,3 +1,12 @@
+/*Colors:
+	Blue:#77C9D4
+	Green:57BC90
+	Dark-Green:#015249
+	Orange:#F55D3E
+	Dark-Orange:#aa2409
+	Dark-Blue:#3799A4
+	grey:#A5A5AF
+*/
 @charset "ISO-8859-1";
 .ctaButton{/*"Request a Cab" CTA Button*/
     margin-top: 30px;
@@ -23,9 +32,9 @@
     height:30px;
     border-radius: 4px;
     border:none;
-    background-color: #77C9D4;/*lightblue*/
+    background-color: #77C9D4;/*blue*/
     cursor: pointer;
-    box-shadow: -1px 3px 3px #3799A4;/*Darker Orange for shadow*/
+    box-shadow: -1px 3px 3px #3799A4;/*Darker blue for shadow*/
 }
 .moreButton:hover{
 	box-shadow:none;

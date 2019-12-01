@@ -10,23 +10,32 @@
 <link rel="stylesheet" href="css/home.css">
 </head>
 
-<body>
-	<body>
-	<h1 style="background-color:#00FF00; font-size: 60px"> Contact Us </h1>
-	<a href="tel:519-270-7648" style="font-size: 35px"; >Phone Us</a>
+<body style="padding-top: 65px;">
+	<div class="py-3 text-center" style="background-color: #57bc90;/*green*/">
+		<h1> Contact Us </h1>
+	</div>
+	<div class="row pb-3" style="background-color: #57bc90;/*green*/">
+		<form class="col-md-2 offset-md-5" action="mailto:nicky.5-0cab@sympatico.ca" method="post" enctype="text/plain">
+			Name:<br>
+			<input type="text" name="name"><br>
+			Your E-mail:<br>
+			<input type="text" name="mail"><br>
+			Comments:<br>
+			<input type="text" name="comment" size="50">
+			<br>
+			<br>
+			<input type="submit" value="Send">
+			<input type="reset" value="Reset">
+		</form>
+	</div>
+	<div class="text-center pb-3" style="background-color: #57bc90;/*green*/">
+		<div class="text-center">
+			<p style="font-size:30px; display:inline-block;">Not what you're looking for?</p> <a href="tel:519-270-7648" style="font-size: 30px;">Phone Us</a>
+		</div>
+		<h2>For information on corporate accounts or concerns, please contact Nicky Neal</h2>
+	</div>
 
-	<h2>For information on corporate accounts or concerns contact; Manager: Nicky Neal</h2>
 
-<form action="mailto:nicky.5-0cab@sympatico.ca" method="post" enctype="text/plain">
-Name:<br>
-<input type="text" name="name"><br>
-Your E-mail:<br>
-<input type="text" name="mail"><br>
-Comments:<br>
-<input type="text" name="comment" size="50"><br><br>
-<input type="submit" value="Send">
-<input type="reset" value="Reset">
-</form>
 </body>
 <footer>
 <%@ include  file="/include/Footer.jsp"%>
