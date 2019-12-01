@@ -17,7 +17,7 @@
 	
 	<div class="row pb-3" style="background-color: #57bc90;/*green*/">
 		<h2>For information on corporate accounts or concerns, please contact Nicky Neal</h2>
-		<form class="col-md-2 offset-md-5" action="mailto:nicky.5-0cab@sympatico.ca" method="post" enctype="text/plain">
+		<form class="col-md-2 offset-md-5" action="mailto:obclark933@community.nipissingu.ca" method="post" enctype="text/plain">
 			Name:<br>
 			<input type="text" name="name"><br>
 			Your E-mail:<br>
