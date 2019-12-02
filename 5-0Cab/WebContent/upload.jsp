@@ -28,9 +28,9 @@
                         </a>
                     </div>
                     </span>
-                    <div id="Upload" class="collapse show">
-    					<div class="card-body">
-                
+                    <div id="Upload">
+                    
+    					<div class="card-body border-dark border-rounded">
                         <form action="UploadSchedule" method="post">
                             <div class="form-group">
                             	<label for="email">Location:</label>
@@ -52,7 +52,7 @@
                            <div class="text-center">
                                 <input type="submit" class="btn btn-outline-dark" value="Send Request"> 
                             </div>      
-                        </form>		
+                        </form>	   
  						</div>	
                     	</div><!-- card body -->
                     </div>
