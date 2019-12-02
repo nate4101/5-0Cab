@@ -66,42 +66,5 @@ public class UploadRequest extends HttpServlet{
 			req.getRequestDispatcher("/HelloMap.jsp").forward(req, res);
 			return;
 		}
-		/*
-
-		// More on email error checking, Parse it and validify it!
-		if(!email.contains("@"))
-		{
-			req.setAttribute("Error_Msg", "Email address isnt valid try again :)");
-			req.getRequestDispatcher("/register.jsp").forward(req, res);
-			return;
-		}
-		if(!(password.equals(confirmpassword)))
-		{
-			req.setAttribute("Error_Msg", "Passwords must match :)");
-			req.getRequestDispatcher("/register.jsp").forward(req, res);
-			return;
-		}
-		
-		userBean user = new userBean();
-		user.setuserfName(fName);
-		user.setuserlName(lName);
-		user.setuserEmail(email);
-		user.setuserRole(role);
-		user.setuserPass(password);
-		
-		DBHelper DB = new DBHelper();
-		Boolean registered = DB.registerUser(user);
-		
-		if(registered.equals(true))   //On success, you can display a message to user on Home page
-		 {
-		 req.setAttribute("userName", fName + " " + lName);
-		 req.getRequestDispatcher("/index.jsp").forward(req, res);
-		 }
-		 else   //On Failure, display a meaningful message to the User.
-		 {
-		 req.setAttribute("Error_Msg", "Registration Failed, Try Again");
-		 req.getRequestDispatcher("/register.jsp").forward(req, res);
-		 }
-		*/
 	}
 }

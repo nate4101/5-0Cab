@@ -37,9 +37,9 @@ public class DBHelper {
 		CallableStatement stmnt = connection.prepareCall("{CALL insert_req(?,?,?,?,?)}");
 		stmnt.setString(1, bean.getlocation());
 		stmnt.setString(2, bean.getpassengers());
-		stmnt.setString(3, bean.getlocation());
-		stmnt.setString(4, bean.getlocation());
-		stmnt.setString(5, bean.getlocation());
+		stmnt.setString(3, bean.getdescription());
+		stmnt.setString(4, bean.getname());
+		stmnt.setString(5, bean.getphone());
 		int result = stmnt.executeUpdate();
 		return(result>0);
 		}
