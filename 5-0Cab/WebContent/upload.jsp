@@ -31,7 +31,7 @@
     					<div class="card-body border-dark border-rounded">
                         <form action="UploadRequest" method="post">
                             <div class="form-group">
-                            	<label for="location">Location:</label>
+                            	<label for="location">Pickup Location:</label>
                             	<input type="text" class="form-control" name="Location" maxlength="127" required>
                             </div>
     						<div class="form-group">
