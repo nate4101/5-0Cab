@@ -1,12 +1,15 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.userBean;
+import beans.requestBean;
 
 import helper.DBHelper;
 
@@ -16,18 +19,52 @@ public class UploadRequest extends HttpServlet{
 	public UploadRequest ()
 	{
 	}
-	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		req.getRequestDispatcher("/index.jsp").forward(req, res);
 		return;
+	}
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
+	{
+		// Grab form fields
+		String location = req.getParameter("Location");
+		String passengers = req.getParameter("passengers");
+		String description = req.getParameter("reqDescr");
+		String name = req.getParameter("name");
+		String phoneString = req.getParameter("phone");
+		// Error check
+		if(description.isBlank())
+			description="N/A";
+		if(name.isBlank())
+			name="N/A";
+		if(phoneString.isBlank())
+			phoneString="N/A";
+		if(!location.contains("North Bay"))
+			req.setAttribute("error", "not_local");
+		if(Integer.getInteger(passengers).compareTo(6)>0)
+			req.setAttribute("error", "too_big");
+		// request bean
+		requestBean cabrequestBean = new requestBean();
+		cabrequestBean.setdescription(description);
+		cabrequestBean.setlocation(location);
+		cabrequestBean.setname(name);
+		cabrequestBean.setpassengers(passengers);
+		cabrequestBean.setphone(phoneString);
+		// Database connection
+		DBHelper db = new DBHelper();
+		boolean result = db.uploadRequest(cabrequestBean);
+		if(!result)
+		{
+			req.setAttribute("error", "upload_fail");
+			req.getRequestDispatcher("/index.jsp").forward(req, res);
+			return;
+		}
+		else
+		{
+			req.getRequestDispatcher("/HelloMap.jsp").forward(req, res);
+			return;
+		}
 		/*
-		String fName = req.getParameter("userfName");
-		String lName = req.getParameter("userlName");
-		String email = req.getParameter("userEmail");
-		String password = req.getParameter("userPass");
-		String confirmpassword = req.getParameter("confirmPass");
-		String role = req.getParameter("userRole");
-		
 
 		// More on email error checking, Parse it and validify it!
 		if(!email.contains("@"))

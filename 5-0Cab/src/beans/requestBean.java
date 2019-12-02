@@ -1,51 +1,47 @@
 package beans;
-//Class UserBean 
-//Strings: email, pass, f/l names, role
-//getters and setters for each
 public class requestBean {
 
 
-private String userEmail, userPass, userfName, userlName, userRole;
-
-public String getuserEmail() {
-	return userEmail;
+private String location, description, name, phone, passengers;
+public String getlocation() {
+	return location;
 }
 
-public void setuserEmail(String e) {
-	this.userEmail = e;
+public void setlocation(String e) {
+	this.location = e;
 }
 
-public String getuserPass() {
-	return userPass;
+public String getpassengers() {
+	return passengers;
 }
 
-public void setuserPass(String p) {
-	this.userPass = p;
+public void setpassengers(String p) {
+	this.passengers = p;
 }
 
-public String getuserfName() {
-	return userfName;
+public String getdescription() {
+	return description;
 }
 
-public void setuserfName(String f) {
-	this.userfName = f;
+public void setdescription(String f) {
+	this.description = f;
 }
 
-public String getuserlName() {
-	return userlName;
+public String getname() {
+	return name;
 }
 
-public void setuserlName(String l) {
-	this.userlName = l;
+public void setname(String f) {
+	this.name = f;
 }
 
-public String getuserRole() {
-	return userRole;
+
+public String getphone() {
+	return phone;
 }
 
-public void setuserRole(String r) {
-	this.userRole = r;
+public void setphone(String l) {
+	this.phone = l;
 }
-
 }
 

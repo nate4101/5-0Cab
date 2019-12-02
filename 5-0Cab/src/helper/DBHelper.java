@@ -2,11 +2,12 @@ package helper;
 
 import java.sql.*;
 
+import beans.requestBean;
 import beans.userBean;
 
 public class DBHelper {
 	
-	private final static String jdbcUrl = "jdbc:mysql://aalqvghb03jhze.ctsdfdgibtnp.ca-central-1.rds.amazonaws.com:3306/ebdb?user=nate4101&password=nate4101";
+	private final static String jdbcUrl = "jdbc:mysql://aalqvghb03jhze.ctsdfdgibtnp.ca-central-1.rds.amazonaws.com:3306/cab?user=nate4101&password=nate4101";
 	private Connection connection = null;
 	// Constructor initializes connection
 	public DBHelper(){		
@@ -19,19 +20,44 @@ public class DBHelper {
 		  // Create connection to RDS DB instance
 		  try {
 			connection = DriverManager.getConnection(jdbcUrl);
-		  } catch (SQLException ex) {
-			System.out.println("SQLException: " + ex.getMessage());
-			System.out.println("SQLState: " + ex.getSQLState());
-		    System.out.println("VendorError: " + ex.getErrorCode());
+		  } 
+		  catch (SQLException ex) {
+			  System.out.println("SQLException: " + ex.getMessage());
+			  System.out.println("SQLState: " + ex.getSQLState());
+			  System.out.println("VendorError: " + ex.getErrorCode());
 			}
-		  /*
-		  } finally {
-		    System.out.println("Closing the connection.");
-		    if (connection != null) try { conn.close(); } catch (SQLException ignore) {}
-		  }
-		  */  
-	} // End getConnection()
-	
+		   
+	} 
+	// Upload request to db
+	public boolean uploadRequest(requestBean bean)
+	{
+		try {
+		CallableStatement stmnt = connection.prepareCall("{CALL insert_req(?,?,?,?,?)}");
+		stmnt.setString(1, bean.getlocation());
+		stmnt.setString(2, bean.getpassengers());
+		stmnt.setString(3, bean.getlocation());
+		stmnt.setString(4, bean.getlocation());
+		stmnt.setString(5, bean.getlocation());
+		ResultSet rSet = stmnt.executeQuery();
+		rSet.first();
+		int count = rSet.getInt(1);
+		stmnt.close();
+		rSet.close();
+		return(count==1);
+		}
+		catch(Exception exc) {
+			exc.printStackTrace();
+		}
+		finally {
+			try {
+				connection.close();
+			}
+			catch(Exception ex) {
+				ex.printStackTrace();
+			}				
+		}
+		return false;
+	}
 	// Register a UserBean...
 	// Checks if email already exists, registers otherwise.
 	public boolean registerUser(userBean user)
