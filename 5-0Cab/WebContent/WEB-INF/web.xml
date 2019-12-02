@@ -54,13 +54,13 @@
   </servlet-mapping>
   
   <servlet>
-  <display-name>RetreiveRequest</display-name>
-    <servlet-name>RetreiveRequest</servlet-name>
-    <servlet-class>servlets.RetreiveRequest</servlet-class>
+  <display-name>RetreiveRequests</display-name>
+    <servlet-name>RetreiveRequests</servlet-name>
+    <servlet-class>servlets.RetreiveRequests</servlet-class>
 </servlet>
 <servlet-mapping>
-    <servlet-name>RetreiveRequest</servlet-name>
-    <url-pattern>/RetreiveRequest</url-pattern>
+    <servlet-name>RetreiveRequests</servlet-name>
+    <url-pattern>/RetreiveRequests</url-pattern>
 </servlet-mapping>
   
 </web-app>
