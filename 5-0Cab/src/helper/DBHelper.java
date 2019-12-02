@@ -3,6 +3,7 @@ package helper;
 import java.sql.*;
 
 import beans.requestBean;
+import beans.updateRequestBean;
 import beans.userBean;
 
 public class DBHelper {
@@ -28,7 +29,7 @@ public class DBHelper {
 			}
 		   
 	} 
-	// Upload request to db
+	// Upload request to db table cab
 	public boolean uploadRequest(requestBean bean)
 	{
 		try {
@@ -54,6 +55,31 @@ public class DBHelper {
 		}
 		return false;
 	}
+	//Update a request in table: cab
+	public boolean updateRequest(updateRequestBean bean)
+	{
+		try {
+		CallableStatement stmnt = connection.prepareCall("{CALL update_req(?,?)}");
+		stmnt.setString(1, bean.getID());
+		stmnt.setString(2, bean.getcabnum());
+		int result = stmnt.executeUpdate();
+		return(result>0);
+		}
+		catch(Exception exc) {
+			exc.printStackTrace();
+		}
+		finally {
+			try {
+				connection.close();
+			}
+			catch(Exception ex) {
+				ex.printStackTrace();
+			}				
+		}
+		return false;
+	}
+	
+	
 	// Register a UserBean...
 	// Checks if email already exists, registers otherwise.
 	public boolean registerUser(userBean user)

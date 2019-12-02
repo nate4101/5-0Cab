@@ -1,6 +1,5 @@
 <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
 <link href="css/custom.css" rel="stylesheet">
-<script src="https://kit.fontawesome.com/39c11639e3.js"></script>
 
 <div class="container-fluid navbar-custom border">
 	

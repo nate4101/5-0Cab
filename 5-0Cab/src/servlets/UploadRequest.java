@@ -22,7 +22,10 @@ public class UploadRequest extends HttpServlet{
 	}
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
-		req.getRequestDispatcher("/index.jsp").forward(req, res);
+		PrintWriter printWriter = res.getWriter();
+		String hiddenString = req.getParameter("cab_num");
+		printWriter.println(hiddenString);
+		//req.getRequestDispatcher("/index.jsp").forward(req, res);
 		return;
 	}
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
