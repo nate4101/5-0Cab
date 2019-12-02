@@ -37,9 +37,9 @@ public class UploadRequest extends HttpServlet{
 		String name = req.getParameter("name");
 		String phoneString = req.getParameter("phone");
 		// Error check
-		if(description.isBlank())
+		if(description=="")
 			description="N/A";
-		if(name.isBlank())
+		if(name=="")
 			name="N/A";
 		if(phoneString.isBlank())
 			phoneString="N/A";
