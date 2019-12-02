@@ -21,7 +21,7 @@
         <div class="row justify-content-center">		
             <div class="col-lg-8">
                 <div class="card g-light text-dark">
-                <span class="border border-dark">
+                <span class="border border-dark rounded">
                     <div class="card-header bg-success text-center">
                     	<a class="card-link" data-toggle="collapse" style="color:black">
                         	<h1>Request A Cab</h1>
