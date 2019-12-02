@@ -102,7 +102,7 @@ public class DBHelper {
 				num_pas = results.getString("req_num_passengers");
 				desc = results.getString("req_description");
 				time = results.getString("req_timestamp");
-				time=time.substring(12); // get only the time
+				time=time.substring(11); // get only the time
 					
 				dispatchBean dspBean = new dispatchBean();
 				dspBean.setID(ID);
