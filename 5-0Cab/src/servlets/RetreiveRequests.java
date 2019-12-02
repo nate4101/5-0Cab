@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.text.AbstractDocument.Content;
 
 import com.google.gson.Gson;
 
@@ -20,11 +21,14 @@ public class RetreiveRequests extends HttpServlet{
 		
 		dispatchBean content = new dispatchBean();
 		DBHelper db = new DBHelper();
-		
+		content = db.retreiveRequest();
 		ArrayList<String> list = new ArrayList<String>();
-	    list.add("item1");
-	    list.add("item2");
-	    list.add("item3");
+	    list.add(content.getnumber());
+	    list.add(content.getLocation());
+	    list.add(content.getSpecial());
+	    list.add(content.getTime());
+	    list.add(content.getID());
+	    list.add("test");
 	    String json = new Gson().toJson(list);
 
 	    response.setContentType("application/json");
