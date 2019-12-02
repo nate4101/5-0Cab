@@ -1,5 +1,6 @@
 package servlets;
 
+import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
@@ -41,8 +42,6 @@ public class UploadRequest extends HttpServlet{
 			phoneString="N/A";
 		if(!location.contains("North Bay"))
 			req.setAttribute("error", "not_local");
-		if(Integer.getInteger(passengers).compareTo(6)>0)
-			req.setAttribute("error", "too_big");
 		// request bean
 		requestBean cabrequestBean = new requestBean();
 		cabrequestBean.setdescription(description);

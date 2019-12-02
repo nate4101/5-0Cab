@@ -13,7 +13,7 @@ public class DBHelper {
 	public DBHelper(){		
 		  // Load the JDBC driver
 		  try {
-		    Class.forName("com.mysql.jdbc.Driver");
+		    Class.forName("com.mysql.cj.jdbc.Driver");
 		  } catch (ClassNotFoundException e) {
 		    throw new RuntimeException("Cannot find the driver in the classpath!", e);
 		  }
@@ -38,12 +38,8 @@ public class DBHelper {
 		stmnt.setString(3, bean.getlocation());
 		stmnt.setString(4, bean.getlocation());
 		stmnt.setString(5, bean.getlocation());
-		ResultSet rSet = stmnt.executeQuery();
-		rSet.first();
-		int count = rSet.getInt(1);
-		stmnt.close();
-		rSet.close();
-		return(count==1);
+		int result = stmnt.executeUpdate();
+		return(result>0);
 		}
 		catch(Exception exc) {
 			exc.printStackTrace();
