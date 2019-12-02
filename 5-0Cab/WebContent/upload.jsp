@@ -21,11 +21,13 @@
         <div class="row justify-content-center">		
             <div class="col-lg-8">
                 <div class="card g-light text-dark">
-                    <div class="card-header text-center">
-                    	<a class="card-link" data-toggle="collapse" href="#Upload" style="color:black">
+                <span class="border border-dark">
+                    <div class="card-header bg-success text-center">
+                    	<a class="card-link" data-toggle="collapse" style="color:black">
                         	<h1>Request A Cab</h1>
                         </a>
                     </div>
+                    </span>
                     <div id="Upload" class="collapse show">
     					<div class="card-body">
                 
