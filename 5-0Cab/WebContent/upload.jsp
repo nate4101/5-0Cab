@@ -20,14 +20,13 @@
     <div class="container">
         <div class="row justify-content-center">		
             <div class="col-lg-8">
+            <span class="border border-dark">
                 <div class="card g-light text-dark">
-                <span class="border border-dark rounded">
                     <div class="card-header bg-success text-center">
                     	<a class="card-link" data-toggle="collapse" style="color:black">
                         	<h1>Request A Cab</h1>
                         </a>
                     </div>
-                    </span>
                     <div id="Upload">
                     
     					<div class="card-body border-dark border-rounded">
@@ -56,6 +55,7 @@
  						</div>	
                     	</div><!-- card body -->
                     </div>
+                    </span>
                 </div><!-- main card -->
             </div><!-- login form -->
         </div><!-- row -->
