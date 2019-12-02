@@ -5,7 +5,7 @@ import java.sql.*;
 import beans.requestBean;
 import beans.updateRequestBean;
 import beans.userBean;
-import beans.dipsatchBean;
+import beans.dispatchBean;
 
 public class DBHelper {
 	
@@ -79,8 +79,8 @@ public class DBHelper {
 		}
 		return false;
 	}
-	/*
-	public dipsatchBean retreiveRequest()
+	
+	public dispatchBean retreiveRequest()
 	{
 		ResultSet results;
 		try 
@@ -88,34 +88,46 @@ public class DBHelper {
 			Statement statement = connection.createStatement();
 			String query = "SELECT req_id, req_location, req_num_passengers, req_description, req_timestamp from req where req_confirmed = 0";
 			results = statement.executeQuery(query);
-			String dbUserEmail = "";
-			String dbUserPass = "";
-			while(results.next())
+			String ID = "";
+			String location = "";
+			String num_pas = "";
+			String desc = "";
+			String time = "";
+			// should be changed to while.
+			// use key value maps for data stored in a list for json
+			if(results.next())
 			{
-				dbUserEmail = results.getString("email");
-				dbUserPass = results.getString("pass");
-				if(email.equals(dbUserEmail) && pass.equals(dbUserPass))
-				{
-					String dbFName = results.getString("FName");
-					String dbLName =results.getString("LName");
-					String dbRole = results.getString("role");
+				ID = results.getString("req_id");
+				location = results.getString("req_location");
+				num_pas = results.getString("req_num_passengers");
+				desc = results.getString("req_description");
+				time = results.getString("req_timestamp");
+				time=time.substring(12); // get only the time
 					
-					userBean user = new userBean();
+				dispatchBean dspBean = new dispatchBean();
+				dspBean.setID(ID);
+				dspBean.setLocation(location);
+				dspBean.setnumber(num_pas);
+				dspBean.setSpecial(desc);
+				dspBean.setTime(time);
 					
-					user.setuserfName(dbFName);
-					user.setuserlName(dbLName);
-					user.setuserRole(dbRole);
-					
-					return user;
-				}
+				return dspBean;
 			}
 		}
-		catch(SQLException e) {e.printStackTrace();}
-		
+				catch(Exception exc) {
+					exc.printStackTrace();
+				}
+				finally {
+					try {
+						connection.close();
+					}
+					catch(Exception ex) {
+						ex.printStackTrace();
+					}				
+				}
 		return null;
 	}
-}
-*/
+
 	
 	
 	// Register a UserBean...

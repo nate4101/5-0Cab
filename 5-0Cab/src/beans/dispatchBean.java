@@ -1,6 +1,6 @@
 package beans;
 
-public class dipsatchBean {
+public class dispatchBean {
 
 	private String ID, Time, Special, Location, number;
 	
@@ -51,7 +51,7 @@ public class dipsatchBean {
 	
 	public String getnumber()
 	{
-		return this.ID;
+		return this.number;
 	}
 	
 }

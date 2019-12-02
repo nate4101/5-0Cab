@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import beans.dipsatchBean;
+import beans.dispatchBean;
 import helper.DBHelper;
 
 public class someservlet extends HttpServlet{
