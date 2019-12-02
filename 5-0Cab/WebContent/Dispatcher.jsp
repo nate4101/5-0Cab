@@ -32,12 +32,12 @@
       <input class="btn btn-success" form="form1" type="submit" value="Confirm" />
     </form></td>
   <td><select form="form1" name="cab_num" id = "myList">
-      <option value = "1">Demo</option>
-      <option value = "2">38 Van</option>
-      <option value = "3">22 Car</option>
-      <option value = "4">18 Car</option>
+      <option value = "Demo">Demo</option>
+      <option value = "38">38 Van</option>
+      <option value = "22">22 Car</option>
+      <option value = "18">18 Car</option>
     </select></td>
-  <td><input form="form1" id ="f1"type="text" name="pas_num" value="2" readonly/></td>
+  <td><input form="form1" id ="f1" type="text" name="pas_num" value="2" readonly/></td>
   <td><textarea form="form1" id ="f2" name="location" rows= "2" maxlength="127" readonly
         	placeholder="Northgate Mall"></textarea></td>
   <td><textarea form="form1" id ="f3" name="special_req" rows= "3" maxlength="127" readonly

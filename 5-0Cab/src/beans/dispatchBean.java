@@ -16,7 +16,7 @@ public class dispatchBean {
 	
 	public void setTime(String i)
 	{
-		this.ID = i;
+		this.Time = i;
 	}
 	
 	public String getTime()

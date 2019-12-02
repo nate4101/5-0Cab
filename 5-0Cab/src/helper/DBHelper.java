@@ -82,6 +82,7 @@ public class DBHelper {
 	
 	public dispatchBean retreiveRequest()
 	{
+		dispatchBean dspBean = new dispatchBean();
 		ResultSet results;
 		try 
 		{
@@ -101,17 +102,13 @@ public class DBHelper {
 				location = results.getString("req_location");
 				num_pas = results.getString("req_num_passengers");
 				desc = results.getString("req_description");
-				time = results.getString("req_timestamp");
-				time=time.substring(11); // get only the time
-					
-				dispatchBean dspBean = new dispatchBean();
+				time = results.getString("req_timestamp").substring(11); // get only the time;
+				
 				dspBean.setID(ID);
 				dspBean.setLocation(location);
 				dspBean.setnumber(num_pas);
 				dspBean.setSpecial(desc);
-				dspBean.setTime(time);
-					
-				return dspBean;
+				dspBean.setTime(time);	
 			}
 		}catch(Exception exc) {
 			exc.printStackTrace();
@@ -122,7 +119,7 @@ public class DBHelper {
 						ex.printStackTrace();
 					}				
 				}
-		return null;
+		return dspBean;
 	}
 
 	
