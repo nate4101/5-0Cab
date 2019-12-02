@@ -5,19 +5,18 @@
 <div class="container-fluid navbar-custom border">
 	
 	<nav class="navbar navbar-expand-lg navbar-custom">
-<<<<<<< HEAD
 	<div class="container-fluid">
     			<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/AboutUs.jsp">
-  					<h3 class="active">| About Us |</h1>
+  					<h3 class="active">| About Us |</h3>
   				</a>
   		<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/contactus.jsp">
-  					<h3 class="active">| Contact Us |</h1>
+  					<h3 class="active">| Contact Us |</h3>
   				</a>
   				<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/TandC.jsp">
-  					<h3 class="active">| Terms and Conditions |</h1>
+  					<h3 class="active">| Terms and Conditions |</h3>
   				</a>
   				<a class="navbar-brand navbar-custom" href="${pageContext.request.contextPath}/login.jsp">
-  					<h3 class="active">| Privacy Policy |</h1>
+  					<h3 class="active">| Privacy Policy |</h3>
   				</a>
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     		<span class="sr-only"></span>
