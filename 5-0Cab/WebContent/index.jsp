@@ -106,5 +106,4 @@
 <footer>
 <%@ include  file="/include/Footer.jsp"%>
 </footer>
-<script type="text/javascript" src="js/hamburgerMenu.js"></script> <!-- Javascript to show/hide Hamburger Menu -->
 </html>

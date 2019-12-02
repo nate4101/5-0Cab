@@ -37,13 +37,13 @@
       <option value = "3">22 Car</option>
       <option value = "4">18 Car</option>
     </select></td>
-  <td><input form="form1" type="text" name="pas_num" value="2" readonly/></td>
-  <td><textarea form="form1" name="location" rows= "2" maxlength="127" readonly
+  <td><input form="form1" id ="f1"type="text" name="pas_num" value="2" readonly/></td>
+  <td><textarea form="form1" id ="f2" name="location" rows= "2" maxlength="127" readonly
         	placeholder="Northgate Mall"></textarea></td>
-  <td><textarea form="form1" name="special_req" rows= "3" maxlength="127" readonly
+  <td><textarea form="form1" id ="f3" name="special_req" rows= "3" maxlength="127" readonly
         	placeholder="Pick me up from the back, lots of groceries"></textarea></td>
-  <td><input form="form1" type="text" name="time" value="11:45:32" readonly/></td>
-  <input form="form1" type="hidden" name="UUID" value="f253f257-150f-11ea-9ab7-06c724a949c8" readonly/>
+  <td><input form="form1" id ="f4" type="text" name="time" value="11:45:32" readonly/></td>
+  <input form="form1" id ="f5"  type="hidden" name="UUID" value="f253f257-150f-11ea-9ab7-06c724a949c8" readonly/>
 </tr>
 </table>
 </div>
