@@ -113,15 +113,12 @@ public class DBHelper {
 					
 				return dspBean;
 			}
-		}
-				catch(Exception exc) {
-					exc.printStackTrace();
-				}
-				finally {
-					try {
-						connection.close();
-					}
-					catch(Exception ex) {
+		}catch(Exception exc) {
+			exc.printStackTrace();
+			}finally {
+				try {
+					connection.close();
+				}catch(Exception ex) {
 						ex.printStackTrace();
 					}				
 				}
