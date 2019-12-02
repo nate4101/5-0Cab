@@ -53,4 +53,14 @@
   	<url-pattern>/LoginUser</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <display-name>someservlet</display-name>
+    <servlet-name>someservlet</servlet-name>
+    <servlet-class>servlets.someservlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>someservlet</servlet-name>
+    <url-pattern>/someservlet</url-pattern>
+</servlet-mapping>
+  
 </web-app>
