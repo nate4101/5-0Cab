@@ -28,7 +28,7 @@
   </thead>
 <tbody id ="append">
 <tr class="table-success">
-  <td><form action="ConfirmRequest" method="get" id="form1">
+  <td><form action="ConfirmRequest" method="post" id="form1">
       <input class="btn btn-success" form="form1" type="submit" value="Confirm" />
     </form></td>
   <td><select form="form1" name="cab_num" id = "myList">

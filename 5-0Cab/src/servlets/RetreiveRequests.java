@@ -28,7 +28,6 @@ public class RetreiveRequests extends HttpServlet{
 	    list.add(content.getSpecial());
 	    list.add(content.getTime());
 	    list.add(content.getID());
-	    list.add("test");
 	    String json = new Gson().toJson(list);
 
 	    response.setContentType("application/json");

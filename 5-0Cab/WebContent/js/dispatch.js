@@ -4,8 +4,8 @@ $(document).ready(function() {  // When HTML DOM "click" event is invoked on ele
        document.getElementById("f1").value=responseJson[0];
        document.getElementById("f2").placeholder=responseJson[1];
        document.getElementById("f3").placeholder=responseJson[2];
-       document.getElementById("f4").value=responseJson[3];
-       document.getElementById("f5").value=responseJson[4];
+       document.getElementById("f4").value=responseJson[4];
+       document.getElementById("f5").value=responseJson[5];
        /*$.each(responseJson, function(index, item) { // Iterate over the JSON array.
             $("<li>").text(responseJson[0]).appendTo($ul);      // Create HTML <li> element, set its text content with currently iterated item and append it to the <ul>.
         });*/

@@ -45,7 +45,7 @@ public class ConfirmRequest extends HttpServlet{
 		}
 		else
 		{
-			req.getRequestDispatcher("/HelloMap.jsp").forward(req, res);
+			req.getRequestDispatcher("/Dispatcher.jsp").forward(req, res);
 			return;
 		}
 	}
