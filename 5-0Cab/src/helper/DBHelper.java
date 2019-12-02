@@ -5,6 +5,7 @@ import java.sql.*;
 import beans.requestBean;
 import beans.updateRequestBean;
 import beans.userBean;
+import beans.dipsatchBean;
 
 public class DBHelper {
 	
@@ -78,6 +79,43 @@ public class DBHelper {
 		}
 		return false;
 	}
+	/*
+	public dipsatchBean retreiveRequest()
+	{
+		ResultSet results;
+		try 
+		{
+			Statement statement = connection.createStatement();
+			String query = "SELECT req_id, req_location, req_num_passengers, req_description, req_timestamp from req where req_confirmed = 0";
+			results = statement.executeQuery(query);
+			String dbUserEmail = "";
+			String dbUserPass = "";
+			while(results.next())
+			{
+				dbUserEmail = results.getString("email");
+				dbUserPass = results.getString("pass");
+				if(email.equals(dbUserEmail) && pass.equals(dbUserPass))
+				{
+					String dbFName = results.getString("FName");
+					String dbLName =results.getString("LName");
+					String dbRole = results.getString("role");
+					
+					userBean user = new userBean();
+					
+					user.setuserfName(dbFName);
+					user.setuserlName(dbLName);
+					user.setuserRole(dbRole);
+					
+					return user;
+				}
+			}
+		}
+		catch(SQLException e) {e.printStackTrace();}
+		
+		return null;
+	}
+}
+*/
 	
 	
 	// Register a UserBean...
