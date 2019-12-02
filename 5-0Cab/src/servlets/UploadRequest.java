@@ -10,14 +10,17 @@ import beans.userBean;
 
 import helper.DBHelper;
 
-public class RegisterUser extends HttpServlet{
+public class UploadRequest extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
-	public RegisterUser ()
+	public UploadRequest ()
 	{
 	}
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
+		req.getRequestDispatcher("/index.jsp").forward(req, res);
+		return;
+		/*
 		String fName = req.getParameter("userfName");
 		String lName = req.getParameter("userlName");
 		String email = req.getParameter("userEmail");
@@ -60,6 +63,6 @@ public class RegisterUser extends HttpServlet{
 		 req.setAttribute("Error_Msg", "Registration Failed, Try Again");
 		 req.getRequestDispatcher("/register.jsp").forward(req, res);
 		 }
-		
+		*/
 	}
 }

@@ -11,13 +11,13 @@
   
   <servlet>
     <description></description>
-	<display-name>RegisterUser</display-name>  
-    <servlet-name>RegisterUser</servlet-name>
-    <servlet-class>servlets.RegisterUser</servlet-class>
+	<display-name>UploadRequest</display-name>  
+    <servlet-name>UploadRequest</servlet-name>
+    <servlet-class>servlets.UploadRequest</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>RegisterUser</servlet-name>
-    <url-pattern>/RegisterUser</url-pattern>
+    <servlet-name>UploadRequest</servlet-name>
+    <url-pattern>/UploadRequest</url-pattern>
   </servlet-mapping>
   
   <servlet>

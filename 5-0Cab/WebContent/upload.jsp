@@ -29,22 +29,15 @@
                     <div id="Upload">
                     
     					<div class="card-body border-dark border-rounded">
-                        <form action="UploadSchedule" method="post">
+                        <form action="UploadRequest" method="post">
                             <div class="form-group">
                             	<label for="location">Location:</label>
                             	<input type="text" class="form-control" name="Location" maxlength="127" required>
                             </div>
-                            <div class="form-group">
-                            	<label for="special_instructions">Special Instruction:</label>
-                            	<textarea class="form-control" name="ScheduleDescription" rows= "4" maxlength="127" style="resize: none;"> </textarea>
-                            <small id="passwordHelpInline" class="text-muted">
-      							Maximum of 127 Characters.
-    						</small>
-    						</div>
     						<div class="form-group">
   								<label for="number_passengers">Number of Passengers:</label>
   								
-  								  <input class="form-control" type="number" min="1" step="1" id="num-input">    
+  								  <input class="form-control" type="number" min="1" step="1" id="num-input" required>    
 						    </div>
 						    <button type="button" id="opt" class="btn btn-light"
   								href="#"  data-toggle="popover" data-trigger="hover" 
@@ -52,6 +45,13 @@
   								data-content="Comfirm your information when we arrive!">
   								<h3>Optional Info:</h3>
 							</button>
+							<div class="form-group">
+                            	<label for="special_instructions">Special Instruction:</label>
+                            	<textarea class="form-control" name="ScheduleDescription" rows= "4" maxlength="127" style="resize: none;"> </textarea>
+                            <small id="passwordHelpInline" class="text-muted">
+      							Maximum of 127 Characters.
+    						</small>
+    						</div>
 						    <div class="form-group">
   								  <input type="text" class="form-control" name="name" maxlength="127">
 						    </div>
