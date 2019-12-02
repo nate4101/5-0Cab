@@ -20,7 +20,6 @@
     <div class="container">
         <div class="row justify-content-center">		
             <div class="col-lg-8">
-            <span class="border border-dark">
                 <div class="card g-light text-dark">
                     <div class="card-header bg-success text-center">
                     	<a class="card-link" data-toggle="collapse" style="color:black">
@@ -32,21 +31,34 @@
     					<div class="card-body border-dark border-rounded">
                         <form action="UploadSchedule" method="post">
                             <div class="form-group">
-                            	<label for="email">Location:</label>
-                            	<input type="text" class="form-control" name="ScheduleName" maxlength="255" required>
+                            	<label for="location">Location:</label>
+                            	<input type="text" class="form-control" name="Location" maxlength="127" required>
                             </div>
                             <div class="form-group">
-                            	<label for="Text Decription">Special Instruction:</label>
-                            	<textarea class="form-control" name="ScheduleDescription" rows= "4" maxlength="255" style="resize: none;"> </textarea>
+                            	<label for="special_instructions">Special Instruction:</label>
+                            	<textarea class="form-control" name="ScheduleDescription" rows= "4" maxlength="127" style="resize: none;"> </textarea>
                             <small id="passwordHelpInline" class="text-muted">
-      							Maximum of 255 Characters.
+      							Maximum of 127 Characters.
     						</small>
     						</div>
     						<div class="form-group">
-  								<label for="example-number-input">Number of Passengers:</label>
-  								<div>
-  								  <input class="form-control" type="number" min="1" step="1" id="num-input">
- 							    </div>
+  								<label for="number_passengers">Number of Passengers:</label>
+  								
+  								  <input class="form-control" type="number" min="1" step="1" id="num-input">    
+						    </div>
+						    <button type="button" id="opt" class="btn btn-light"
+  								href="#"  data-toggle="popover" data-trigger="hover" 
+  								title="Optional:"
+  								data-content="Comfirm your information when we arrive!">
+  								<h3>Optional Info:</h3>
+							</button>
+						    <div class="form-group">
+  								  <input type="text" class="form-control" name="name" maxlength="127">
+						    </div>
+						    <div class="form-group">
+  								<label for="telephone">Phone Number:</label>
+  								  <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+  								  <small>Format: 123-456-7890</small>
 						    </div>
                            <div class="text-center">
                                 <input type="submit" class="btn btn-outline-dark" value="Send Request"> 
@@ -55,12 +67,16 @@
  						</div>	
                     	</div><!-- card body -->
                     </div>
-                    </span>
+                   
                 </div><!-- main card -->
             </div><!-- login form -->
         </div><!-- row -->
     </div><!-- container -->
-    
+<script>
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();   
+});
+</script>    
 </body>
 <footer>
 <%@ include  file="/include/Footer.jsp"%>
