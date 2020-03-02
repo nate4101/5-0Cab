@@ -9,7 +9,7 @@ import beans.dispatchBean;
 
 public class DBHelper {
 	
-	private final static String jdbcUrl = "jdbc:mysql://aalqvghb03jhze.ctsdfdgibtnp.ca-central-1.rds.amazonaws.com:3306/cab?user=nate4101&password=nate4101";
+	private final static String jdbcUrl = "jdbc:mysql://aalqvghb03jhze.ctsdfdgibtnp.ca-central-1.rds.amazonaws.com:3306/cab?user=five0cab&password=fivezerocabdbpass";
 	private Connection connection = null;
 	// Constructor initializes connection
 	public DBHelper(){		
