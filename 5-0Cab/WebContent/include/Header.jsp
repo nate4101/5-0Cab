@@ -15,11 +15,8 @@ TO-DO------FIX this for future use of custom CSS and Bootstrap...
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 -->
-<link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
-
 <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
 <link href="css/custom.css" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <div class="container border">
 	
 	<nav class="navbar fixed-top navbar-expand-lg navbar-custom">
@@ -28,7 +25,7 @@ TO-DO------FIX this for future use of custom CSS and Bootstrap...
   			<img src="${pageContext.request.contextPath}/images/Logo.png" alt="" height="45" width="100">
   		</a>
   		<a class="navbar-brand">
-  			<h3 class="active">Serving North Bay Since 1978</h1>
+  			
   		</a>
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     		<span class="sr-only"></span>

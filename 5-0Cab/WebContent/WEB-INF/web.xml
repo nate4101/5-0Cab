@@ -4,6 +4,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+  <display-name>5-0 Cab Booking Application</display-name>
+  <description>This helps manage a web based booking application for North Bay 5-0 Cab.</description>
+  
+  <icon>
+  	<small-icon>/images/Logo.png</small-icon>
+  	<large-icon> /images/Logo.png</large-icon>
+  </icon>
   
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

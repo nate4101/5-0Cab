@@ -4,20 +4,42 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Nathan Young, 2020">
+<title>5-0 Cab Home</title>
 
-<%@ include  file="/include/Header.jsp"%>
-<link rel="stylesheet" href="css/home.css">
-
-<link href="js/mapbox/mapbox.css" rel="stylesheet" type="text/css" />
+<head>
+<!--  For Bootstrap Styling  -->
+<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}css/my_css.css" rel="stylesheet">
 </head>
 
-<body style="padding-top: 65px;">
+<body style="padding-top: 5px;">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+	<a class="navbar-brand">
+		<img src="${pageContext.request.contextPath}/images/Logo.png" alt="cab" width="80" height="60">
+	</a>
+	<h1 class ="title-text">Booking Application</h1>
+	
+</nav>
+<br>
+<div class="container">
+<div class="jumbotron">
+  <h1 class="text-center">Book a Cab Online!</h1>
+  <p class="lead text-center">Press The Big Green Button to get Started!</p>
+  <hr>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
+</div>
+
 
 	<div class="container-fluid py-3" style="background-color: #57bc90;/*green*/ border-bottom:1px solid grey;">
 		<div class="row">
 			<div class="col text-center">
-				<h1>Book a Cab Online!</h1>
+				
 			</div>
 		</div>
 		<div class="row">
@@ -95,15 +117,11 @@
 			</div>
 		</div>
 		<div class="d-flex justify-content-center">
-			<div><img class="sponsored" src="images/Logo.png"></div>
-			<div><img class="sponsored" src="images/Logo.png"></div>
-			<div><img class="sponsored" src="images/Logo.png"></div>
-			<div><img class="sponsored" src="images/Logo.png"></div>
 		</div>
 	</div>
 
 </body>
-<footer>
+
 <%@ include  file="/include/Footer.jsp"%>
-</footer>
+
 </html>
