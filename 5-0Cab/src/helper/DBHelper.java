@@ -6,7 +6,11 @@ import beans.requestBean;
 import beans.updateRequestBean;
 import beans.userBean;
 import beans.dispatchBean;
-
+/**
+ * DB Helper Class
+ * @author Nate4101
+ * @param - jdbURL contains path to AWS MySQL relational Database
+ */
 public class DBHelper {
 	
 	private final static String jdbcUrl = "jdbc:mysql://aalqvghb03jhze.ctsdfdgibtnp.ca-central-1.rds.amazonaws.com:3306/cab?user=five0cab&password=fivezerocabdbpass";
@@ -30,7 +34,9 @@ public class DBHelper {
 			}
 		   
 	} 
-	// Upload request to db table cab
+	/**
+	 * Upload request to db table cab 
+	*/
 	public boolean uploadRequest(requestBean bean)
 	{
 		try {
