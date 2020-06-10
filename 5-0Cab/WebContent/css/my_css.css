@@ -1,5 +1,18 @@
- .title-text{
+.title-text{
   color: #fff !important;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 30px !important;
   }
+.xyz { 
+  background-size: auto; 
+  text-align: center; 
+  padding-top: 100px; 
+} 
+.btn-circle.btn-xl { 
+  width: 100px; 
+  height:100px; 
+  padding: 10px 10px; 
+  border-radius: 46px; 
+  font-size: 25px; 
+  text-align: center; 
+}

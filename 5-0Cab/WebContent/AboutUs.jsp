@@ -7,7 +7,6 @@
 <title>Home Page</title>
 
 <%@ include  file="/include/Header.jsp"%>
-<link rel="stylesheet" href="css/home.css">
 </head>
 <body style="padding-top: 65px;">
 	<div class="p-3 text-center" style="background-color: #57bc90;/*green*/">
@@ -21,5 +20,4 @@
 <footer>
 <%@ include  file="/include/Footer.jsp"%>
 </footer>
-<script type="text/javascript" src="js/hamburgerMenu.js"></script> <!-- Javascript to show/hide Hamburger Menu -->
 </html>
