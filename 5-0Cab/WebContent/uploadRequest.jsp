@@ -149,10 +149,10 @@
 			date+="0";
 		date+=d.getMinutes();
 		document.getElementById('reqTime').value= date;
+		document.getElementById('reqTime').min= date;
     	console.log(document.getElementById('reqTime').value);
 	})();
 </script>
-  
     <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Au8wJoDxUyZXZ-x6Er5X1JD2cgKRT9syoPDsFq8b6tLFrbH5y3EYUb_8rrItR2Eo&callback=loadMapScenario' async defer></script> 
        
 	<script src="${pageContext.request.contextPath}/js/BingAutoSuggest.js"></script>

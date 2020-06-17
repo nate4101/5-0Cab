@@ -71,7 +71,7 @@
 					<h1 class="display-4"><b>Book a Cab Online!</b></h1>
   					<p class="lead text-center">Press The Big Green Button to get Started!</p>
   					<hr style="border-top: 5px dashed black;">
-  					<a href="${pageContext.request.contextPath}/upload.jsp">
+  					<a href="${pageContext.request.contextPath}/uploadRequest.jsp">
  						<button type="button" class="btn btn-success btn-circle btn-xl">
  							<i class="fas fa-taxi fa-3x"></i>
  						</button>

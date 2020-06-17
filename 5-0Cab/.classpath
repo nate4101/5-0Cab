@@ -15,5 +15,10 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-8.0.18.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/json-20190722.jar" sourcepath="WebContent/WEB-INF/lib/json-20190722-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/5-0Cab/WebContent/WEB-INF/lib/json-20190722-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
