@@ -35,7 +35,7 @@ public class UploadRequest extends HttpServlet{
 		String coordinates[] = req.getParameter("coordinates").split(",");
 		String size = req.getParameter("size");
 		String date = req.getParameter("date");
-		String instructions = req.getParameter("instructions")==null?req.getParameter("instructions"):"N/A";
+		String instructions = req.getParameter("instructions")==null?"N/A":req.getParameter("instructions");
 		
 		// Error check
 		if(!(loc.contains("North Bay")||loc.contains("Callander")||loc.contains("Sturgeon"))||coordinates==null||Integer.parseInt(size)<1) {
@@ -47,6 +47,16 @@ public class UploadRequest extends HttpServlet{
 		if(Integer.parseInt(size)>12) {
 			System.out.println("Large Request Size");
 			req.setAttribute("error", "Error in Upload: Request size of: "+Integer.parseInt(size)+" too large. Consider calling");
+			req.getRequestDispatcher("/upload.jsp").forward(req, res);
+			return;
+		}
+		String concatString=loc+coordinates[0]+coordinates[1]+size+date+instructions;
+		System.out.println(concatString);
+		concatString=concatString.toLowerCase();
+		if(concatString.contains("drop")||concatString.contains("=")||concatString.contains("table"))
+		{
+			System.out.println("Possible SQL attack");
+			req.setAttribute("error", "Error in Upload: Unexpected Keyword or Character found in request. Details logged");
 			req.getRequestDispatcher("/upload.jsp").forward(req, res);
 			return;
 		}

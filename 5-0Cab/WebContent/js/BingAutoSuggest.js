@@ -40,10 +40,17 @@ function loadMapScenario() {
                 function selectedSuggestion(suggestionResult) {
                 	console.log(suggestionResult);
                 	// Update hidden elements
-                	document.getElementById('location').value = suggestionResult.title+", "+suggestionResult.address.addressLine+", "+suggestionResult.address.locality;
-                	console.log(document.getElementById('location').value);
+                	if(suggestionResult.title === suggestionResult.address.addressLine){
+                		document.getElementById('location').value = suggestionResult.title+", "+suggestionResult.address.locality;
+                    	console.log(document.getElementById('location').value);
+                	}
+                	else{
+                		document.getElementById('location').value = suggestionResult.title+", "+suggestionResult.address.addressLine+", "+suggestionResult.address.locality;
+                    	console.log(document.getElementById('location').value);
+                	}
                 	document.getElementById('coords').value=suggestionResult.location.latitude+","+suggestionResult.location.longitude;
                 	console.log(document.getElementById('coords').value);
+                	
                 }
 		}
 }
