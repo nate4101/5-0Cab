@@ -1,7 +1,7 @@
 .title-text{
   color: #fff !important;
   font-weight: bold;
-  font-size: 30px !important;
+  font-size: 32px !important;
   }
 .xyz { 
   background-size: auto; 
@@ -9,10 +9,43 @@
   padding-top: 100px; 
 } 
 .btn-circle.btn-xl { 
-  width: 100px; 
-  height:100px; 
+  width: 106px; 
+  height:106px; 
   padding: 10px 10px; 
-  border-radius: 46px; 
+  border-radius: 50px; 
   font-size: 25px; 
   text-align: center; 
+  box-shadow: 0px 5px 4px rgba(0, 15, 0, 1);
+}
+.carousel .item {
+  height: 500px;
+}
+
+.item img {
+    position: absolute;
+    object-fit:cover;
+    top: 0;
+    left: 0;
+    min-height: 500px;
+}
+
+.navbar-toggler {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: grey;
+  border: 2px solid;
+  border-radius: 0.25rem;
+}
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
+}
+.MicrosoftMap .as_container_search {
+	width: 95% !important;
 }

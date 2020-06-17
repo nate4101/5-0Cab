@@ -13,7 +13,7 @@ import beans.dispatchBean;
  */
 public class DBHelper {
 	
-	private final static String jdbcUrl = "jdbc:mysql://aalqvghb03jhze.ctsdfdgibtnp.ca-central-1.rds.amazonaws.com:3306/cab?user=five0cab&password=fivezerocabdbpass";
+	private final static String jdbcUrl = "jdbc:mysql://fivezerocabdb.cq6c0sods0tf.ca-central-1.rds.amazonaws.com:3306/cab?user=nate4101&password=fivezerocab";
 	private Connection connection = null;
 	// Constructor initializes connection
 	public DBHelper(){		
@@ -37,15 +37,16 @@ public class DBHelper {
 	/**
 	 * Upload request to db table cab 
 	*/
-	public boolean uploadRequest(requestBean bean)
+	public boolean uploadNewRequest(requestBean bean)
 	{
 		try {
-		CallableStatement stmnt = connection.prepareCall("{CALL insert_req(?,?,?,?,?)}");
-		stmnt.setString(1, bean.getlocation());
-		stmnt.setString(2, bean.getpassengers());
-		stmnt.setString(3, bean.getdescription());
-		stmnt.setString(4, bean.getname());
-		stmnt.setString(5, bean.getphone());
+		CallableStatement stmnt = connection.prepareCall("{CALL insert_req(?,?,?,?,?,?)}");
+		stmnt.setString(1, bean.getLoc());
+		stmnt.setString(2, bean.getsize());
+		stmnt.setString(3, bean.getLat());
+		stmnt.setString(4, bean.getLon());
+		stmnt.setString(5, bean.getDate());
+		stmnt.setString(6, bean.getDescription());
 		int result = stmnt.executeUpdate();
 		return(result>0);
 		}
