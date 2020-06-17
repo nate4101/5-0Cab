@@ -131,7 +131,7 @@
 	</div>
 </div>  	
 
-<!-- Default datetime -->
+<!-- Default datetime-local object for form... is there a better way to do this? -->
 <script>
 	(function(){
 		var d=new Date();
