@@ -4,16 +4,38 @@
 <html>
 	<head>
 		<title>Dispatcher 5-0 Cab Page</title>
-		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+		
 	</head>
 <body>
- <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
- 
-<script type="text/javascript" src="DataTables/datatables.min.js"></script>
-<script type="text/javascript" src="js/dispatch.js"></script>
+	<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+    </table>
+ <script>
+ $(document).ready( function () {
+	    $('#table_id').DataTable(
+	    //Options
+	    // ajax: '/RetreiveRequests'
+	    );
+	} );
+</script>
 </body>
-
-  <%@ include  file="/include/Footer.jsp"%>
-
 </html>
