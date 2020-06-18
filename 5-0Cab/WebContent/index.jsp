@@ -240,9 +240,17 @@
 	<p class="float-right"><a href="#" class="btn btn-dark">Back to top</a></p>
 </div>
 
+<!-- Scripts -->
+<!-- Jquery then...-->
+<script src="js/jquery-3.5.1.js"></script> 
+<!-- Popper then... -->
+<script src="js/popper.min.js"></script> 
+<!-- Bootstrap... -->
+<script src="js/bootstrap-4.0.0.js"></script>
+
 <!-- End of Body -->
 </body>
 <!-- Code, check if an active request is happening and provide a direct link -->
-<%@ include  file="/include/Footer.jsp"%>
+
 
 </html>

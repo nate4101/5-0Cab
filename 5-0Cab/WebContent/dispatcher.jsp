@@ -4,32 +4,44 @@
 <html>
 	<head>
 		<title>Dispatcher 5-0 Cab Page</title>
-		
-	</head>
+		<!-- Style Sheet for datatables and extensions -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+ 	</head>
 <body>
-	<table id="example" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Extn.</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Extn.</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-    </table>
- <script>
+	<div class="container">
+		<div class="jumbotron">
+			<table id="table_id" class="display">
+    		<thead>
+        		<tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Row 1 Data 1</td>
+            <td>Row 1 Data 2</td>
+        </tr>
+        <tr>
+            <td>Row 2 Data 1</td>
+            <td>Row 2 Data 2</td>
+        </tr>
+    </tbody>
+    <tfoot>
+    	<tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+        </tr>
+    </tfoot>
+	</table>
+		</div>
+	</div>
+<!-- Scripts -->
+<!-- Jquery First -->
+<script src="js/jquery-3.5.1.js"></script>
+<!-- Then Datatables with extensions, but not editor-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script>
  $(document).ready( function () {
 	    $('#table_id').DataTable(
 	    //Options
