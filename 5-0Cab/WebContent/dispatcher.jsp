@@ -5,11 +5,10 @@
 	<head>
 		<title>Dispatcher 5-0 Cab Page</title>
 		<!-- Style Sheet for datatables and extensions -->
-		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+		<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
  	</head>
 <body>
-	<div class="container">
-		<div class="jumbotron">
+	
 			<table id="table_id" class="display">
     		<thead>
         		<tr>
@@ -34,13 +33,13 @@
         </tr>
     </tfoot>
 	</table>
-		</div>
-	</div>
+		
+	
 <!-- Scripts -->
 <!-- Jquery First -->
 <script src="js/jquery-3.5.1.js"></script>
 <!-- Then Datatables with extensions, but not editor-->
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <script>
  $(document).ready( function () {
 	    $('#table_id').DataTable(
