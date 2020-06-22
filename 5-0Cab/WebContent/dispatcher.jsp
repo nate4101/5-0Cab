@@ -5,44 +5,56 @@
 	<head>
 		<title>Dispatcher 5-0 Cab Page</title>
 		<!-- Style Sheet for datatables and extensions -->
-		<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+		<link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
  	</head>
 <body>
-	
-			<table id="table_id" class="display">
-    		<thead>
-        		<tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-    </tbody>
-    <tfoot>
-    	<tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-        </tr>
-    </tfoot>
-	</table>
-<br>
-<div id="click">
-	Load Table
-</div>	
-	
+<div class = "container">
+	<table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Size</th>
+                <th>Details</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+            
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Location</th>
+                <th>Size</th>
+                <th>Details</th>
+                <th>Date</th>
+            </tr>
+        </tfoot>
+    </table>
+<br>	
+</div>
 <!-- Scripts -->
 <!-- Jquery First -->
 <script src="js/jquery-3.5.1.js"></script>
 <!-- Then Datatables with extensions, but not editor-->
-<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+<script type="text/javascript" src="DataTables/datatables.js"></script>
 <script>
- $("#click").click( function () {
-	    $('#table_id').DataTable(
-	    //Options
-	    // ajax: '/RetreiveRequests'
-	    );
-	} );
+$(document).ready(function() {
+    $('#example').DataTable({
+    	"ajax": '${pageContext.request.contextPath}/RetreiveRequests',
+    	"columns":[
+    		{data:'location'},
+    		{data:'size'},
+    		{data:'details'},
+    		{data:'req_time'}
+    	]	
+    });
+} );
 </script>
 </body>
 </html>

@@ -22,9 +22,9 @@ public class RetreiveRequests extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		String stateString = request.getParameter("state");
-		System.out.println(stateString);
+		//System.out.println(stateString);
 		String completedString = request.getParameter("completed");
-		System.out.println(completedString);
+		//System.out.println(completedString);
 		String id = request.getParameter("id");
 		// Error checking
 		String concatString = id+stateString+completedString;

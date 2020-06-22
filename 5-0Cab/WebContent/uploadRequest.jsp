@@ -44,7 +44,7 @@
    		<ul class="navbar-nav">
    			<li class="nav-item active">
    				<hr>
-   				<a class="nav-link " href="${pageContext.request.contextPath}/index.jsp">Home Page >></a>
+   				<a class="nav-link " href="${pageContext.request.contextPath}/RetreiveRequests">Home Page >></a>
        			<hr>
      		</li>
    			<li class="nav-item active">

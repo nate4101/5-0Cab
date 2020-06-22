@@ -13,6 +13,9 @@ import beans.CabBean;
  */
 public class DBHelper {
 	
+	/**
+	 * Ideally move to local storage and retrive from a file, keep it hidden from end users, or github...
+	 */
 	private final static String jdbcUrl = "jdbc:mysql://fivezerocabdb.cq6c0sods0tf.ca-central-1.rds.amazonaws.com:3306/cab?user=nate4101&password=fivezerocab";
 	private Connection connection = null;
 	/*
