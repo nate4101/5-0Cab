@@ -1,23 +1,22 @@
 package servlets;
 
-import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Writer;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.requestBean;
+import beans.RequestBean;
 
 import helper.DBHelper;
 
-public class UploadRequest extends HttpServlet{
+public class CreateRequest extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
-	public UploadRequest ()
+	public CreateRequest ()
 	{
 	}
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
@@ -31,11 +30,12 @@ public class UploadRequest extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// Grab form fields
+		String id = UUID.randomUUID().toString();
 		String loc = req.getParameter("loc");
 		String coordinates[] = req.getParameter("coordinates").split(",");
 		String size = req.getParameter("size");
 		String date = req.getParameter("date");
-		String instructions = req.getParameter("instructions")==null?"N/A":req.getParameter("instructions");
+		String instructions = req.getParameter("instructions")==""?"N/A":req.getParameter("instructions");
 		
 		// Error check
 		if(!(loc.contains("North Bay")||loc.contains("Callander")||loc.contains("Sturgeon"))||coordinates==null||Integer.parseInt(size)<1) {
@@ -53,7 +53,7 @@ public class UploadRequest extends HttpServlet{
 		String concatString=loc+coordinates[0]+coordinates[1]+size+date+instructions;
 		System.out.println(concatString);
 		concatString=concatString.toLowerCase();
-		if(concatString.contains("drop")||concatString.contains("=")||concatString.contains("table"))
+		if(concatString.contains("drop")||concatString.contains("=")||concatString.contains("table")||concatString.contains(";"))
 		{
 			System.out.println("Possible SQL attack");
 			req.setAttribute("error", "Error in Upload: Unexpected Keyword or Character found in request. Details logged");
@@ -64,27 +64,35 @@ public class UploadRequest extends HttpServlet{
 		date = date.split("T")[0]+" "+date.split("T")[1]+":00";
 		System.out.println(date);
 		// request bean
-		requestBean rb = new requestBean();
-		
-		rb.setLoc(loc);
-		rb.setLat(coordinates[0]);
-		rb.setlon(coordinates[1]);
-		rb.setsize(size);
-		rb.setDate(date);
-		rb.setDescription(instructions);
-		
+		RequestBean rb = new RequestBean();
+		rb.setId(id);
+		rb.setLocation(loc);
+		rb.setLat(Double.parseDouble(coordinates[0]));
+		rb.setLon(Double.parseDouble(coordinates[1]));
+		rb.setSize(Integer.parseInt(size));
+		rb.setReq_time(date);
+		rb.setDetails(instructions);
+		System.out.println("Request:");
+		System.out.println(id+"|"+loc+"|"+size+"|"+coordinates[0]+"|"+coordinates[1]+"|"+date+"|"+instructions+"|");
 		// Database connection
 		DBHelper db = new DBHelper();
-		boolean result = db.uploadNewRequest(rb);
-		if(!result)
-		{
-			req.setAttribute("error", "upload_fail");
-			req.getRequestDispatcher("/upload.jsp").forward(req, res);
-			return;
-		}
-		else {
-			req.getRequestDispatcher("/index.jsp").forward(req, res);
-			return;
+		try {
+			boolean result = db.uploadNewRequest(rb);
+			if(!result)
+			{
+				req.setAttribute("error", "upload_fail");
+				req.getRequestDispatcher("/uploadRequest.jsp").forward(req, res);
+				return;
+			}
+			else {
+				req.setAttribute("cookie", id);
+				req.getRequestDispatcher("/index.jsp").forward(req, res);
+				return;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			db.closeConnection();
 		}
 	}
 }

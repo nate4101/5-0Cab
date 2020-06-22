@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import beans.userBean;
+import beans.CabBean;
 import helper.DBHelper;
 
 public class LoginUser extends HttpServlet{
@@ -23,7 +23,7 @@ public class LoginUser extends HttpServlet{
 		DBHelper db = new DBHelper();
 		try
 		{
-			userBean user = db.checkLoginCredentials(email, password);
+			CabBean user = db.checkLoginCredentials(email, password);
 		
 			if(user == null)
 			{

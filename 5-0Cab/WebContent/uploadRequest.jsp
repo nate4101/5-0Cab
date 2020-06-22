@@ -83,7 +83,7 @@
 				<!-- Card Body -->
 				<div class="card-body border-dark border-rounded" >
 					<!-- Submission Form -->
-        			<form action="UploadRequest" method="post" autocomplete="off">
+        			<form action="CreateRequest" method="post" autocomplete="off">
         				<h3>Required:</h3>
         				<div class="form-group">
         					<label for="bing-suggestion">Enter Your Location:</label>
@@ -153,11 +153,16 @@
     	console.log(document.getElementById('reqTime').value);
 	})();
 </script>
+	<!-- Jquery then...-->
+	<script src="js/jquery-3.5.1.js"></script> 
+	<!-- Popper then... -->
+	<script src="js/popper.min.js"></script> 
+	<!-- Bootstrap... -->
+	<script src="js/bootstrap-4.0.0.js"></script>
+	<!-- bing maps web v8 sdk -->
     <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Au8wJoDxUyZXZ-x6Er5X1JD2cgKRT9syoPDsFq8b6tLFrbH5y3EYUb_8rrItR2Eo&callback=loadMapScenario' async defer></script> 
-       
+    <!-- a script that used web v8 sdk -->
 	<script src="${pageContext.request.contextPath}/js/BingAutoSuggest.js"></script>
 	
-	</body>
-<!-- Footer -->
-<%@ include  file="/include/Footer.jsp"%>
+</body>
 </html>

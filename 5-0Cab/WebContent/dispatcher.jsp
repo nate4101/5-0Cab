@@ -17,14 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
+        
     </tbody>
     <tfoot>
     	<tr>
@@ -33,7 +26,10 @@
         </tr>
     </tfoot>
 	</table>
-		
+<br>
+<div id="click">
+	Load Table
+</div>	
 	
 <!-- Scripts -->
 <!-- Jquery First -->
@@ -41,7 +37,7 @@
 <!-- Then Datatables with extensions, but not editor-->
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <script>
- $(document).ready( function () {
+ $("#click").click( function () {
 	    $('#table_id').DataTable(
 	    //Options
 	    // ajax: '/RetreiveRequests'

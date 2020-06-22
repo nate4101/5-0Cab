@@ -19,13 +19,13 @@
   
   <servlet>
     <description></description>
-	<display-name>UploadRequest</display-name>  
-    <servlet-name>UploadRequest</servlet-name>
-    <servlet-class>servlets.UploadRequest</servlet-class>
+	<display-name>CreateRequest</display-name>  
+    <servlet-name>CreateRequest</servlet-name>
+    <servlet-class>servlets.CreateRequest</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>UploadRequest</servlet-name>
-    <url-pattern>/UploadRequest</url-pattern>
+    <servlet-name>CreateRequest</servlet-name>
+    <url-pattern>/CreateRequest</url-pattern>
   </servlet-mapping>
   
   <servlet>
