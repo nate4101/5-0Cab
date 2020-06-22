@@ -16,24 +16,14 @@
                 <th>Size</th>
                 <th>Details</th>
                 <th>Date</th>
+                <th>ID</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
             
-            </tr>
         </tbody>
         <tfoot>
-            <tr>
-                <th>Location</th>
-                <th>Size</th>
-                <th>Details</th>
-                <th>Date</th>
-            </tr>
+            
         </tfoot>
     </table>
 <br>	
@@ -47,12 +37,13 @@
 $(document).ready(function() {
     $('#example').DataTable({
     	"ajax": '${pageContext.request.contextPath}/RetreiveRequests',
-    	"columns":[
+    	columns:[
     		{data:'location'},
     		{data:'size'},
     		{data:'details'},
-    		{data:'req_time'}
-    	]	
+    		{data:'req_time'},
+    		{data:'id', visible:false}
+    	]
     });
 } );
 </script>
