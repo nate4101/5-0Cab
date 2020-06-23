@@ -112,6 +112,9 @@
 						    <div class=form-group>
 						    	<label for="date">Request Time:<b> Default: Now</b></label>
 						    	<input type="datetime-local" class="form-control" value="" id="reqTime" name="date">
+						    	<small id="inline" class="text-muted">
+      							Max 24hrs from now.
+    						</small>
 						    </div>
 							<div class="form-group">
                             	<label for="instructions">Extra Details:<b> Default: Empty</b></label>
@@ -134,22 +137,37 @@
 <!-- Default datetime-local object for form... is there a better way to do this? -->
 <script>
 	(function(){
-		var d=new Date();
-		var date = d.getFullYear()+"-";
-		if(d.getMonth()<10)
+		var now=new Date();
+		var tomorrow = new Date(now.getTime()+(24*60*60*1000));
+		var date = now.getFullYear()+"-";
+		if(now.getMonth()<10)
 			date+="0";
-		date+=d.getMonth()+"-";
-		if(d.getDate()<10)
+		date+=now.getMonth()+"-";
+		if(now.getDate()<10)
 			date+="0";
-		date+=d.getDate()+"T";
-		if(d.getHours()<10)
+		date+=now.getDate()+"T";
+		if(now.getHours()<10)
 			date+="0";
-		date+=d.getHours()+":";
-		if(d.getMinutes()<10)
+		date+=now.getHours()+":";
+		if(now.getMinutes()<10)
 			date+="0";
-		date+=d.getMinutes();
+		date+=now.getMinutes();
 		document.getElementById('reqTime').value= date;
 		document.getElementById('reqTime').min= date;
+		date = tomorrow.getFullYear()+"-";
+		if(tomorrow.getMonth()<10)
+			date+="0";
+		date+=tomorrow.getMonth()+"-";
+		if(tomorrow.getDate()<10)
+			date+="0";
+		date+=tomorrow.getDate()+"T";
+		if(tomorrow.getHours()<10)
+			date+="0";
+		date+=tomorrow.getHours()+":";
+		if(tomorrow.getMinutes()<10)
+			date+="0";
+		date+=tomorrow.getMinutes();
+		document.getElementById('reqTime').max= date;
     	console.log(document.getElementById('reqTime').value);
 	})();
 </script>

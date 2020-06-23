@@ -44,6 +44,8 @@ $(document).ready(function() {
     		{data:'req_time'},
     		{data:'id', visible:false}
     	]
+    	
+    	
     });
 } );
 </script>
