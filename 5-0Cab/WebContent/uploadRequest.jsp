@@ -44,7 +44,7 @@
    		<ul class="navbar-nav">
    			<li class="nav-item active">
    				<hr>
-   				<a class="nav-link " href="${pageContext.request.contextPath}/RetreiveRequests">Home Page >></a>
+   				<a class="nav-link " href="${pageContext.request.contextPath}/index.jsp">Home Page >></a>
        			<hr>
      		</li>
    			<li class="nav-item active">
@@ -109,13 +109,6 @@
 						    </div>
 						    <hr>
 						    <h3>Optional:</h3>
-						    <div class=form-group>
-						    	<label for="date">Request Time:<b> Default: Now</b></label>
-						    	<input type="datetime-local" class="form-control" value="" id="reqTime" name="date">
-						    	<small id="inline" class="text-muted">
-      							Max 24hrs from now.
-    						</small>
-						    </div>
 							<div class="form-group">
                             	<label for="instructions">Extra Details:<b> Default: Empty</b></label>
                             	<textarea class="form-control" name="instructions" rows= "4" maxlength="127"></textarea>
@@ -135,42 +128,6 @@
 </div>  	
 
 <!-- Default datetime-local object for form... is there a better way to do this? -->
-<script>
-	(function(){
-		var now=new Date();
-		var tomorrow = new Date(now.getTime()+(24*60*60*1000));
-		var date = now.getFullYear()+"-";
-		if(now.getMonth()<10)
-			date+="0";
-		date+=now.getMonth()+"-";
-		if(now.getDate()<10)
-			date+="0";
-		date+=now.getDate()+"T";
-		if(now.getHours()<10)
-			date+="0";
-		date+=now.getHours()+":";
-		if(now.getMinutes()<10)
-			date+="0";
-		date+=now.getMinutes();
-		document.getElementById('reqTime').value= date;
-		document.getElementById('reqTime').min= date;
-		date = tomorrow.getFullYear()+"-";
-		if(tomorrow.getMonth()<10)
-			date+="0";
-		date+=tomorrow.getMonth()+"-";
-		if(tomorrow.getDate()<10)
-			date+="0";
-		date+=tomorrow.getDate()+"T";
-		if(tomorrow.getHours()<10)
-			date+="0";
-		date+=tomorrow.getHours()+":";
-		if(tomorrow.getMinutes()<10)
-			date+="0";
-		date+=tomorrow.getMinutes();
-		document.getElementById('reqTime').max= date;
-    	console.log(document.getElementById('reqTime').value);
-	})();
-</script>
 	<!-- Jquery then...-->
 	<script src="js/jquery-3.5.1.js"></script> 
 	<!-- Popper then... -->

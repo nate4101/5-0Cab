@@ -2,6 +2,8 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
@@ -34,46 +36,36 @@ public class CreateRequest extends HttpServlet{
 		String loc = req.getParameter("loc");
 		String coordinates[] = req.getParameter("coordinates").split(",");
 		String size = req.getParameter("size");
-		String date = req.getParameter("date");
 		String instructions = req.getParameter("instructions")==""?"N/A":req.getParameter("instructions");
 		
 		// Error check
-		if(!(loc.contains("North Bay")||loc.contains("Callander")||loc.contains("Sturgeon"))||coordinates==null||Integer.parseInt(size)<1) {
-			System.out.println("No North bay");
+		if(coordinates==null||Integer.parseInt(size)<1) {
 			req.setAttribute("error", "Error in Upload: Please use Bing AutoSuggest to fill in Location");
 			req.getRequestDispatcher("/upload.jsp").forward(req, res);
 			return;
 		}
-		if(Integer.parseInt(size)>12) {
-			System.out.println("Large Request Size");
-			req.setAttribute("error", "Error in Upload: Request size of: "+Integer.parseInt(size)+" too large. Consider calling");
+		if(!(loc.contains("North Bay")||loc.contains("Callander")||loc.contains("Sturgeon")||
+				loc.contains("Corbiel")||loc.contains("Mattawa")||loc.contains("Astorfield")||
+				loc.contains("Temiskaming")||loc.contains("Bonfield")||loc.contains("Nipissing")||
+				loc.contains("Powassan")||loc.contains("Redbridge")
+				)) {
+			System.out.println("Bad Location");
+			req.setAttribute("error", "Error in Location:"+loc+". Try calling us to book for your location!");
 			req.getRequestDispatcher("/upload.jsp").forward(req, res);
 			return;
 		}
-		String concatString=loc+coordinates[0]+coordinates[1]+size+date+instructions;
-		System.out.println(concatString);
-		concatString=concatString.toLowerCase();
-		if(concatString.contains("drop")||concatString.contains("=")||concatString.contains("table")||concatString.contains(";"))
-		{
-			System.out.println("Possible SQL attack");
-			req.setAttribute("error", "Error in Upload: Unexpected Keyword or Character found in request. Details logged");
-			req.getRequestDispatcher("/upload.jsp").forward(req, res);
-			return;
-		}
-		// MySQL Date Time Format
-		date = date.split("T")[0]+" "+date.split("T")[1]+":00";
-		System.out.println(date);
+		LocalDateTime time = LocalDateTime.now();
 		// request bean
 		RequestBean rb = new RequestBean();
 		rb.setId(id);
 		rb.setLocation(loc);
 		rb.setLat(Double.parseDouble(coordinates[0]));
 		rb.setLon(Double.parseDouble(coordinates[1]));
+		rb.setReq_time(time.toString());
 		rb.setSize(Integer.parseInt(size));
-		rb.setReq_time(date);
 		rb.setDetails(instructions);
 		System.out.println("Request:");
-		System.out.println(id+"|"+loc+"|"+size+"|"+coordinates[0]+"|"+coordinates[1]+"|"+date+"|"+instructions+"|");
+		System.out.println(id+"|"+loc+"|"+size+"|"+coordinates[0]+"|"+coordinates[1]+"|"+time.toString()+"|"+instructions+"|");
 		// Database connection
 		DBHelper db = new DBHelper();
 		try {
@@ -86,7 +78,7 @@ public class CreateRequest extends HttpServlet{
 			}
 			else {
 				req.setAttribute("cookie", id);
-				req.getRequestDispatcher("/index.jsp").forward(req, res);
+				req.getRequestDispatcher("/activeRequest.jsp").forward(req, res);
 				return;
 			}
 		} catch (Exception e) {
