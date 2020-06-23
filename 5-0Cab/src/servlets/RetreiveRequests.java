@@ -26,16 +26,7 @@ public class RetreiveRequests extends HttpServlet{
 		String completedString = request.getParameter("completed");
 		//System.out.println(completedString);
 		String id = request.getParameter("id");
-		// Error checking
-		String concatString = id+stateString+completedString;
-		concatString=concatString.toLowerCase();
-		if(concatString.contains("drop")||concatString.contains("=")||concatString.contains("table")||concatString.contains(";"))
-		{
-			System.out.println("Possible SQL attack");
-			request.setAttribute("error", "Error in retreive: Unexpected Keyword or Character found in request. Details logged");
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
-			return;
-		}
+		
 		List<RequestBean> rbs = new ArrayList<RequestBean>();
 		RequestBean rb = new RequestBean();
 		JSONObject jo = new JSONObject();
