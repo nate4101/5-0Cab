@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+#Java files
+/helper/EnviromentVariables.java
+
 # Log file
 *.log
 
