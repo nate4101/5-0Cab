@@ -2,7 +2,7 @@
 *.class
 
 #Java files
-/helper/EnviromentVariables.java
+*/helper/EnviromentVariables.java
 
 # Log file
 *.log
