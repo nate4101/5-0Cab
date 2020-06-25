@@ -12,7 +12,7 @@ An online cab booking application for the North Bay 5-0 Cab company.
 ## As an API
 Retreive Data 
 ```
-\RetreiveRequests\?{request param}=[param value]
+Get: ...\RetrieveRequests\? {request param} = [param value]
 ...
 ```
 
