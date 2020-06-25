@@ -9,14 +9,11 @@ import beans.CabBean;
 /**
  * DB Helper Class
  * @author Nate4101
- * @param - jdbURL contains path to AWS MySQL relational Database
+ * @param - jdbcURL contains path to AWS MySQL relational Database
  * @Note - Close the connection when done.
  */
 public class DBHelper {
 	
-	/**
-	 * Ideally move to local storage and retrive from a file, keep it hidden from end users, or github...
-	 */
 	private final static String jdbcUrl = EnviromentVariables.jdbcURL;
 			private Connection connection = null;
 	
@@ -55,7 +52,25 @@ public class DBHelper {
 			}				
 	}
 	/**
-	 * Upload request to db table req
+	 * Create a new cab object
+	 * @param bean a cab bean with the details
+	 * @return 0 for no changes, or 1 for success
+	 */
+	public boolean create_Cab(CabBean bean) {
+		try {
+			CallableStatement stmnt = connection.prepareCall("{CALL create_cab(?,?,?)}");
+			stmnt.setString(1, bean.getGeotab_serial_number());
+			stmnt.setInt(2, bean.getCapacity());
+			stmnt.setString(3, bean.getCab_number());
+			int result = stmnt.executeUpdate();
+			return(result>0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	/**
+	 * Create New Request In the system
 	*/
 	public boolean uploadNewRequest(RequestBean bean)
 	{
@@ -71,8 +86,8 @@ public class DBHelper {
 		int result = stmnt.executeUpdate();
 		return(result>0);
 		}
-		catch(Exception exc) {
-			exc.printStackTrace();
+		catch(Exception e) {
+			e.printStackTrace();
 		}
 		return false;
 	}
