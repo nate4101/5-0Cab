@@ -5,9 +5,10 @@
 	<head>
 		<title>Dispatcher 5-0 Cab Page</title>
 		<!-- Style Sheet for datatables and extensions -->
-		<link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
+		<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
 		<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
-<link href="css/my_css.css" rel="stylesheet">
+		
+		<link href="css/my_css.css" rel="stylesheet">
  	</head>
 <body>
 <!-- Navbar -->
@@ -52,17 +53,18 @@
   	</div>
 </nav>
 <br>
+<hr>
+<!-- All Things DataTables -->
 <div class = "container">
 <div class="row" id="buttonrow"></div>
-	<table id="example" class="table table-hover table-striped table-bordered" style="width:100%">
+	<table id="example" class="table table-border row-border table-striped" style="width:100%">
         <thead>
             <tr>
                 <th>Location</th>
                 <th>Size</th>
                 <th>Details</th>
                 <th>Date</th>
-                <th>ID</th>
-                <th>State</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -77,46 +79,55 @@
 <!-- Scripts -->
 <!-- Jquery First -->
 <script src="js/jquery-3.5.1.js"></script>
+<!-- Then popper -->
+<script src="js/popper.min.js"></script> 
+<!-- Bootstrap... -->
+<script src="js/bootstrap-4.0.0.js"></script>
 <!-- Then Datatables with extensions, but not editor-->
-<script type="text/javascript" src="DataTables/datatables.js"></script>
+<script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <script>
 $(document).ready(function() {
-    var table = $('#example').DataTable({
-    	
-    	dom: 'Brtlp',
+	var events = $('#events');
+    var table = $('#example').DataTable( {
     	"ajax": '${pageContext.request.contextPath}/RetreiveRequests',
+    	dom: 'Bfrtip',
+    	select: true,
+    	
     	columns:[
-    		{data:'location'},
-    		{data:'size'},
-    		{data:'details'},
-    		{data:'req_time'},
-    		{data:'id', visible:false},
-    		{data:'state',visible:false}
+    	    {data:'location'},
+    	    {data:'size'},
+    	    {data:'details'},
+    	    {data:'req_time'},
+    	    {
+    	    	data:'state',
+    	    	render: function(data,type,row){
+    	    		if(data==0)
+    	    			return "New Request";
+    	    		else
+    	    			return "In Progress";
+    	    	},
+    	    	createdCell: function(cell, cellData,rowData,rowIndex,colIndex){
+    	    		if(cellData==0)
+    	    			$(cell).addClass('bg-success');
+    	    		else
+    	    			$(cell).addClass('bg-warning');
+    	    	}
+    	    }
     	],
-    	createdRow: function(row,data,dataIndex)
-    	{
-    		if(data.state){
-    			$(row).addClass('table-primary');
-    		}
-    	},
-    	buttons:[
+    	order: [],
+    	buttons: [
     		{
-    			text: 'Reload',
-    	        action: function ( e, dt, node, config ) {
-    	        	dt.ajax.reload();
-    	        }			
-    	    },
-    		{
-    			text:'Submit',
-    			action: function(e,dt,node,config){
-    				
+    			text: 'Submit',
+    			action: function () {
+    	        	var data = table.rows( { selected: true } ).data();
+    	        	if(typeof data[0] === 'undefined')
+    	        		alert("Please Select a row before comfirming");
+    	     		console.log(data[0]);
     			}
     		}
-    	    ]	
+    	]
+    		
     });
-    table.buttons().container()
-    .appendTo( $("#buttonrow", table.table().container() ) );
-
 } );
 </script>
 </body>

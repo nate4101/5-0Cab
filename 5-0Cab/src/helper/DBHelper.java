@@ -10,6 +10,7 @@ import beans.CabBean;
  * DB Helper Class
  * @author Nate4101
  * @param - jdbURL contains path to AWS MySQL relational Database
+ * @Note - Close the connection when done.
  */
 public class DBHelper {
 	
@@ -18,8 +19,9 @@ public class DBHelper {
 	 */
 	private final static String jdbcUrl = "jdbc:mysql://fivezerocabdb.cq6c0sods0tf.ca-central-1.rds.amazonaws.com:3306/cab?user=nate4101&password=fivezerocab";
 	private Connection connection = null;
-	/*
-	 * Constructor initializes connection
+	
+	/**
+	 * Default Constructor creates a connection to the database
 	 */
 	public DBHelper(){		
 		  // Load the JDBC driver

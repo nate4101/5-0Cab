@@ -55,13 +55,14 @@ public class CreateRequest extends HttpServlet{
 			return;
 		}
 		LocalDateTime time = LocalDateTime.now();
+		String dateFormat[] = time.toString().split("T");
 		// request bean
 		RequestBean rb = new RequestBean();
 		rb.setId(id);
 		rb.setLocation(loc);
 		rb.setLat(Double.parseDouble(coordinates[0]));
 		rb.setLon(Double.parseDouble(coordinates[1]));
-		rb.setReq_time(time.toString());
+		rb.setReq_time(dateFormat[0]+" "+dateFormat[1]);
 		rb.setSize(Integer.parseInt(size));
 		rb.setDetails(instructions);
 		System.out.println("Request:");
