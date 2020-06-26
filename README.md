@@ -1,7 +1,7 @@
 # 5-0Cab
 
 An online cab booking application for the North Bay 5-0 Cab company.
-Request a cab, view the the cab on the map.
+Request a cab, to your location, view it on a map as it travels to you. Notifies you when it arrives.
 
 ## Features:
 
@@ -9,7 +9,7 @@ Request a cab, view the the cab on the map.
 - Multiple cab assignment. Handles request sizes greater than 6 requiring multiple vehicles.
 - Calling option for those special requests.
 - Live Map with all cabs coming to your position.
-- Estimated Wait time for the furthest cab away.
+- Estimated Wait time for the furthest cab away. HTML audio notification when cab is within threshold of pickup
 - Tell the cab where your going when it arrives and pay with visa in the cab.
 - No sensitive data being stored.
 
@@ -23,10 +23,13 @@ Get: ...\RetrieveRequests\? {param id} = [param value] & key=[your_key]
 
 
 # TODO
-### Developer Features:
-- [ ] Gitignore including a class with public static private enviroment variable to keep hidden for End-User
-- [ ] Add logging features to each page
-- [ ] Using new database C.R.U.D schema rewrite DBHelper
+### Developer Code To prioritize:
+- [ ] Update all Servlets to properly server data. Json for retreive all/ retreive select, plain text for dispatcherOnline, and cab serial and cabnums
+- [ ] Add logs to 
+- [x] Gitignore including a class with public static private enviroment variable to keep hidden for End-User
+- [x] Using new database C.R.U.D schema rewrite DBHelper
+- [x] Add logging features to each DBHelper Method
+## Page Updates:
 ### End User:
 - [ ] Front Page Website: Content and photos ( Waiting on 5-0 Cab Owner )
 - [ ] Contact-Us Page: Add a form that when submitted send an email to the owner with the details.
