@@ -7,7 +7,8 @@ package beans;
  * cab_number : cab number on vehicle
  */
 public class CabBean {
-private String geotab_serial_number, cab_number;
+private String geotab_serial_number;
+int cab_number;
 private int capacity;
 
 public String getGeotab_serial_number() {
@@ -26,11 +27,11 @@ public void setCapacity(int p) {
 	this.capacity = p;
 }
 
-public String getCab_number() {
+public int getCab_number() {
 	return cab_number;
 }
 
-public void setCab_number(String f) {
+public void setCab_number(int f) {
 	this.cab_number = f;
 }
 
