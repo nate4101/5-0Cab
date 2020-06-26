@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.LogBean;
 import beans.RequestBean;
-
+import beans.LogBean.logtype;
 import helper.DBHelper;
 
 public class CreateRequest extends HttpServlet{
@@ -25,7 +26,7 @@ public class CreateRequest extends HttpServlet{
 	{
 		PrintWriter printWriter = res.getWriter();
 		
-		printWriter.println("test");
+		printWriter.println("You Shouldn't be here... but hello!");
 		//req.getRequestDispatcher("/index.jsp").forward(req, res);
 		return;
 	}
@@ -67,10 +68,28 @@ public class CreateRequest extends HttpServlet{
 		rb.setDetails(instructions);
 		System.out.println("Request:");
 		System.out.println(id+"|"+loc+"|"+size+"|"+coordinates[0]+"|"+coordinates[1]+"|"+time.toString()+"|"+instructions+"|");
+		// Remote address : https://stackoverflow.com/questions/11683246/get-ip-address-of-client-in-jsp
+		String ip = req.getHeader("X-Forwarded-For");  
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+            ip = req.getHeader("Proxy-Client-IP");  
+        }  
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+            ip = req.getHeader("WL-Proxy-Client-IP");  
+        }  
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+            ip = req.getHeader("HTTP_CLIENT_IP");  
+        }  
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+            ip = req.getHeader("HTTP_X_FORWARDED_FOR");  
+        }  
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+            ip = req.getRemoteAddr();  
+        }
+        ip = req.getRemoteAddr();
 		// Database connection
-		DBHelper db = new DBHelper();
+		DBHelper db = new DBHelper(ip);
 		try {
-			boolean result = db.uploadNewRequest(rb);
+			boolean result = db.create_req(rb);
 			if(!result)
 			{
 				req.setAttribute("error", "upload_fail");
@@ -78,12 +97,15 @@ public class CreateRequest extends HttpServlet{
 				return;
 			}
 			else {
+				db.create_log(new LogBean("New Request to: "+loc, ip, logtype.EndUser));
 				req.setAttribute("cookie", id);
-				req.getRequestDispatcher("/activeRequest.jsp").forward(req, res);
+				req.setAttribute("success", "Successful Request made");
+				req.getRequestDispatcher("/uploadRequest.jsp").forward(req, res);
 				return;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			req.setAttribute("error", "database connection error refresh and try again");
+			req.getRequestDispatcher("/index.jsp").forward(req, res);
 		} finally {
 			db.closeConnection();
 		}

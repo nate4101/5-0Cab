@@ -614,7 +614,7 @@ public class DBHelper {
 	 * Decline a request with a message
 	 * @param uuid - request id to decline
 	 * @param reason - reason declined
-	 * @return true for succes, false otherwise
+	 * @return true for success, false otherwise
 	 */
 	public boolean update_req_decline(String uuid, String reason) {
 		try {

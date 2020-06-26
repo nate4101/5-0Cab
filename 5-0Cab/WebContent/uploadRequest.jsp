@@ -63,10 +63,19 @@
 </nav>
 <br>
 <!-- End of NavBar -->
+<!-- Checking some messages -->
 <% if(request.getAttribute("error")!=null) {
 %>
 <div class="alert alert-danger" role="alert">
   <% out.println(request.getAttribute("error")); %>
+</div>
+<%
+}
+%>
+<% if(request.getAttribute("success")!=null) {
+%>
+<div class="alert alert-success" role="alert">
+  <% out.println(request.getAttribute("success")); %>
 </div>
 <%
 }
