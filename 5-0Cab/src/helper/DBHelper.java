@@ -6,6 +6,7 @@ import java.util.List;
 
 import beans.RequestBean;
 import beans.CabBean;
+import beans.LogBean;
 /**
  * DB Helper Class
  * @author Nate4101
@@ -62,6 +63,20 @@ public class DBHelper {
 			stmnt.setString(1, bean.getGeotab_serial_number());
 			stmnt.setInt(2, bean.getCapacity());
 			stmnt.setString(3, bean.getCab_number());
+			int result = stmnt.executeUpdate();
+			return(result>0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean create_Log(LogBean bean) {
+		try {
+			CallableStatement stmnt = connection.prepareCall("{CALL create_log(?,?,?,?)}");
+			stmnt.setString(1, bean.getText());
+			stmnt.setString(2, bean.getTime());
+			stmnt.setString(3, bean.getIp());
+			stmnt.setString(4, bean.getType());
 			int result = stmnt.executeUpdate();
 			return(result>0);
 		} catch (Exception e) {
