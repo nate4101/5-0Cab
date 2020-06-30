@@ -63,7 +63,7 @@ public class CreateRequest extends HttpServlet{
 		rb.setLocation(loc);
 		rb.setLat(Double.parseDouble(coordinates[0]));
 		rb.setLon(Double.parseDouble(coordinates[1]));
-		rb.setReq_time(dateFormat[0]+" "+dateFormat[1]);
+		rb.setDisplay_time(dateFormat[0]+" "+dateFormat[1]);
 		rb.setSize(Integer.parseInt(size));
 		rb.setDetails(instructions);
 		System.out.println("Request:");
@@ -85,7 +85,6 @@ public class CreateRequest extends HttpServlet{
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
             ip = req.getRemoteAddr();  
         }
-        ip = req.getRemoteAddr();
 		// Database connection
 		DBHelper db = new DBHelper(ip);
 		try {

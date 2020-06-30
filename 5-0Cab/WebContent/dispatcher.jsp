@@ -89,7 +89,7 @@
 $(document).ready(function() {
 	var events = $('#events');
     var table = $('#example').DataTable( {
-    	"ajax": '${pageContext.request.contextPath}/RetreiveRequests',
+    	"ajax": '${pageContext.request.contextPath}/RetrieveRequests?formatted=true',
     	dom: 'Bfrtip',
     	select: true,
     	
@@ -97,7 +97,12 @@ $(document).ready(function() {
     	    {data:'location'},
     	    {data:'size'},
     	    {data:'details'},
-    	    {data:'req_time'},
+    	    {data:'time',
+    	    	render:{
+    	    		_:'display',
+    	    		sort:'sort'
+    	    	}
+    	    },
     	    {
     	    	data:'state',
     	    	render: function(data,type,row){

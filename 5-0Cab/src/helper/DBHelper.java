@@ -1,6 +1,8 @@
 package helper;
 
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -131,7 +133,7 @@ public class DBHelper {
 		stmnt.setInt(3, bean.getSize());
 		stmnt.setDouble(4, bean.getLat());
 		stmnt.setDouble(5, bean.getLon());
-		stmnt.setString(6, bean.getReq_time());
+		stmnt.setString(6, bean.getDisplay_time());
 		stmnt.setString(7, bean.getDetails());
 		int result = stmnt.executeUpdate();
 		if(result>0) {
@@ -321,7 +323,9 @@ public class DBHelper {
 				rb.setSize(results.getInt("size"));
 				rb.setLat(results.getDouble("lat"));
 				rb.setLon(results.getDouble("lon"));
-				rb.setReq_time(results.getString("req_time"));
+				rb.setDisplay_time(results.getString("time_display"));
+				String convertableString = results.getString("time_raw").split("\\s+")[0]+"T"+results.getString("time_raw").split("\\s+")[1];
+				rb.setSorted_time(LocalDateTime.parse(convertableString).toEpochSecond(ZoneOffset.UTC));
 				rb.setDetails(results.getString("details"));
 				rb.setState(results.getInt("state"));
 				rb.setCompleted(results.getBoolean("completed"));
@@ -350,7 +354,7 @@ public class DBHelper {
 		RequestBean rb;
 		ResultSet results;
 		try {
-			CallableStatement stmnt = connection.prepareCall("{CALL retreive_reqs_all()}");
+			CallableStatement stmnt = connection.prepareCall("{CALL retrieve_reqs_all()}");
 			results = stmnt.executeQuery();
 			int rowcount = 0;
 			while(results.next())
@@ -361,7 +365,14 @@ public class DBHelper {
 				rb.setSize(results.getInt("size"));
 				rb.setLat(results.getDouble("lat"));
 				rb.setLon(results.getDouble("lon"));
-				rb.setReq_time(results.getString("req_time"));
+				rb.setDisplay_time(results.getString("time_display"));
+				System.out.println("Database time_display: "+results.getString("time_display"));
+				String convertableString = results.getString("time_raw").split("\\s+")[0]+"T"+results.getString("time_raw").split("\\s+")[1];
+				long sortTime = LocalDateTime.parse(convertableString).toEpochSecond(ZoneOffset.UTC);
+				System.out.println("Database time_sort: "+ sortTime);
+				rb.setSorted_time(sortTime);
+				System.out.println("Database time_sort: "+ rb.getSorted_time());
+				//System.out.println(rb.getSorted_time());
 				rb.setDetails(results.getString("details"));
 				rb.setState(results.getInt("state"));
 				rb.setCompleted(results.getBoolean("completed"));
@@ -369,7 +380,7 @@ public class DBHelper {
 				reqsBeans.add(rb);
 				rowcount++;
 			}
-			create_log(new LogBean("Retrieve all reqs, result length: "+rowcount, ip, logtype.Database_Retrieve));
+			create_log(new LogBean("Retrieve "+rowcount+"requests", ip, logtype.Database_Retrieve));
 			return reqsBeans;
 		}
 		catch(Exception e) {
@@ -403,7 +414,9 @@ public class DBHelper {
 				rb.setSize(results.getInt("size"));
 				rb.setLat(results.getDouble("lat"));
 				rb.setLon(results.getDouble("lon"));
-				rb.setReq_time(results.getString("req_time"));
+				rb.setDisplay_time(results.getString("time_display"));
+				String convertableString = results.getString("time_raw").split("\\s+")[0]+"T"+results.getString("time_raw").split("\\s+")[1];
+				rb.setSorted_time(LocalDateTime.parse(convertableString).toEpochSecond(ZoneOffset.UTC));
 				rb.setDetails(results.getString("details"));
 				rb.setState(results.getInt("state"));
 				rb.setCompleted(results.getBoolean("completed"));
@@ -449,7 +462,9 @@ public class DBHelper {
 				rb.setSize(results.getInt("size"));
 				rb.setLat(results.getDouble("lat"));
 				rb.setLon(results.getDouble("lon"));
-				rb.setReq_time(results.getString("req_time"));
+				rb.setDisplay_time(results.getString("time_display"));
+				String convertableString = results.getString("time_raw").split("\\s+")[0]+"T"+results.getString("time_raw").split("\\s+")[1];
+				rb.setSorted_time(LocalDateTime.parse(convertableString).toEpochSecond(ZoneOffset.UTC));
 				rb.setDetails(results.getString("details"));
 				rb.setState(results.getInt("state"));
 				rb.setCompleted(results.getBoolean("completed"));

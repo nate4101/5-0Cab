@@ -15,8 +15,9 @@ package beans;
  * completed : boolean : query parameter, 
  */
 public class RequestBean {
-private String id, location, req_time, details, cabs;
+private String id, location, display_time, details, cabs;
 private int size, state;
+private long sorted_time;
 private double lat, lon;
 private boolean completed;
 public String getId() {
@@ -53,11 +54,17 @@ public double getLon() {
 public void setLon(double f) {
 	this.lon = f;
 }
-public String getReq_time() {
-	return req_time;
+public String getDisplay_time() {
+	return display_time;
 }
-public void setReq_time(String l) {
-	this.req_time = l;
+public void setDisplay_time(String l) {
+	this.display_time = l;
+}
+public long getSorted_time() {
+	return sorted_time;
+}
+public void setSorted_time(long time_sort) {
+	this.sorted_time = time_sort;
 }
 public String getDetails(){
 	return details;
@@ -83,5 +90,6 @@ public String getCabs() {
 public void setCabs(String l) {
 	this.cabs=l;
 }
+
 }
 

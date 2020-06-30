@@ -62,13 +62,13 @@
   </servlet-mapping>
   
   <servlet>
-  <display-name>RetreiveRequests</display-name>
-    <servlet-name>RetreiveRequests</servlet-name>
-    <servlet-class>servlets.RetreiveRequests</servlet-class>
+  <display-name>RetrieveRequests</display-name>
+    <servlet-name>RetrieveRequests</servlet-name>
+    <servlet-class>servlets.RetrieveRequests</servlet-class>
 </servlet>
 <servlet-mapping>
-    <servlet-name>RetreiveRequests</servlet-name>
-    <url-pattern>/RetreiveRequests</url-pattern>
+    <servlet-name>RetrieveRequests</servlet-name>
+    <url-pattern>/RetrieveRequests</url-pattern>
 </servlet-mapping>
   
 </web-app>
