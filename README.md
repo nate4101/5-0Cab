@@ -34,7 +34,7 @@ Get: ...\RetrieveRequests\? {param id} = [param value] & key=[your_key]
 - [ ] Front Page Website: Content and photos ( Waiting on 5-0 Cab Owner )
 - [ ] Contact-Us Page: Add a form that when submitted send an email to the owner with the details.
 - [ ] Request Form Page: Add a Cookie upon being confirmed. Check for active request, add fixed-bottom footer if one exists linking to the map page.
-- [ ] Map Page : Overhaul Completely, Move to Bing Maps Web V8 SDK, get all cabs for current request ID, using geotab API helper. When cab location is close to your location ~10-20m radius, the request times out and sends an html audio single it has arrived.
+- [ ] activeRequest.jsp : Overhaul Completely, Move to Bing Maps Web V8 SDK, get all cabs for current request ID, using geotab API helper. When cab location is close to your location ~10-20m radius, the request times out and sends an html audio single it has arrived.
 - [ ] Add checks for dispatcher being online, redirect to calling feature if not online.
 ### Dispatcher/Admin:
 - [ ] Login, and reset password. 
