@@ -65,6 +65,7 @@
                 <th>Details</th>
                 <th>Date</th>
                 <th>Status</th>
+                <th>Cabs</th>
             </tr>
         </thead>
         <tbody>
@@ -87,17 +88,23 @@
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <script>
 $(document).ready(function() {
-	var events = $('#events');
+	var cabnums = {1:50,2: 48, 3: 20}; // TODO: Populate from ajax
     var table = $('#example').DataTable( {
-    	"ajax": '${pageContext.request.contextPath}/RetrieveRequests?formatted=true',
+    	ajax: '${pageContext.request.contextPath}/RetrieveRequests?formatted=true',
     	dom: 'Bfrtip',
     	select: true,
-    	
     	columns:[
-    	    {data:'location'},
-    	    {data:'size'},
-    	    {data:'details'},
-    	    {data:'time',
+    	    {
+    	    	data:'location'
+    	    },
+    	    {
+    	    	data:'size'
+    	    },
+    	    {
+    	    	data:'details'
+    	    },
+    	    {
+    	    	data:'time',
     	    	render:{
     	    		_:'display',
     	    		sort:'sort'
@@ -117,6 +124,9 @@ $(document).ready(function() {
     	    		else
     	    			$(cell).addClass('bg-warning');
     	    	}
+    	    },
+    	    {
+    	    	data:'cabs'
     	    }
     	],
     	order: [],
@@ -124,10 +134,21 @@ $(document).ready(function() {
     		{
     			text: 'Submit',
     			action: function () {
-    	        	var data = table.rows( { selected: true } ).data();
-    	        	if(typeof data[0] === 'undefined')
-    	        		alert("Please Select a row before comfirming");
-    	     		console.log(data[0]);
+    	        	var data = table.rows({selected: true}).data();
+    	        	//var data = table.$('input, select').serialize();
+    	        	//var data = table.rows().data();
+    	        	
+    	        	console.log(data[0]);
+    			}
+    		},
+    		{
+    			text: 'Decline',
+    			action: function () {
+    	        	var data = table.rows({selected: true}).data();
+    	        	//var data = table.$('input, select').serialize();
+    	        	//var data = table.rows().data();
+    	        	alert("Declining: "+data[0].location)
+    	        	console.log(data[0]);
     			}
     		}
     	]
