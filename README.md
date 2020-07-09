@@ -45,5 +45,6 @@ Get: ...\RetrieveRequests\? {param id} = [param value] & key=[your_key]
 - [ ] ...
 ### Low Priority Developer:
 - [ ] Remove current 5-0cab.ca hosting, free up that domain, or reroute it to the new page hosted on amazon.
-- [ ] SSL certificate
+- [ ] SSL certificate ->
+- [ ] After SSL certificate, veryify all cdn and scripts especially bing is using https
 - [ ] Amazon load balancing to prevent DDOS attacks
