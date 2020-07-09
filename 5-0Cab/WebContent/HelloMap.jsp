@@ -141,7 +141,9 @@
 	<script src="js/jquery-3.5.1.js"></script> 
 	<!-- Popper then... -->
 	<script type="text/javascript">
-		var x = <% request.getAttribute("coords");%>;
+		var lat = <% request.getAttribute("lat");%>;
+		var lon = <% request.getAttribute("lon");%>;
+		console.log("Coords, lat: "lat+", lon: "+lon);
 	</script>
 	<script src="js/popper.min.js"></script> 
 	<!-- Bootstrap... -->

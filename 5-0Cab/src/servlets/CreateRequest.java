@@ -99,12 +99,14 @@ public class CreateRequest extends HttpServlet{
 				db.create_log(new LogBean("New Request to: "+loc, ip, logtype.EndUser));
 				req.setAttribute("cookie", id);
 				req.setAttribute("success", "Successful Request made");
-				req.getRequestDispatcher("/uploadRequest.jsp").forward(req, res);
+				req.setAttribute("lat", coordinates[0]);
+				req.setAttribute("lon", coordinates[1]);
+				req.getRequestDispatcher("/HelloMap.jsp").forward(req, res);
 				return;
 			}
 		} catch (Exception e) {
 			req.setAttribute("error", "database connection error refresh and try again");
-			req.getRequestDispatcher("/index.jsp").forward(req, res);
+			req.getRequestDispatcher("/uploadRequest.jsp").forward(req, res);
 		} finally {
 			db.closeConnection();
 		}

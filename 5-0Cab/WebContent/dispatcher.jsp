@@ -37,6 +37,11 @@
 	<div class="col-0 col-sm-2 col-md-2 col-lg-0 "></div>
 	<div class="collapse navbar-collapse" id="navbarCollapse">
    		<ul class="navbar-nav">
+   		<li class="nav-item active">
+   				<hr>
+   				<a class="nav-link " href="${pageContext.request.contextPath}/index.jsp">Home Page >></a>
+       			<hr>
+     		</li>
    			<li class="nav-item active">
    				<hr>
    				<a class="nav-link " href="#">How To Book a Cab? </a>
