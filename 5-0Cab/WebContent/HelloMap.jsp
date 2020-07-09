@@ -6,7 +6,7 @@
 	<meta charset="ISO-8859-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="Nathan Young, 2020">
-	<title>Request a 5-0 Cab</title>
+	<title>Current Request</title>
 
 
 	<!--  For Bootstrap Styling  -->
@@ -75,81 +75,74 @@
 <% if(request.getAttribute("success")!=null) {
 %>
 <div class="alert alert-success" role="alert">
-  <% out.println(request.getAttribute("success")); %>
+  <% out.println(request.getAttribute("lat"));
+  	 out.println(request.getAttribute("lon"));%>
 </div>
 <%
 }
 %>
 <!-- Card for Request Form -->
-<div class="container">
-	<div class = "row">
-		<div class="col-12">
-			<!-- Card -->
-			<div class="card bg-light text-dark">
-				<div class="card-header bg-light text-center">
-					<h1 class="text-dark">Request Form</h1>
-				</div>
-				<!-- Card Body -->
-				<div class="card-body border-dark border-rounded" >
-					<!-- Submission Form -->
-        			<form action="CreateRequest" method="post" autocomplete="off">
-        				<h3>Required:</h3>
-        				<div class="form-group">
-        					<label for="bing-suggestion">Enter Your Location:</label>
-        						<input style ="width: 95%; box-sizing: auto !important;" type="text" id='searchBox' class="form-control" placeholder="Search Box" required>	
-        					<small id='searchBoxContainer' class="text-muted"></small>
-        				</div>
-        				<!-- Hidden Form for Location, passed to the backend, written by the bing api -->
-                            <div class="form-group">
-            				<!-- Pickup Location String -->
-                            	<input type="hidden" class="form-control" id="location" name="loc" maxlength="127" value="" required>
-                            </div>
-                         <!-- Hidden Form for lat and lon, passed to the backend, written by the bing api -->
-                         <div class="form-group">
-            				<!-- Pickup Location String -->
-                            	<input type="hidden" class="form-control" id="coords" name="coordinates" maxlength="127" value="" required>
-                            </div>
-    						<div class="form-group">
-  								<label for="size">Number of Passengers:</label>
-  								<input type="number" class="form-control" name="size" min="1" step="1" id="num-input" required>
-  								 <small id="inline" class="text-muted">
-      								1 or more
-    							</small>   
-						    </div>
-						    <hr>
-						    <h3>Optional:</h3>
-							<div class="form-group">
-                            	<label for="instructions">Extra Details:<b> Default: Empty</b></label>
-                            	<textarea class="form-control" name="instructions" rows= "4" maxlength="127"></textarea>
-                            <small id="inline" class="text-muted">
-      							Maximum of 127 Characters.
-    						</small>
-    						</div>
-                           <div class="text-center">
-                                <input type="submit" class="btn btn-outline-dark" value="Send Request"> 
-                            </div>      
-                        </form>
-				</div>	
-			</div>
-		</div>
-		
-	</div>
-</div>  	
 
+		
+			<!-- Card -->
+			<div class="conatiner container-fluid">
+				<div id="myMap" style="position:relative;width:100%;height:400px; margin : auto;"></div>
+		
+			</div>
+			
+		
+	
+	
+<!-- Globals... -->
+	<script type="text/javascript">
+		var lat = <%= request.getAttribute("lat") %>;
+		var lon = <%= request.getAttribute("lon") %>;
+		console.log("Coords, lat: "+lat+", lon: "+lon);
+	</script>
 <!-- Default datetime-local object for form... is there a better way to do this? -->
 	<!-- Jquery then...-->
 	<script src="js/jquery-3.5.1.js"></script> 
 	<!-- Popper then... -->
-	<script type="text/javascript">
-		var lat = <% request.getAttribute("lat");%>;
-		var lon = <% request.getAttribute("lon");%>;
-		console.log("Coords, lat: "lat+", lon: "+lon);
-	</script>
 	<script src="js/popper.min.js"></script> 
 	<!-- Bootstrap... -->
 	<script src="js/bootstrap-4.0.0.js"></script>
 	<!-- bing maps web v8 sdk -->
-    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Au8wJoDxUyZXZ-x6Er5X1JD2cgKRT9syoPDsFq8b6tLFrbH5y3EYUb_8rrItR2Eo&callback=loadMapScenario' async defer></script> 
+    <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=Au8wJoDxUyZXZ-x6Er5X1JD2cgKRT9syoPDsFq8b6tLFrbH5y3EYUb_8rrItR2Eo' async defer></script>
+	<!-- Map Logic -- Abstact into .js -->
+	<script type='text/javascript'>
+    async function GetMap()
+    {
+    	var auth;
+    	var creds;
+    	var path;
+    	await fetch('https://my.geotab.com/apiv1/Authenticate?password=SF7VhwLfRvvXDv7&userName=nate4101@gmail.com&database=5_0Cab')
+    	.then(response=>response.json()).then(json=>auth=json);
+    	console.log(auth);
+    	path = auth.result.path;
+        creds=auth.result.credentials;
+        console.log(JSON.stringify(creds));
+        console.log(path);
+        var results;
+        var url = 'https://'+path+'/apiv1/Get?credentials='+JSON.stringify(creds)+'&typeName=DeviceStatusInfo&search={"deviceSearch":{"id":"b1"}}';
+        await fetch(url).then(response=>response.json()).then(json=>results=json);
+        console.log(results.result[0].latitude);
+    	var map = new Microsoft.Maps.Map('#myMap');
+        var location1 = new Microsoft.Maps.Location(lat,lon);
+        var location2 = new Microsoft.Maps.Location(results.result[0].latitude, results.result[0].longitude);
+        var arr = [location1, location2];
+        console.log(location1);
+        console.log(location2);
+        console.log(arr);
+        var locRec = new Microsoft.Maps.LocationRect.fromLocations(location1,location2);
+        map.setView({bounds: locRec});
+        var pin1 = new Microsoft.Maps.Pushpin(location2,{text:'Cab'});
+        var pin2 = new Microsoft.Maps.Pushpin(location1,{text:'Pickup'});
+        map.entities.push(pin1);
+        map.entities.push(pin2);
+		//map.setView({"bounds":});
+        //Add your post map load code here.
+    }
+    </script>
     <!-- a script that used web v8 sdk -->
 	
 </body>
