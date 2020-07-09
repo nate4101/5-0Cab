@@ -141,6 +141,7 @@
         map.entities.push(pin2);
 		//map.setView({"bounds":});
         //Add your post map load code here.
+        
     }
     </script>
     <!-- a script that used web v8 sdk -->
