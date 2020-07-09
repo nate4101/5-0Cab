@@ -70,19 +70,19 @@ public class CreateRequest extends HttpServlet{
 		System.out.println(id+"|"+loc+"|"+size+"|"+coordinates[0]+"|"+coordinates[1]+"|"+time.toString()+"|"+instructions+"|");
 		// Remote address : https://stackoverflow.com/questions/11683246/get-ip-address-of-client-in-jsp
 		String ip = req.getHeader("X-Forwarded-For");  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+        if (ip == null || ip.length() == 0 || "unknown source".equalsIgnoreCase(ip)) {  
             ip = req.getHeader("Proxy-Client-IP");  
         }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+        if (ip == null || ip.length() == 0 || "unknown source".equalsIgnoreCase(ip)) {  
             ip = req.getHeader("WL-Proxy-Client-IP");  
         }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+        if (ip == null || ip.length() == 0 || "unknown source".equalsIgnoreCase(ip)) {  
             ip = req.getHeader("HTTP_CLIENT_IP");  
         }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+        if (ip == null || ip.length() == 0 || "unknown source".equalsIgnoreCase(ip)) {  
             ip = req.getHeader("HTTP_X_FORWARDED_FOR");  
         }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+        if (ip == null || ip.length() == 0 || "unknown source".equalsIgnoreCase(ip)) {  
             ip = req.getRemoteAddr();  
         }
 		// Database connection

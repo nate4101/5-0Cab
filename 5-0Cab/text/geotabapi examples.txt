@@ -1,0 +1,15 @@
+Geotab SDK Stuff
+~~~~~~~~~~~~~~~~~~
+General Structure:
+https://[myserver]/apiv1/[methodname]?[parameters]
+ie) https://path/apiv1/get?typename=devices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Method (Authenticate(...))
+https://my934.geotab.com/apiv1/Authenticate?password=SF7VhwLfRvvXDv7&userName=nate4101@gmail.com&database=5_0Cab
+Returns: 
+- results.Credentials needed for other calls ex) {"credentials":{"database":"5_0cab","sessionId":"_JfZsuZo8d12SW5D2Xt5Wg","userName":"nate4101@gmail.com"}
+- results.Path the url to be used by other methods ex) "path":"my934.geotab.com"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Method (Get(...))
+https://"path"/apiv1/Get?credentials={credentials}typename="DeviceStatusInfo"&search={deviceStatusInfoSearchObject}
+https://my934.geotab.com/apiv1/Get?credentials={%22database%22:%225_0cab%22,%22sessionId%22:%22_JfZsuZo8d12SW5D2Xt5Wg%22,%22userName%22:%22nate4101@gmail.com%22}&typeName=DeviceStatusInfo&search={%22deviceSearch%22:{%22id%22:%22b1%22}}

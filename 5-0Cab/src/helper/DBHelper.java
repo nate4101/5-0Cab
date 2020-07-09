@@ -226,10 +226,10 @@ public class DBHelper {
 	 * @param cabnum the number on the cab to get the gps serial number for
 	 * @return serial number if it can be found, null otherwise
 	 */
-	public String retrieve_cab_serialNumber(int cabnum) {
+	public String retrieve_cab_byCab_Num(int cabnum) {
 		ResultSet results;
 		try {
-			CallableStatement stmnt = connection.prepareCall("{Call retrieve_cab_serialNumber(?)}");
+			CallableStatement stmnt = connection.prepareCall("{Call retrieve_cab_byCab_Num(?)}");
 			stmnt.setInt(1, cabnum);
 			results = stmnt.executeQuery();
 			results.first();
@@ -240,6 +240,22 @@ public class DBHelper {
 			return null;
 		}
 	}
+	
+	public String retrieve_cab_byId(String idString) {
+		ResultSet results;
+		try {
+			CallableStatement stmnt = connection.prepareCall("{Call retrieve_cab_byId(?)}");
+			stmnt.setString(1, idString);
+			results = stmnt.executeQuery();
+			results.first();
+			return results.getString(0);
+		} catch (Exception e) {
+			create_log(new LogBean("Database exception: "+e.toString(), ip, logtype.Database_Error));
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	/**
 	 * Retrieve all cab objects, convertible to JSON
 	 * @return list of cabBeans, empty if none, null if error

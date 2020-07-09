@@ -1,0 +1,72 @@
+///////////////
+// Geocoding
+///////////////
+API:http://dev.virtualearth.net/REST/v1/Locations/
+Location:CA/ON/P1B/North%20Bay/
+Address:20%20Maplewood?
+[Optional xml]:o=xml&
+Key:key=Ao77E8HCP8GxqLhthr-3IIuFJb4Ct3z1scaismPbqFOh3kZhqDT4kqUxssNP2hTR
+Notes: "Space Key" -> %20
+URL = API+Location+Address+[Optional xml]+key
+Example (JSON):
+http://dev.virtualearth.net/REST/v1/Locations/CA/ON/P1B/North%20Bay/20%20Maplewood?key=Ao77E8HCP8GxqLhthr-3IIuFJb4Ct3z1scaismPbqFOh3kZhqDT4kqUxssNP2hTR
+Example (XLM): (un-used)
+http://dev.virtualearth.net/REST/v1/Locations/CA/ON/P1B/North%20Bay/20%20Maplewood?o=xml&key=Ao77E8HCP8GxqLhthr-3IIuFJb4Ct3z1scaismPbqFOh3kZhqDT4kqUxssNP2hTR
+
+///////////////////
+// Distance Matrix
+///////////////////
+API: https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix
+Cells: ?origins={lat0,long0;lat1,lon1;latM,lonM}&destinations={lat0,lon0;lat1,lon1;latN,longN}
+TravelMode: &travelMode=driving
+[Optional] startTime: &startTime=YYYY-MM-DDTHH:MM:SS[-4:00] (-4:00 is optional, but referes to the time zone -4GMT ie... Eastern Standard Time ie... North Bays time zone)
+Key: &key=Ao77E8HCP8GxqLhthr-3IIuFJb4Ct3z1scaismPbqFOh3kZhqDT4kqUxssNP2hTR
+URL = API+Cells+TravelMode+Key
+Example: Travel time in minutes from 1003 Premier Road to 495 Oak St W is on March 20th 2020 @ : 2:15AM
+https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins=46.2539143,-79.4255361&destinations=46.31509,-79.46954&travelMode=driving&startTime=2020-03-20T02:15:00-4:00&key=Ao77E8HCP8GxqLhthr-3IIuFJb4Ct3z1scaismPbqFOh3kZhqDT4kqUxssNP2hTR
+"travelDistance":7.924,"travelDuration":15.383" (Where Distance is in kilometers and Duration is in Minutes) (-1 implies unable to resolve distance and or a route)
+
+//////////////////////
+// Static Map Imagery
+//////////////////////
+Full:
+https://dev.virtualearth.net/REST/v1/Imagery/Map/imagerySet?mapArea={mapArea}&mapSize={mapSize}&pushpin={pushpin}&mapLayer={mapLayer}&format={format}&mapMetadata=mapMetadata}&key={BingMapsAPIKey}  
+imageryset={Road, CanvasDark,CanvasLight,CanvasGray,Aerial,Steetside... and more... https://docs.microsoft.com/en-us/bingmaps/rest-services/imagery/get-a-static-map}
+Condensed:https://dev.virtualearth.net/REST/v1/Imagery/Map/imagerySet?mapArea={mapArea}&mapSize={mapSize}&mapLayer=Basemap&format={format}&key={BingMapsAPIKey}  
+API: https://dev.virtualearth.net/REST/v1/Imagery/Map/Road?
+
+mapArea=-79.491741,46.303696,-79.439384,46.337425	Required when a center point not specified. 
+mapsize=[80,2000],[80,1500] ie) mapsize=720,720
+drawCurve=<shape type>,<style type>[;coordinates].
+shape: Line(l) or Curve(cv), or Polygon(p), or Circle(c)
+style:[line color],[line thickness], or [outline color],[fill color],[outline thickness], or [outline line color],[fill color],[outline thickness],[circular radius]
+;coordinates = ;lat,lon
+drawcurve=<l>,<[f00000],[2][46.318690, -79.457433],[46.329145, -79.466403]>,
+&dc=l,FF009900,3;37.428175,-122.16968_37.737368,-122.422845_37.869505,-122.2705
+format=jpeg, (default, or try png, or gif if for some reason?)
+
+Key:key=Ao77E8HCP8GxqLhthr-3IIuFJb4Ct3z1scaismPbqFOh3kZhqDT4kqUxssNP2hTR
+
+Examples:
+https://dev.virtualearth.net/REST/V1/Imagery/Map/Road?mapArea=46.159673,-79.690847,46.478352,-79.225302&ms=500,600&drawCurve=l,FFFF5064,2;46.331972,-79.487025_46.316241,-79.454669&key=Ao77E8HCP8GxqLhthr-3IIuFJb4Ct3z1scaismPbqFOh3kZhqDT4kqUxssNP2hTR
+https://dev.virtualearth.net/REST/V1/Imagery/Map/Road?mapArea=46.159673,-79.690847,46.478352,-79.225302&ms=500,600&pp=46.310330,-79.448120;34;cs8&drawCurve=l,FFFF5064,2;46.331972,-79.487025_46.316241,-79.454669&key=Ao77E8HCP8GxqLhthr-3IIuFJb4Ct3z1scaismPbqFOh3kZhqDT4kqUxssNP2hTR
+maparea=46.301903,-79.490083,46.343632,-79.433806
+&drawCurve=l,FFFF5064,2;46.331972,-79.487025_46.316241,-79.454669_46.310330,-79.448120
+&drawCurve=l,FF0000FF,2;46.310330,-79.448120_46.335080,-79.473334
+46.310330,-79.448120
+&zoomLevel=10
+&pp=lattitude,longitude;style(0-34-136);[label ( 3 digits or letter max)
+&pp=46.310330,-79.448120;35;8
+
+https://dev.virtualearth.net/REST/V1/Imagery/Map/Road/46.31514,-79.45586?zoomLevel=10&drawCurve=l,FFFF5064,2;46.331972,-79.487025_46.316241,-79.454669&key=Ao77E8HCP8GxqLhthr-3IIuFJb4Ct3z1scaismPbqFOh3kZhqDT4kqUxssNP2hTR
+
+
+
+
+
+
+
+
+
+
+
