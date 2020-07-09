@@ -24,6 +24,7 @@ Get: ...\RetrieveRequests\? {param id} = [param value] & key=[your_key]
 
 # TODO
 ### Developer Code To prioritize:
+- [ ] Update all post methods to follow a PRG pattern, or use ajax, redirect upon success (probabaly more user friendly)
 - [ ] Update all Servlets to properly server data. Json for retreive all/ retreive select, plain text for dispatcherOnline, and cab serial and cabnums
 - [ ] Add logs to all endpoints
 - [ ] Overhaul old login system for java using: PBKDF2 with hashing for passwords. Set an envrioment variable in request object and check against database secure value.
