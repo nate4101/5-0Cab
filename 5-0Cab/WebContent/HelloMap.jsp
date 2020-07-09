@@ -86,7 +86,7 @@
 		
 			<!-- Card -->
 			<div class="conatiner container-fluid">
-				<div id="myMap" style="position:relative;width:100%;height:400px; margin : auto;"></div>
+				<div id="myMap" style="position:relative;width:90%;height:500px; margin : auto;"></div>
 		
 			</div>
 			
@@ -122,26 +122,46 @@
         creds=auth.result.credentials;
         console.log(JSON.stringify(creds));
         console.log(path);
+        var initialized=false;
         var results;
-        var url = 'https://'+path+'/apiv1/Get?credentials='+JSON.stringify(creds)+'&typeName=DeviceStatusInfo&search={"deviceSearch":{"id":"b1"}}';
-        await fetch(url).then(response=>response.json()).then(json=>results=json);
-        console.log(results.result[0].latitude);
-    	var map = new Microsoft.Maps.Map('#myMap');
-        var location1 = new Microsoft.Maps.Location(lat,lon);
-        var location2 = new Microsoft.Maps.Location(results.result[0].latitude, results.result[0].longitude);
-        var arr = [location1, location2];
-        console.log(location1);
-        console.log(location2);
-        console.log(arr);
-        var locRec = new Microsoft.Maps.LocationRect.fromLocations(location1,location2);
-        map.setView({bounds: locRec});
-        var pin1 = new Microsoft.Maps.Pushpin(location2,{text:'Cab'});
-        var pin2 = new Microsoft.Maps.Pushpin(location1,{text:'Pickup'});
-        map.entities.push(pin1);
-        map.entities.push(pin2);
-		//map.setView({"bounds":});
-        //Add your post map load code here.
-        
+        var map = new Microsoft.Maps.Map('#myMap');
+        	setInterval(async function(){
+        		
+        		var url = 'https://'+path+'/apiv1/Get?credentials='+JSON.stringify(creds)+'&typeName=DeviceStatusInfo&search={"deviceSearch":{"id":"b1"}}';
+                await fetch(url).then(response=>response.json()).then(json=>results=json);
+                console.log(results.result[0].latitude);	
+                var location1 = new Microsoft.Maps.Location(lat,lon);
+                var location2 = new Microsoft.Maps.Location(results.result[0].latitude, results.result[0].longitude);
+                var arr = [location1, location2];
+                console.log(location1);
+                console.log(location2);
+                console.log(arr);
+                var locRec = new Microsoft.Maps.LocationRect.fromLocations(location1,location2);
+                var pin1 = new Microsoft.Maps.Pushpin(location1,{text:'Pickup'}); 
+                var pin2 = new Microsoft.Maps.Pushpin(location2,{text:'Cab'});
+                if(!initialized)
+                {
+                	console.log("Initializing");
+                	
+                	map.setView({bounds: locRec});
+                	map.entities.push(pin1);
+                    map.entities.push(pin2);
+                    initialized=true;
+                }
+                else{
+                	console.log("Refreshing Map");
+                	
+                	map.entities.pop();
+                	map.setView({bounds: locRec});	
+                	map.entities.push(pin2);
+                }
+                var previous = pin1;
+                
+                
+        		//map.setView({"bounds":});
+                //Add your post map load code here.) => {	
+        	}	
+			, 10000);	     
     }
     </script>
     <!-- a script that used web v8 sdk -->
