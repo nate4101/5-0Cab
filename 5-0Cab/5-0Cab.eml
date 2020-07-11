@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="mysql-connector-java-8.0.18.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/5-0Cab/WebContent/WEB-INF/lib/mysql-connector-java-8.0.18.jar!/"/>
+	</lib>
+	<lib name="servlet-api.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/5-0Cab/WebContent/WEB-INF/lib/servlet-api.jar!/"/>
+	</lib>
+	<lib name="json-20190722.jar" scope="COMPILE">
+		<srcroot url="jar://$MODULE_DIR$/WebContent/WEB-INF/lib/json-20190722-sources.jar!/"/>
+		<relative-module-src project-related="jar://$PROJECT_DIR$/5-0Cab/WebContent/WEB-INF/lib/json-20190722-sources.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/5-0Cab/WebContent/WEB-INF/lib/json-20190722.jar!/"/>
+		<relative-module-javadoc project-related="jar://$PROJECT_DIR$/5-0Cab/WebContent/WEB-INF/lib/json-20190722-javadoc.jar!/"/>
+	</lib>
+</component>
