@@ -18,30 +18,6 @@ public class LoginUser extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
-		String email = req.getParameter("email");
-		String password = req.getParameter("password");
-		DBHelper db = new DBHelper();
-		try
-		{
-			CabBean user = db.checkLoginCredentials(email, password);
-		
-			if(user == null)
-			{
-				req.setAttribute("Error_Msg", "Invalid Email or Password");
-				req.getRequestDispatcher("/login.jsp").forward(req, res);
-			}
-			else
-			{
-				String FullName = user.getuserfName() +" "+ user.getuserlName();
-				HttpSession session = req.getSession();
-				session.setAttribute("Name", FullName);
-				session.setAttribute("Role", user.getuserRole());
-				req.setAttribute("Name", FullName);
-				req.setAttribute("Role", user.getuserRole());
-				req.setAttribute("Success_Msg", "Login Was Succesful");
-				req.getRequestDispatcher("/index.jsp").forward(req, res);
-			}
-		}
-		catch(Exception e) { e.printStackTrace();};
+
 	}
 }
