@@ -14,7 +14,7 @@ import helper.DBHelper;
 public class LoginUser extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
-	public LoginUser() {};
+	public LoginUser() {}
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
