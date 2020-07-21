@@ -13,7 +13,6 @@
 <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
 <link href="css/my_css.css" rel="stylesheet">
 <!-- FontAwesome Icons Free kit -->
-<script src="https://kit.fontawesome.com/29c153f1be.js" crossorigin="anonymous"></script>
 </head>
 
 <body style="background-image: url(${pageContext.request.contextPath}/images/green.jpg);">
@@ -80,6 +79,7 @@
  				</div>
  			</div> 	
 		</div>
+
 		<div class = "col-0 col-sm-1"></div>
 	</div>
 	<br>
@@ -241,6 +241,7 @@
 </div>
 
 <!-- Scripts -->
+<script src="https://kit.fontawesome.com/29c153f1be.js" crossorigin="anonymous"></script>
 <!-- Jquery then...-->
 <script src="js/jquery-3.5.1.js"></script> 
 <!-- Popper then... -->

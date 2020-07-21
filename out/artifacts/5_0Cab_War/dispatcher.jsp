@@ -93,7 +93,8 @@
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <script>
 $(document).ready(function() {
-	var cabnums = {1:50,2: 48, 3: 20}; // TODO: Populate from ajax
+
+	var cabnums = {1:50,2: 48, 3: 20};
     var table = $('#example').DataTable( {
     	ajax: '${pageContext.request.contextPath}/RetrieveRequests?formatted=true',
     	dom: 'Bfrtip',
