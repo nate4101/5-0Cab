@@ -152,6 +152,32 @@ public class DBHelper {
 		}
 	}
 	/**
+	 * Call create_session sql statement
+	 * @param session a new geotab authentication
+	 * @return true or false for succcess
+	 */
+	public boolean create_session(String session)
+	{
+		try {
+		CallableStatement stmnt = connection.prepareCall("{CALL create_session(?)}");
+		stmnt.setString(1, session);
+		int result = stmnt.executeUpdate();
+		if(result>0) {
+			create_log(new LogBean("New geotab authentication.", ip, logtype.Database_Create));
+			return true;
+		}
+		else {
+			create_log(new LogBean("New geotab session database failure.", ip, logtype.Database_Error));
+			return false;
+		}
+		}
+		catch(Exception e) {
+			create_log(new LogBean("Database exception: "+e.toString(), ip, logtype.Database_Error));
+			e.printStackTrace();
+			return false;
+		}
+	}
+	/**
 	 * Delete a cab object... ie) we have no way to represent its location
 	 * @param cab_num int cab num
 	 * @return true for success, false for error
@@ -497,7 +523,23 @@ public class DBHelper {
 			return null;
 		}
 	}
-	
+	/**
+	 * Retrieve a string containing the current authentication token for geotab
+	 * @return string: auth_token null if error
+	 */
+	public String retrieve_sessions_authentication() {
+		ResultSet results;
+		try {
+			CallableStatement stmnt = connection.prepareCall("{Call retrieve_sessions_activeSession()}");
+			results = stmnt.executeQuery();
+			results.first();
+			return results.getString(0);
+		} catch (Exception e) {
+			create_log(new LogBean("Database exception: "+e.toString(), ip, logtype.Database_Error));
+			e.printStackTrace();
+			return null;
+		}
+	}
 	/**
 	 * Update admin of id's, user and pass
 	 * @param id - boolean, 0 for admin, 1 for dispatcher
