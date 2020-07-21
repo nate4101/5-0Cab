@@ -39,7 +39,7 @@ public class GeotabHelper {
 		JSONObject authJSON = null;
 		try {
 			//TODO move this to enviroment variables
-			authJSON = jh.readJsonFromUrl("https://my934.geotab.com/apiv1/Authenticate?password=SF7VhwLfRvvXDv7&userName=nate4101@gmail.com&database=5_0Cab");
+			authJSON = jh.readJsonFromUrl(EnviromentVariables.geotabAuthenticateURL);
 			db.create_log(new LogBean("New Credentials generate at: "+LocalDateTime.now().toString(), this.ip, logtype.EndUser));
 		} catch (Exception e) {
 			e.printStackTrace();
