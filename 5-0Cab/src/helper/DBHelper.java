@@ -77,6 +77,8 @@ public class DBHelper {
 	 * @param bean a cab bean with the details
 	 * @return 0 for no changes, or 1 for success
 	 */
+	
+	//TODO: REWRITE THIS STORED PROCEDURE IN MYSQL
 	public boolean create_cab(CabBean bean) {
 		try {
 			CallableStatement stmnt = connection.prepareCall("{CALL create_cab(?,?,?)}");
