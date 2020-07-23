@@ -82,9 +82,10 @@ public class DBHelper {
 	public boolean create_cab(CabBean bean) {
 		try {
 			CallableStatement stmnt = connection.prepareCall("{CALL create_cab(?,?,?)}");
-			stmnt.setString(1, bean.getGeotab_serial_number());
-			stmnt.setInt(2, bean.getCapacity());
-			stmnt.setInt(3, bean.getCab_number());
+			stmnt.setString(1, bean.getCab_number());
+			stmnt.setString(2, bean.getGeotab_serial_number());
+			stmnt.setInt(3, bean.getCapacity());
+			stmnt.setString(4,bean.getGeotab_Id());
 			int result = stmnt.executeUpdate();
 			if(result>0) {
 				create_log(new LogBean("Create cab: ("+bean.getGeotab_serial_number()+", "+bean.getCapacity()+", "+bean.getCab_number()+").", ip, logtype.Database_Create));
@@ -299,9 +300,10 @@ public class DBHelper {
 			while(results.next())
 			{
 				rb = new CabBean();
-				rb.setCab_number(results.getInt(1));
+				rb.setCab_number(results.getString(1));
 				rb.setGeotab_serial_number(results.getString(2));
 				rb.setCapacity(results.getInt(3));
+				rb.setGeotab_Id(results.getString(3));
 				cabBeans.add(rb);
 				rowcount ++;
 			}

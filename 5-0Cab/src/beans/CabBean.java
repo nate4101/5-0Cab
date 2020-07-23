@@ -8,8 +8,9 @@ package beans;
  */
 public class CabBean {
 private String geotab_serial_number;
-int cab_number;
+private String cab_number;
 private int capacity;
+private String geotab_Id;
 
 public String getGeotab_serial_number() {
 	return geotab_serial_number;
@@ -27,12 +28,18 @@ public void setCapacity(int p) {
 	this.capacity = p;
 }
 
-public int getCab_number() {
+public String getCab_number() {
 	return cab_number;
 }
 
-public void setCab_number(int f) {
+public void setCab_number(String f) {
 	this.cab_number = f;
+}
+public String getGeotab_Id() {
+	return this.geotab_Id;
+}
+public void setGeotab_Id(String f) {
+	this.geotab_Id=f;
 }
 
 }
