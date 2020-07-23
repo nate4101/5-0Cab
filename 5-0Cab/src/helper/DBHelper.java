@@ -78,7 +78,6 @@ public class DBHelper {
 	 * @return 0 for no changes, or 1 for success
 	 */
 	
-	//TODO: REWRITE THIS STORED PROCEDURE IN MYSQL
 	public boolean create_cab(CabBean bean) {
 		try {
 			CallableStatement stmnt = connection.prepareCall("{CALL create_cab(?,?,?)}");
@@ -243,7 +242,7 @@ public class DBHelper {
 			CallableStatement stmnt = connection.prepareCall("{Call retrieve_admin_dispatcherOnline()}");
 			results = stmnt.executeQuery();
 			results.first();
-			return results.getBoolean(0);
+			return results.getBoolean(1);
 		} catch (Exception e) {
 			create_log(new LogBean("Database exception: "+e.toString(), ip, logtype.Database_Error));
 			e.printStackTrace();
@@ -262,7 +261,7 @@ public class DBHelper {
 			stmnt.setInt(1, cabnum);
 			results = stmnt.executeQuery();
 			results.first();
-			return results.getString(0);
+			return results.getString(1);
 		} catch (Exception e) {
 			create_log(new LogBean("Database exception: "+e.toString(), ip, logtype.Database_Error));
 			e.printStackTrace();
@@ -270,14 +269,20 @@ public class DBHelper {
 		}
 	}
 	
-	public String retrieve_cab_byId(String idString) {
+	
+	public CabBean retrieve_cab_bySerial(String serialNum) {
 		ResultSet results;
 		try {
-			CallableStatement stmnt = connection.prepareCall("{Call retrieve_cab_byId(?)}");
-			stmnt.setString(1, idString);
+			CallableStatement stmnt = connection.prepareCall("{Call retrieve_cab_bySerial(?)}");
+			stmnt.setString(1, serialNum);
 			results = stmnt.executeQuery();
 			results.first();
-			return results.getString(0);
+			CabBean bean = new CabBean();
+			bean.setCab_number(results.getString(1));
+			bean.setGeotab_serial_number(results.getString(2));
+			bean.setCapacity(results.getInt(3));
+			bean.setGeotab_Id(results.getString(4));
+			return bean;
 		} catch (Exception e) {
 			create_log(new LogBean("Database exception: "+e.toString(), ip, logtype.Database_Error));
 			e.printStackTrace();
@@ -537,7 +542,7 @@ public class DBHelper {
 			CallableStatement stmnt = connection.prepareCall("{Call retrieve_sessions_activeSession()}");
 			results = stmnt.executeQuery();
 			results.first();
-			return results.getString(0);
+			return results.getString(1);
 		} catch (Exception e) {
 			create_log(new LogBean("Database exception: "+e.toString(), ip, logtype.Database_Error));
 			e.printStackTrace();
