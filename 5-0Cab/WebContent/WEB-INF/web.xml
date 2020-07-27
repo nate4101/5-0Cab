@@ -66,9 +66,20 @@
     <servlet-name>RetrieveRequests</servlet-name>
     <servlet-class>servlets.RetrieveRequests</servlet-class>
 </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>DispatcherOnline</display-name>
+  	<servlet-name>DispatcherOnline</servlet-name>
+  	<servlet-class>servlets.DispatcherOnline</servlet-class>
+  </servlet>
 <servlet-mapping>
     <servlet-name>RetrieveRequests</servlet-name>
     <url-pattern>/RetrieveRequests</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>DispatcherOnline</servlet-name>
+	<url-pattern>/DispatcherOnline</url-pattern>
 </servlet-mapping>
   
 </web-app>
