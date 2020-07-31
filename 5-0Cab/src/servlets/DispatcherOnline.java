@@ -32,7 +32,7 @@ public class DispatcherOnline extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.ses
+		//request.ses
 	}
 
 }

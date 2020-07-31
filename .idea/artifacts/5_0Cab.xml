@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="5-0Cab">
+    <output-path>$PROJECT_DIR$/out/artifacts/5_0Cab</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="5-0Cab" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="mysql-connector-java-8.0.18.jar" module-name="5-0Cab" />
+          <element id="library" level="module" name="servlet-api.jar" module-name="5-0Cab" />
+          <element id="library" level="module" name="json-20190722.jar" module-name="5-0Cab" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="5-0Cab/web/Web" />
+    </root>
+  </artifact>
+</component>

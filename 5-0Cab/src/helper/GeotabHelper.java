@@ -38,9 +38,9 @@ public class GeotabHelper {
 		JSONhelper jh = new JSONhelper();
 		JSONObject authJSON = null;
 		try {
-			//TODO move this to enviroment variables
+			// Read from path specified in Enviroment Variables
 			authJSON = jh.readJsonFromUrl(EnviromentVariables.geotabAuthenticateURL);
-			db.create_log(new LogBean("New Credentials generate at: "+LocalDateTime.now().toString(), this.ip, logtype.EndUser));
+			db.create_log(new LogBean("New Credentials generated at: "+LocalDateTime.now().toString(), this.ip, logtype.EndUser));
 		} catch (Exception e) {
 			e.printStackTrace();
 			db.create_log(new LogBean("Error creating new Authentication: "+e.toString(), this.ip, logtype.EndUser_Error));
@@ -52,6 +52,7 @@ public class GeotabHelper {
 		}
 		else {
 			// TODO Retreive Path and Credentials Objects, store them as strings to be used later
+			return true;
 		}
 	}
 	/**
