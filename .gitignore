@@ -9,9 +9,15 @@
 # Log file
 *.log
 
+#Other Files
+*.project
+*git.iml
+*git.eml
+
 # Output directory, dont need the packaged war showing up with enviroment variables
 /out/**
 /.idea/**
+/.metadata/**
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
