@@ -9,8 +9,8 @@
 # Log file
 *.log
 
-#
-5-0Cab/out/
+# Output directory, dont need the packaged war showing up with enviroment variables
+out/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
