@@ -9,6 +9,8 @@
 # Log file
 *.log
 
+#
+/out/*
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
