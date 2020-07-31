@@ -1,4 +1,4 @@
-# 5-0Cab [5-0cab.ca](http://fivezerocabbookingapp-env.eba-txkffpzh.ca-central-1.elasticbeanstalk.com/)
+# 5-0Cab [5-0cab.ca](http://5-0cab.ca-central-1.elasticbeanstalk.com)
 
 An online cab booking application for the North Bay 5-0 Cab company.
 Request a cab, to your location, view it on a map as it travels to you. Notifies you when it arrives.
