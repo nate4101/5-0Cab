@@ -1,9 +1,6 @@
 <%@ page import="helper.DBHelper" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 		 pageEncoding="ISO-8859-1"%>
-<%request.getSession(false).invalidate();
-request.getSession().setAttribute("role",null);
-	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -164,13 +161,13 @@ request.getSession().setAttribute("role",null);
 						<%}%>
 						<%	// End User
 							if(request.getSession(false).getAttribute("role")==null) { %>
-							<a href="helpBooking.jsp" class="btn btn-lg btn-outline-dark nav-link mt-0" type="button">
-								Help Booking
-								<i class="fa fa-question" aria-hidden="true"></i>
-							</a>
-							<a href="contactUs.jsp" class="btn btn-lg btn-outline-dark nav-link mt-1" type="button">
+							<a href="contactUs.jsp" class="btn btn-lg btn-outline-dark nav-link mt-0" type="button">
 								Contact Us
 								<i class="fa fa-envelope" aria-hidden="true"></i>
+							</a>
+							<a href="helpBooking.jsp" class="btn btn-lg btn-outline-dark nav-link mt-1" type="button">
+								Help Booking
+								<i class="fa fa-question" aria-hidden="true"></i>
 							</a>
 						<%}%>
 						</ul>
@@ -393,48 +390,16 @@ request.getSession().setAttribute("role",null);
 
 
 <!-- Scripts -->
-<script src="https://kit.fontawesome.com/29c153f1be.js" crossorigin="anonymous"></script>
 <!-- Jquery then...-->
 <script src="js/jquery-3.5.1.js"></script> 
 <!-- Popper then... -->
 <script src="js/popper.min.js"></script> 
-<!-- Bootstrap... -->
+<!-- then ... Bootstrap... then everything else-->
 <script src="js/bootstrap-4.0.0.js"></script>
-
-<script type="application/javascript">
-	/* Modify Some content when the screen width changes */
-	let nb = this.window.innerWidth<576;
-	let flag = nb;
-	window.onresize=updateElements;
-	updateElements();
-	function updateElements(){
-		nb=this.window.innerWidth<576;
-		if(flag){
-			// Resize from sm to xs
-			if(nb){
-				flag=false;
-				let nav = document.getElementById("navbarContainer");
-				nav.className="navbar border  border-dark navbar-expand-sm  fixed-bottom navbar-light bg-light";
-			}
-			// no change needed
-			else
-				return
-		}
-		// flag==false
-		else{
-			if(!nb){
-				// Resize from xs to sm
-				flag=true;
-				let nav = document.getElementById("navbarContainer");
-				nav.className="navbar border  border-dark navbar-expand-sm  fixed-top navbar-light bg-light";
-			}
-			// No Change needed
-			else{
-				return
-			}
-		}
-	}
-</script>
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/29c153f1be.js" crossorigin="anonymous"></script>
+<!-- Adjust Navbar location on screen width -->
+<script src="js/navbarAdjust.js"></script>
 <!-- End of Body -->
 </body>
 </html>

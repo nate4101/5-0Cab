@@ -49,3 +49,5 @@ Get: ...\RetrieveRequests\? {param id} = [param value] & key=[your_key]
 - [ ] After SSL certificate, veryify all cdn and scripts especially bing is using https
 - [ ] Amazon load balancing to prevent DDOS attacks
 - [ ] What do I need for a EULA? Make a EULA...
+
+https://www.google.com/recaptcha/admin/site/431538187

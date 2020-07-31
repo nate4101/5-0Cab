@@ -16,50 +16,158 @@
 	<script src="https://kit.fontawesome.com/29c153f1be.js" crossorigin="anonymous"></script>
 </head>
 <!-- Page Contents -->
-<body style="background-image: url(${pageContext.request.contextPath}/images/green.jpg);">
+<body style="background-image: url(${pageContext.request.contextPath}/images/Tortoise-Shell.svg);">
+
+<!-- Some Extra padding at the start based on viewport-->
+<div class="d-none d-sm-block pt-5 pb-4"></div>
+
 <!-- All Things Navbar -->
-<nav class="navbar navbar-dark bg-dark">
-	<!-- Columns before the first image and text -->
-	<div class="col-0 col-sm-2 col-md-2 col-lg-3 col-xl-4"></div>
-	<!-- Columns the media (pic+text) occupies -->
-	<div class="col-2">
-		<div class = "media">
-			<img class="ml-0 pl-0 mt-1 mr-3" src="${pageContext.request.contextPath}/images/Logo.png" alt="cab" width="85" height="65">
-			<div class="media-body mr-12">
-				<h1 class ="title-text justify-content-center" style="-webkit-text-stroke: 2px black; font-size: 40px;">Booking Application</h1>
-			</div>
-		</div>	
+<nav class="navbar border border-dark navbar-expand-sm  fixed-bottom navbar-light bg-light" id="navbarContainer">
+	<div class="navbar-brand border border-secondary">
+		<img class="ml-0 pl-0 mt-1 mr-3" src="${pageContext.request.contextPath}/images/Logo.png" alt="cab" width="90" height="45">
 	</div>
-	<!-- Columns before the Navigation Button -->
-	<div class="col-10 col-sm-4 col-md-2 col-lg-1"></div>
-	<!-- Columns the navigation button takes up, 2 is good -->
-	<div class ="col-10 col-sm-2 col-md-3 col-lg-5 ">
-		<button class="navbar-brand navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-    		<span class="navbar-toggler-icon"></span>
-  		</button>
+
+	<span class="d-block d-sm-none h5 align-content-end"></span>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+
+		<ul class="navbar-nav">
+			<!-- Modify Based on Logged in User
+                - End User: Home, Help, Admin Login, |Highlighted|Active Request|Highlighted|
+            -->
+			<% 	// Admin
+				if(request.getSession(false).getAttribute("role")=="admin"){%>
+			<li class="nav-item m-1">
+				<a class="btn btn-lg btn-outline-dark nav-link" href="index.jsp">
+					Home
+					<i class="fa fa-home" aria-hidden="true"></i></a></a>
+			</li>
+			<li class="nav-item m-1">
+				<a href="adminUpdateCabs.jsp" class="btn btn-lg btn-outline-dark nav-link" type="button">
+					Update Cabs
+					<i class="fas fa-tools"></i>
+				</a>
+			</li>
+			<li class="nav-item m-1 d-sm-none d-md-block">
+				<a href="adminLogs.jsp" class="btn btn-lg btn-outline-dark nav-link mt-0" type="button">
+					Logs
+					<i class="fa fa-file-text" aria-hidden="true"></i>
+				</a>
+			</li>
+			<li class="nav-item m-1 d-sm-none d-md-block">
+				<a href="${pageContext.request.contextPath}/Logout" class="btn btn-lg btn-outline-dark nav-link mb-0" type="button">
+					Logout
+					<i class="fa fa-sign-out" aria-hidden="true"></i>
+				</a>
+			</li>
+			<%}%>
+			<% // Dispatcher
+				if(request.getSession(false).getAttribute("role")=="dispatcher") { %>
+			<li class="nav-item m-1">
+				<a class="btn btn-lg btn-outline-dark nav-link " disabled href="index.jsp">
+					Home
+					<i class="fa fa-home" aria-hidden="true"></i></a></a>
+				</a>
+			</li>
+			<li class="nav-item m-1">
+				<a href="dispatcher.jsp" class="btn btn-lg btn-outline-dark nav-link" type="button">
+					Dispatch Page
+					<i class="fas fa-table"></i>
+				</a>
+			</li>
+			<li class="nav-item m-1 d-sm-none d-md-block">
+				<a href="dispatcherMap.jsp" class="btn btn-lg btn-outline-dark nav-link mt-0" type="button">
+					Vehicle Map
+					<i class="fa fa-map" aria-hidden="true"></i>
+				</a>
+			</li>
+			<li class="nav-item m-1 d-sm-none d-md-block">
+				<a href="${pageContext.request.contextPath}/Logout" class="btn btn-lg btn-outline-dark nav-link mb-0" type="button">
+					Logout
+					<i class="fa fa-sign-out" aria-hidden="true"></i>
+				</a>
+			</li>
+			<%}%>
+			<%	// End User
+				if(request.getSession(false).getAttribute("role")==null) { %>
+			<li class="nav-item m-1">
+				<a class="btn btn-lg btn-outline-dark nav-link "  href="index.jsp">
+					Home
+					<i class="fa fa-home" aria-hidden="true"></i></a>
+			</li>
+
+			<li class="nav-item active m-1">
+				<a href="uploadRequest.jsp" class="btn btn-lg btn-outline-dark nav-link" type="button">
+					Book a Cab
+					<i class="fa fa-taxi" aria-hidden="true"></i>
+				</a>
+			</li>
+
+			<li class="d-sm-none d-md-block">
+				<a href="contactUs.jsp" class="btn btn-lg btn-outline-dark nav-link m-1" type="button">
+					Contact Us
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+				</a>
+			</li>
+			<li class="d-sm-none d-md-block">
+				<a href="bookingHelp.jsp" class="btn btn-lg btn-outline-dark nav-link m-1" type="button">
+					Help Booking
+					<i class="fa fa-question" aria-hidden="true"></i>
+				</a>
+			</li>
+			<%}%>
+			<li class="nav-item pr-2 my-2 my-sm-0 btn-group d-none d-sm-block d-md-none">
+				<!-- Default dropup button -->
+				<div class="btn-group dropdown " id="dropdownDiv">
+					<button type="button" class="btn btn-lg btn-outline-dark nav-link dropdown-toggle m-1" data-toggle="dropdown">
+						Other Links
+					</button>
+					<div class="dropdown-menu py-0">
+						<ul class="list-group border border-dark rounded">
+
+							<!-- Dropdown menu links -->
+							<% 	// Admin
+								if(request.getSession(false).getAttribute("role")=="admin"){%>
+							<a href="adminLogs.jsp" class="btn btn-lg btn-outline-dark nav-link mt-0" type="button">
+								Logs
+								<i class="fa fa-file-text" aria-hidden="true"></i>
+							</a>
+							<a href="${pageContext.request.contextPath}/Logout" class="btn btn-lg btn-outline-dark nav-link mb-0" type="button">
+								Logout
+								<i class="fa fa-sign-out" aria-hidden="true"></i>
+							</a>
+							<%}%>
+							<% // Dispatcher
+								if(request.getSession(false).getAttribute("role")=="dispatcher") { %>
+							<a href="dispatcherMap.jsp" class="btn btn-lg btn-outline-dark nav-link mt-0" type="button">
+								Vehicle Map
+								<i class="fa fa-map" aria-hidden="true"></i>
+							</a>
+							<a href="${pageContext.request.contextPath}/Logout" class="btn btn-lg btn-outline-dark nav-link mb-0" type="button">
+								Logout
+								<i class="fa fa-sign-out" aria-hidden="true"></i>
+							</a>
+							<%}%>
+							<%	// End User
+								if(request.getSession(false).getAttribute("role")==null) { %>
+							<a href="contactUs.jsp" class="btn btn-lg btn-outline-dark nav-link mt-0" type="button">
+								Contact Us
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+							</a>
+							<a href="helpBooking.jsp" class="btn btn-lg btn-outline-dark nav-link mt-1" type="button">
+								Help Booking
+								<i class="fa fa-question" aria-hidden="true"></i>
+							</a>
+							<%}%>
+						</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
 	</div>
-	<!-- Columns after the Navigation Button -->
-	<div class="col-2 col-sm-2 col-md-2 col-lg-0 "></div>
-	<div class="collapse navbar-collapse" id="navbarCollapse">
-   		<ul class="navbar-nav">
-   			<li class="nav-item active">
-   				<hr>
-   				<a class="nav-link " href="${pageContext.request.contextPath}/index.jsp">Home Page >></a>
-       			<hr>
-     		</li>
-   			<li class="nav-item active">
-   				<a class="nav-link " href="#">How To Book a Cab? >></a>
-       			<hr>
-     		</li>
-      		<li class="nav-item active">
-       			<a class="nav-link" href="#">Contact Us! >></a>
-        		<hr>
-      		</li>
-      		<li class="nav-item">
-        		<a class="nav-link" href="#">Admin Login >></a>
-      		</li>
-    	</ul>
-  	</div>
 </nav>
 <br>
 <!-- End of NavBar -->
@@ -143,6 +251,8 @@
 	<script src="js/popper.min.js"></script> 
 	<!-- Bootstrap... -->
 	<script src="js/bootstrap-4.0.0.js"></script>
+	<!-- Adjust Navbar location on screen width -->
+	<script src="js/navbarAdjust.js"></script>
 	<!-- bing maps web v8 sdk -->
     <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Au8wJoDxUyZXZ-x6Er5X1JD2cgKRT9syoPDsFq8b6tLFrbH5y3EYUb_8rrItR2Eo&callback=loadMapScenario' async defer></script> 
     <!-- a script that used web v8 sdk -->
