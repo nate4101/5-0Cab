@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" build-on-make="true" name="5-0CabWar">
-    <output-path>$PROJECT_DIR$/out/artifacts/5_0CabWar</output-path>
-    <root id="archive" name="5-0CabWar.war">
-      <element id="artifact" artifact-name="5-0Cab" />
-    </root>
-  </artifact>
-</component>
