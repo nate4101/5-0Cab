@@ -11,6 +11,7 @@
 
 # Output directory, dont need the packaged war showing up with enviroment variables
 out/
+out/artifacts
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
