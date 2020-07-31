@@ -10,7 +10,7 @@
 *.log
 
 #
-out/
+5-0Cab/out/*
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
