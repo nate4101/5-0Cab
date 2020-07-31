@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+  <display-name>5-0 Cab Booking Application</display-name>
+  <description>This helps manage a web based booking application for North Bay 5-0 Cab.</description>
+  
+  <icon>
+  	<small-icon>/images/Logo.png</small-icon>
+  	<large-icon> /images/Logo.png</large-icon>
+  </icon>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <description></description>
+	<display-name>CreateRequest</display-name>  
+    <servlet-name>CreateRequest</servlet-name>
+    <servlet-class>servlets.CreateRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateRequest</servlet-name>
+    <url-pattern>/CreateRequest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+	<display-name>EndSession</display-name>  
+    <servlet-name>EndSession</servlet-name>
+    <servlet-class>servlets.EndSession</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EndSession</servlet-name>
+    <url-pattern>/EndSession</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+	<display-name>ConfirmRequest</display-name>  
+    <servlet-name>ConfirmRequest</servlet-name>
+    <servlet-class>servlets.ConfirmRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConfirmRequest</servlet-name>
+    <url-pattern>/ConfirmRequest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description></description>
+  	<display-name>LoginUser</display-name>
+  	<servlet-name>LoginUser</servlet-name>
+  	<servlet-class>servlets.LoginUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginUser</servlet-name>
+  	<url-pattern>/LoginUser</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <display-name>RetrieveRequests</display-name>
+    <servlet-name>RetrieveRequests</servlet-name>
+    <servlet-class>servlets.RetrieveRequests</servlet-class>
+</servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>DispatcherOnline</display-name>
+  	<servlet-name>DispatcherOnline</servlet-name>
+  	<servlet-class>servlets.DispatcherOnline</servlet-class>
+  </servlet>
+<servlet-mapping>
+    <servlet-name>RetrieveRequests</servlet-name>
+    <url-pattern>/RetrieveRequests</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>DispatcherOnline</servlet-name>
+	<url-pattern>/DispatcherOnline</url-pattern>
+</servlet-mapping>
+  
+</web-app>
