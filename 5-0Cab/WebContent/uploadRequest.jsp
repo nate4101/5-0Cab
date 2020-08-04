@@ -1,5 +1,6 @@
+<%@ page import="helper.EnviromentVariables" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+		 pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,8 @@
 	<link href="css/my_css.css" rel="stylesheet">
 	<!-- FontAwesome Icons Free kit -->
 	<script src="https://kit.fontawesome.com/29c153f1be.js" crossorigin="anonymous"></script>
+	<!-- Recaptcha -->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <!-- Page Contents -->
 <body style="background-image: url(${pageContext.request.contextPath}/images/Tortoise-Shell.svg);">
@@ -175,18 +178,18 @@
 <% if(request.getAttribute("error")!=null) {
 %>
 <div class="alert alert-danger" role="alert">
-  <% out.println(request.getAttribute("error")); %>
+	<% out.println(request.getAttribute("error")); %>
 </div>
 <%
-}
+	}
 %>
 <% if(request.getAttribute("success")!=null) {
 %>
 <div class="alert alert-success" role="alert">
-  <% out.println(request.getAttribute("success")); %>
+	<% out.println(request.getAttribute("success").toString()); %>
 </div>
 <%
-}
+	}
 %>
 <!-- Card for Request Form -->
 <div class="container">
@@ -200,63 +203,111 @@
 				<!-- Card Body -->
 				<div class="card-body border-dark border-rounded" >
 					<!-- Submission Form -->
-        			<form action="CreateRequest" method="post" autocomplete="off">
-        				<h3>Required:</h3>
-        				<div class="form-group">
-        					<label for="bing-suggestion">Enter Your Location:</label>
-        						<input style ="width: 95%; box-sizing: auto !important;" type="text" id='searchBox' class="form-control" placeholder="Search Box" required>	
-        					<small id='searchBoxContainer' class="text-muted"></small>
-        				</div>
-        				<!-- Hidden Form for Location, passed to the backend, written by the bing api -->
-                            <div class="form-group">
-            				<!-- Pickup Location String -->
-                            	<input type="hidden" class="form-control" id="location" name="loc" maxlength="127" value="" required>
-                            </div>
-                         <!-- Hidden Form for lat and lon, passed to the backend, written by the bing api -->
-                         <div class="form-group">
-            				<!-- Pickup Location String -->
-                            	<input type="hidden" class="form-control" id="coords" name="coordinates" maxlength="127" value="" required>
-                            </div>
-    						<div class="form-group">
-  								<label for="size">Number of Passengers:</label>
-  								<input type="number" class="form-control" name="size" min="1" step="1" id="num-input" required>
-  								 <small id="inline" class="text-muted">
-      								1 or more
-    							</small>   
-						    </div>
-						    <hr>
-						    <h3>Optional:</h3>
-							<div class="form-group">
-                            	<label for="instructions">Extra Details:<b> Default: Empty</b></label>
-                            	<textarea class="form-control" name="instructions" rows= "4" maxlength="127"></textarea>
-                            <small id="inline" class="text-muted">
-      							Maximum of 127 Characters.
-    						</small>
-    						</div>
-                           <div class="text-center">
-                                <input type="submit" class="btn btn-outline-dark" value="Send Request"> 
-                            </div>      
-                        </form>
-				</div>	
+					<form action="CreateRequest" method="post" autocomplete="off" onsubmit="event.preventDefault(); validateForm();">
+						<h3>Required:</h3>
+						<div class="form-group">
+							<label for="searchBox">Enter Your Location:</label>
+							<input style ="width: 95%; box-sizing: auto !important;" type="text" id='searchBox' class="form-control" placeholder="Search Box" required>
+							<small id='searchBoxContainer' class="text-muted"></small>
+						</div>
+						<!-- Hidden Form for Location, passed to the backend, written by the bing api -->
+						<div class="form-group">
+							<!-- Pickup Location String -->
+							<input type="hidden" class="form-control" id="location" name="loc" maxlength="127" value="" required>
+						</div>
+						<!-- Hidden Form for lat and lon, passed to the backend, written by the bing api -->
+						<div class="form-group">
+							<!-- Pickup Location String -->
+							<input type="hidden" class="form-control" id="coords" name="coordinates" maxlength="127" value="" required>
+						</div>
+						<div class="form-group">
+							<label for="size">Number of Passengers:</label>
+							<input type="number" class="form-control" id="size" name="size" min="1" step="1" id="num-input" required>
+							<small class="text-muted">
+								1 or more
+							</small>
+						</div>
+						<hr>
+						<h3>Optional:</h3>
+						<div class="form-group">
+							<label for="instructions">Extra Details:</label>
+							<textarea class="form-control" id="instructions" name="instructions" rows= "4" maxlength="127"></textarea>
+							<small class="text-muted">
+								Maximum of 127 Characters.
+							</small>
+						</div>
+						<h3>Verification:</h3>
+						<div class="g-recaptcha  mb-0" data-size="" data-sitekey="6LcLwLgZAAAAAE2IfEMP_cSgOWrJFiUKqPquV5Ii" data-callback="recaptchaOnSuccess" data-expired-callback="recaptchaOnExpired" data-error-callback="recaptchaOnError"></div>
+
+						<div class="form-group row pt-0">
+							<div class="col-9 col-sm-8 col-md-6 col-lg-4 input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="prepend">Completed:</span>
+								</div>
+								<!-- Recaptcha String Stuff-->
+								<input type="text" class="form-control bg-white" id="recaptcha" name="recaptcha" maxlength="127" value="False"  disabled>
+								<input type="hidden" id="hiddenRecaptcha" name="recaptcha" value="">
+							</div>
+						</div>
+						<br>
+						<div class="text-center">
+							<input type="submit" class="btn btn-outline-dark" onclick="function x() {
+							  alert('clicked');
+							}" value="Send Request">
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
-		
-	</div>
-</div>  	
 
-<!-- Default datetime-local object for form... is there a better way to do this? -->
-	<!-- Jquery then...-->
-	<script src="js/jquery-3.5.1.js"></script> 
-	<!-- Popper then... -->
-	<script src="js/popper.min.js"></script> 
-	<!-- Bootstrap... -->
-	<script src="js/bootstrap-4.0.0.js"></script>
-	<!-- Adjust Navbar location on screen width -->
-	<script src="js/navbarAdjust.js"></script>
-	<!-- bing maps web v8 sdk -->
-    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Au8wJoDxUyZXZ-x6Er5X1JD2cgKRT9syoPDsFq8b6tLFrbH5y3EYUb_8rrItR2Eo&callback=loadMapScenario' async defer></script> 
-    <!-- a script that used web v8 sdk -->
-	<script src="${pageContext.request.contextPath}/js/BingAutoSuggest.js"></script>
-	
+	</div>
+</div>
+<div class="d-block d-sm-none pt-5 pb-5"></div>
+<!-- Recaptcha Script -->
+<script type="application/javascript">
+
+	function recaptchaOnSuccess(){
+		alert(grecaptcha.getResponse()=="");
+		let x = grecaptcha.getResponse();
+		document.getElementById("hiddenRecaptcha").value=x;
+		let recaptcha=document.getElementById("recaptcha");
+		recaptcha.value="Success";
+		recaptcha.className="form-control bg-success";
+	}
+	function recaptchaOnExpired(){
+		alert(grecaptcha.getResponse()=="");
+		document.getElementById("hiddenRecaptcha").value="";
+		let recaptcha=document.getElementById("recaptcha");
+		recaptcha.value="Reverify";
+		recaptcha.className="form-control bg-danger";
+
+	}
+	function recaptchaOnError(){
+		let x = grecaptcha.getResponse();
+		document.getElementById("hiddenRecaptcha").value="";
+		let recaptcha=document.getElementById("recaptcha");
+		recaptcha.value="Refresh Page & Try Again";
+		recaptcha.className="form-control bg-warning";
+	}
+</script>
+<!-- Submit Script -->
+<script type="application/javascript">
+	function validateForm(){
+		if(grecaptcha.getResponse()=="")
+	}
+</script>
+<!-- Jquery then...-->
+<script src="js/jquery-3.5.1.js"></script>
+<!-- Popper then... -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap... -->
+<script src="js/bootstrap-4.0.0.js"></script>
+<!-- Adjust Navbar location on screen width -->
+<script src="js/navbarAdjust.js"></script>
+<!-- bing maps web v8 sdk -->
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Au8wJoDxUyZXZ-x6Er5X1JD2cgKRT9syoPDsFq8b6tLFrbH5y3EYUb_8rrItR2Eo&callback=loadMapScenario' async defer></script>
+<!-- a script that used web v8 sdk -->
+<script src="${pageContext.request.contextPath}/js/BingAutoSuggest.js"></script>
+
 </body>
 </html>
