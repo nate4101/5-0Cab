@@ -24,6 +24,10 @@ Get: ...\RetrieveRequests\? {param id} = [param value] & key=[your_key]
 
 # TODO
 ### Developer Code To prioritize:
+
+- [ ] Update_req_finsihed_byId database method to fix the active request page, use this over ajax, in conjuclnction with get req_byID, and add a cookie helper fornall other pages (drunk blirb)
+
+
 - [ ] Update all post methods to follow a PRG pattern, or use ajax, redirect upon success (probabaly more user friendly)
 - [ ] Update all Servlets to properly server data. Json for retreive all/ retreive select, plain text for dispatcherOnline, and cab serial and cabnums
 - [ ] Add logs to all endpoints
