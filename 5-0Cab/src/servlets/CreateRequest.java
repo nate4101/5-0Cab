@@ -42,7 +42,7 @@ public class CreateRequest extends HttpServlet{
 		// Error check
 		if(coordinates==null||Integer.parseInt(size)<1) {
 			req.setAttribute("error", "Error in Upload: Please use Bing AutoSuggest to fill in Location");
-			req.getRequestDispatcher("/upload.jsp").forward(req, res);
+			req.getRequestDispatcher("/uploadRequest.jsp").forward(req, res);
 			return;
 		}
 		if(!(loc.contains("North Bay")||loc.contains("Callander")||loc.contains("Sturgeon")||
@@ -51,8 +51,8 @@ public class CreateRequest extends HttpServlet{
 				loc.contains("Powassan")||loc.contains("Redbridge")
 				)) {
 			System.out.println("Bad Location");
-			req.setAttribute("error", "Error in Location:"+loc+". Try calling us to book for your location!");
-			req.getRequestDispatcher("/upload.jsp").forward(req, res);
+			req.setAttribute("error", "Error in Location:"+loc+". Try calling us to book for your location! Or Provide a North Bay Address");
+			req.getRequestDispatcher("/uploadRequest.jsp").forward(req, res);
 			return;
 		}
 		LocalDateTime time = LocalDateTime.now();

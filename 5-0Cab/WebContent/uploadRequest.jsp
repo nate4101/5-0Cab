@@ -203,7 +203,7 @@
 				<!-- Card Body -->
 				<div class="card-body border-dark border-rounded" >
 					<!-- Submission Form -->
-					<form action="CreateRequest" method="post" autocomplete="off" onsubmit="event.preventDefault(); validateForm();">
+					<form action="CreateRequest" method="post" autocomplete="off">
 						<h3>Required:</h3>
 						<div class="form-group">
 							<label for="searchBox">Enter Your Location:</label>
@@ -251,9 +251,7 @@
 						</div>
 						<br>
 						<div class="text-center">
-							<input type="submit" class="btn btn-outline-dark" onclick="function x() {
-							  alert('clicked');
-							}" value="Send Request">
+							<input type="submit" class="btn btn-outline-dark" value="Send Request">
 						</div>
 					</form>
 				</div>
@@ -267,7 +265,6 @@
 <script type="application/javascript">
 
 	function recaptchaOnSuccess(){
-		alert(grecaptcha.getResponse()=="");
 		let x = grecaptcha.getResponse();
 		document.getElementById("hiddenRecaptcha").value=x;
 		let recaptcha=document.getElementById("recaptcha");
@@ -275,7 +272,6 @@
 		recaptcha.className="form-control bg-success";
 	}
 	function recaptchaOnExpired(){
-		alert(grecaptcha.getResponse()=="");
 		document.getElementById("hiddenRecaptcha").value="";
 		let recaptcha=document.getElementById("recaptcha");
 		recaptcha.value="Reverify";
@@ -291,11 +287,7 @@
 	}
 </script>
 <!-- Submit Script -->
-<script type="application/javascript">
-	function validateForm(){
-		if(grecaptcha.getResponse()=="")
-	}
-</script>
+<script> </script>
 <!-- Jquery then...-->
 <script src="js/jquery-3.5.1.js"></script>
 <!-- Popper then... -->
