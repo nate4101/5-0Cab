@@ -10,7 +10,7 @@
 
 	<title>5-0 Cab Home</title>
 	<!--  For Bootstrap Styling  -->
-	<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/my_css.css" rel="stylesheet">
 	<!-- FontAwesome Icons Free kit -->
 	<link rel="icon" href="${pageContext.request.contextPath}/images/favicon-32x32.png">
@@ -192,8 +192,8 @@
 			</g>
 			<g>
 				<title>Layer 1</title>
-				<ellipse stroke="#000" ry="106" rx="225.5" id="svg_17" cy="-13.5" cx="226" fill-opacity="null" stroke-opacity="null" fill="#fff"/>
-				<text stroke="#000" transform="matrix(1,0,0,1.5631896317055685,0,-42.29317529048818) " font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="26" id="svg_18" y="55.5" x="40.99219" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000">Serving North Bay Since 1975</text>
+				<ellipse stroke="#000" ry="106" rx="225.5" id="svg_17" cy="-13.5" cx="226" fill-opacity="null" stroke-opacity="null" fill="#e9ecef"/>
+				<text stroke="#000" transform="matrix(1,0,0,1.5631896317055685,0,-42.29317529048818) " font-style="" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="26" id="svg_18" y="55.5" x="48" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000">Serving North Bay Since 1975</text>
 			</g>
 		</svg>
 	</div>
@@ -207,8 +207,8 @@
 		<div class="col-12 col-md-10">
 			<div class="jumbotron border border-dark mb-4 pt-4" >
 				<div class="container text-center">
-					<h1 class="display-4"><b>Book a Cab Online!</b></h1>
-					<p class="lead text-center">Press The Big Green Button to get Started!</p>
+					<h1 class="display-4" style="font-family: 'Helvetica Neue'; "><b>Book a Cab Online!</b></h1>
+					<p class="lead text-center" style="font-family: 'Helvetica Neue';">Press The Big Green Button to get Started!</p>
 					<hr style="border-top: 5px dashed black;">
 					<a href="${pageContext.request.contextPath}/uploadRequest.jsp">
 						<button type="button" class="btn btn-success btn-circle btn-xl">
@@ -228,52 +228,57 @@
 		<div class = "col-0 col-md-1"></div>
 		<div class="col-12 col-md-10">
 			<div class="jumbotron border border-dark mb-4">
-				<h3 class="text-center display-6"><b>Our Covid-19 Commitment</b></h3>
+				<h3 class="text-center display-5" style="font-family: 'Helvetica Neue'; "><b>Our Covid-19 Commitment</b></h3>
 				<hr style="border-top: 2px solid black;">
-				<p class="lead text-center text-bold text-monospace">
+				<p class="lead text-center" style="font-family: 'Helvetica Neue'; ">
 					We at 5-0 Cab are aware of the crisis that has come to bear amid the wake of COVID-19 and the strain it has put on everyone.
 					In an effort to maintain the safety of the health of both our customers and our drivers,
 					all of our vehicles have been supplied with hand sanitizer and disinfectant wipes to clean the vehicles throughout the day.
 				</p>
-				<p class="lead text-center text-monospace">
+				<p class="lead text-center" style="font-family: 'Helvetica Neue'; ">
 					As stated by the government, and on social media, we ask that if you are feeling unwell,
 					or are symptomatic that you get checked out as quickly as possible and follow the directions of your health care provider.
 				</p>
-				<p class="lead text-center text-monospace">
+				<p class="lead text-center" style="font-family: 'Helvetica Neue'; ">
 					Until otherwise notified, we will continue to serve our city and our community with outstanding service 24 hours a day, 7 days a week.
 				</p>
 			</div>
 		</div>
 		<div class = "col-0 col-md-1"></div>
 	</div>
-	<br>
 	<!--  Carousel in Jumbotron -->
 	<div class = "row">
 		<div class="col-0 col-md-1"></div>
 		<div class="col-12 col-md-10">
 			<div class="jumbotron border border-dark mb-4" >
-				<h3 class="text-center display-6"><b>About Us and Our Community</b></h3>
+				<h3 class="text-center display-5" style="font-family: 'Helvetica Neue'; "><b>About Us and Our Community</b></h3>
 				<hr style="border-top: 2px solid black;">
-				<div class="bd-example">
-					<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+				<div class="5-0slideshow">
+					<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
 						<ol class="carousel-indicators">
-							<li data-target="#carouselExampleCaptions" data-slide-to="0" class=""></li>
-							<li data-target="#carouselExampleCaptions" data-slide-to="1" class=""></li>
-							<li data-target="#carouselExampleCaptions" data-slide-to="2" class="active"></li>
+							<li data-target="#carouselExampleCaptions" data-slide-to="0" class="bg-secondary"></li>
+							<li data-target="#carouselExampleCaptions" data-slide-to="1" class="bg-secondary"></li>
+							<li data-target="#carouselExampleCaptions" data-slide-to="2" class="active bg-secondary"></li>
 						</ol>
 						<div class="carousel-inner">
 							<div class="carousel-item">
-								<img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [400x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1729ec152ea%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1729ec152ea%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.9140625%22%20y%3D%22217.7%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
-								<div class="carousel-caption d-none d-sm-block">
-									<h5>First slide label</h5>
-									<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+								<img src="images/SoftwareEngineering.jpg" class="rounded" width="100%" height="100%">
+								<div class="carousel-caption bg-light rounded px-2" style="opacity: 80%;">
+									<h5 class="d-none d-sm-block" style="color: black">5-0Cab's Nicky Neal working with Nipissing's Computer Science Students.</h5>
+									<h5 class="d-block d-sm-none" style="color: black">Web app in development.</h5>
+									<a class="bg-dark rounded px-2 pb-1" style="color: white; opacity: 100% !important;"
+									   href="https://www.nugget.ca/news/local-news/taxi-business-turns-to-students-to-create-app?fbclid=IwAR0ucloSyvgku6bkPLq9paqjMkGb071a0KNdmMcqRAoEf20dJayi7_7FLGQ">
+										<u>North Bay Nugget</u></a>
 								</div>
 							</div>
 							<div class="carousel-item">
-								<img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [600x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1729ec152eb%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1729ec152eb%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3125%22%20y%3D%22217.7%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
-								<div class="carousel-caption d-none d-sm-block">
-									<h5>Second slide label</h5>
-									<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+								<img src="images/HospitalCabs.png" class="rounded">
+								<div class="carousel-caption bg-light rounded px-2" style="opacity: 80%;">
+									<h5 class="d-none d-sm-block" style="color: black">5-0 Cab solutes health care workers for their hard work during Covid-19 pandemic</h5>
+									<h5 class="d-block d-sm-none" style="color: black">Web app in development.</h5>
+									<a class="bg-dark rounded px-2 pb-1" style="color: white; opacity: 100% !important;"
+										href="https://www.facebook.com/114070413579827/videos/661877254643968/?__cft__[0]=AZUkx8mykuD9pKHxJDpQuanWeKVFtcjVzs2yoclGiot4JsEmyzeH1H6VmHf5yzl-lPdJ36nG-4q7wHmsSoO-V2zdAyGV979qtjl8i_cdQNmjfERLA4alDv_LqR9N5nFHXnKdKDUVRO23z--2bilcbjaEIroO0A3r7ffhMX_W3DZMB4GSxciECPCY20Nnwzbh_wU&__tn__=H-R">
+									<u>FaceBook Post</u></a>
 								</div>
 							</div>
 							<div class="carousel-item active">
@@ -284,26 +289,25 @@
 								</div>
 							</div>
 						</div>
-						<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon bg-dark rounded mt-1" aria-hidden="true"></span>
 							<span class="sr-only">Previous</span>
 						</a>
-						<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+							<span class="carousel-control-next-icon bg-dark rounded mt-1" aria-hidden="true"></span>
 							<span class="sr-only">Next</span>
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--  What we Provide JumboTron -->
-		<div class = "col-0 col-md-0"></div>
 	</div>
+	<!--  What we Provide JumboTron -->
 	<div class="row">
 		<div class = "col-0 col-md-1"></div>
 		<div class="col-12 col-md-10">
 			<div class="jumbotron border border-dark mb-4">
-				<h3 class="text-center display-6"><b>What We Provide</b></h3>
+				<h1 class="text-center display-4" style="font-family: 'Helvetica Neue'; ">What We Provide</h1>
 				<hr style="border-top: 2px solid black;">
 				<div class="container text-center">
 					<div class="row content-justify-center">
@@ -343,7 +347,7 @@
 		<div class="col-0 col-md-1"></div>
 		<div class="col-12 col-md-10">
 			<div class="jumbotron border border-dark mb-4" >
-				<h4 class="text-center display-4">Other Links</h4>
+				<h3 class="text-center display-4" style="font-family: 'Helvetica Neue'; ">Other Links</h3>
 				<hr style="border-top: 2px solid black;">
 				<div class="text-center">
 					<i class="fab fa-facebook fa-6x" style="color: #007bff;"></i>
@@ -367,9 +371,9 @@
 	<div class="row">
 		<div class="col-0 col-md-1"></div>
 		<div class="col-12 col-md-10">
-			<div class="alert alert-secondary border-dark pb-0" role="alert" style="background: #e9ecef;">
-				<p>For information about setting up a Corporate Account, giving feedback about the company or website, or concerns;</p>
-				<p>Contact the Manager, Nicky Neal using the <b>Contact Us  </b> Button below </p>
+			<div class="alert alert-secondary border-dark pb-0" role="alert" style="background: #e9ecef; font-family: 'Helvetica Neue'">
+				<h5>For information about setting up a Corporate Account, giving feedback about the company or website, or concerns;</h5>
+				<h5>Contact the Manager, Nicky Neal using the <b>Contact Us  </b> Button below </h5>
 			</div>
 			<div class="col-0 col-md-1"></div>
 		</div>
@@ -396,7 +400,7 @@
 <!-- Popper then... -->
 <script src="js/popper.min.js"></script>
 <!-- then ... Bootstrap... then everything else-->
-<script src="js/bootstrap-4.0.0.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <!-- FontAwesome -->
 <script src="https://kit.fontawesome.com/29c153f1be.js" crossorigin="anonymous"></script>
 <!-- Adjust Navbar location on screen width -->

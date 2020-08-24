@@ -11,7 +11,7 @@
 
 
 	<!--  For Bootstrap Styling  -->
-	<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/my_css.css" rel="stylesheet">
 	<!-- FontAwesome Icons Free kit -->
 	<script src="https://kit.fontawesome.com/29c153f1be.js" crossorigin="anonymous"></script>
