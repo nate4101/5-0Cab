@@ -16,7 +16,7 @@
 	<link rel="icon" href="${pageContext.request.contextPath}/images/favicon-32x32.png">
 </head>
 
-<body style="background-image: url(${pageContext.request.contextPath}/images/Tortoise-Shell.svg);">
+<body style="background-image: url(${pageContext.request.contextPath}/images/Tortoise-Shell.svg); font-family: 'Helvetica Neue';">
 
 <!-- Some Extra padding at the start based on viewport-->
 <div class="d-none d-sm-block pt-5 pb-4"></div>
@@ -28,12 +28,11 @@
 	</div>
 
 	<span class="d-block d-sm-none h5 align-content-end"></span>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
+	<button class="navbar-toggler bg-light border-dark py-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		Menu  <span class="navbar-toggler-icon ml-2"></span>
 	</button>
 
 	<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-
 		<ul class="navbar-nav">
 			<!-- Modify Based on Logged in User
                 - End User: Home, Help, Admin Login, |Highlighted|Active Request|Highlighted|
@@ -228,7 +227,7 @@
 		<div class = "col-0 col-md-1"></div>
 		<div class="col-12 col-md-10">
 			<div class="jumbotron border border-dark mb-4">
-				<h3 class="text-center display-5" style="font-family: 'Helvetica Neue'; "><b>Our Covid-19 Commitment</b></h3>
+				<h2 class="text-center " style="font-family: 'Helvetica Neue'; "><b>Our Covid-19 Commitment</b></h2>
 				<hr style="border-top: 2px solid black;">
 				<p class="lead text-center" style="font-family: 'Helvetica Neue'; ">
 					We at 5-0 Cab are aware of the crisis that has come to bear amid the wake of COVID-19 and the strain it has put on everyone.
@@ -251,16 +250,17 @@
 		<div class="col-0 col-md-1"></div>
 		<div class="col-12 col-md-10">
 			<div class="jumbotron border border-dark mb-4" >
-				<h3 class="text-center display-5" style="font-family: 'Helvetica Neue'; "><b>About Us and Our Community</b></h3>
+				<h2 class="text-center " style="font-family: 'Helvetica Neue'; "><b>About Us and Our Community</b></h2>
 				<hr style="border-top: 2px solid black;">
 				<div class="5-0slideshow">
-					<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+					<div id="carousel" class="carousel carousel-fade" data-ride="carousel">
 						<ol class="carousel-indicators">
 							<li data-target="#carouselExampleCaptions" data-slide-to="0" class="bg-secondary"></li>
 							<li data-target="#carouselExampleCaptions" data-slide-to="1" class="bg-secondary"></li>
 							<li data-target="#carouselExampleCaptions" data-slide-to="2" class="active bg-secondary"></li>
 						</ol>
 						<div class="carousel-inner">
+							<%--	Comp Sci Development Team--%>
 							<div class="carousel-item">
 								<img src="images/SoftwareEngineering.jpg" class="rounded" width="100%" height="100%">
 								<div class="carousel-caption bg-light rounded px-2" style="opacity: 80%;">
@@ -271,25 +271,30 @@
 										<u>North Bay Nugget</u></a>
 								</div>
 							</div>
+							<%--	North Bay Hospital	--%>
 							<div class="carousel-item">
-								<img src="images/HospitalCabs.png" class="rounded">
+								<img src="images/HospitalCabs.png" class="rounded" width="100%" height="100%">
 								<div class="carousel-caption bg-light rounded px-2" style="opacity: 80%;">
 									<h5 class="d-none d-sm-block" style="color: black">5-0 Cab solutes health care workers for their hard work during Covid-19 pandemic</h5>
-									<h5 class="d-block d-sm-none" style="color: black">Web app in development.</h5>
+									<h5 class="d-block d-sm-none" style="color: black">5-0 Cab Solutes Hospital</h5>
 									<a class="bg-dark rounded px-2 pb-1" style="color: white; opacity: 100% !important;"
 										href="https://www.facebook.com/114070413579827/videos/661877254643968/?__cft__[0]=AZUkx8mykuD9pKHxJDpQuanWeKVFtcjVzs2yoclGiot4JsEmyzeH1H6VmHf5yzl-lPdJ36nG-4q7wHmsSoO-V2zdAyGV979qtjl8i_cdQNmjfERLA4alDv_LqR9N5nFHXnKdKDUVRO23z--2bilcbjaEIroO0A3r7ffhMX_W3DZMB4GSxciECPCY20Nnwzbh_wU&__tn__=H-R">
 									<u>FaceBook Post</u></a>
 								</div>
 							</div>
-							<div class="carousel-item active">
-								<img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1729ec152eb%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1729ec152eb%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22276.9921875%22%20y%3D%22217.7%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
-								<div class="carousel-caption d-none d-sm-block">
-									<h5>Third slide label</h5>
-									<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+							<%--	HOPES Kitchen --%>
+								<div class="carousel-item active">
+									<img src="images/HopesKitchen.png" class="rounded" width="100%" height="100%">
+									<div class="carousel-caption bg-light rounded px-2" style="opacity: 80%;">
+										<h5 class="d-none d-sm-block" style="color: black">5-0Cab helps local kitchen get meals out to those in need, while their vehicle is in service.</h5>
+										<h5 class="d-block d-sm-none" style="color: black">5-0 Cab Helping the Community</h5>
+										<a class="bg-dark rounded px-2 pb-1" style="color: white; opacity: 100% !important;"
+										   href="https://www.facebook.com/114070413579827/videos/661877254643968/?__cft__[0]=AZUkx8mykuD9pKHxJDpQuanWeKVFtcjVzs2yoclGiot4JsEmyzeH1H6VmHf5yzl-lPdJ36nG-4q7wHmsSoO-V2zdAyGV979qtjl8i_cdQNmjfERLA4alDv_LqR9N5nFHXnKdKDUVRO23z--2bilcbjaEIroO0A3r7ffhMX_W3DZMB4GSxciECPCY20Nnwzbh_wU&__tn__=H-R">
+											<u>FaceBook Post</u></a>
+									</div>
 								</div>
-							</div>
 						</div>
-						<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+						<a class="carousel-control-prev " href="#carousel" role="button" data-slide="prev">
 							<span class="carousel-control-prev-icon bg-dark rounded mt-1" aria-hidden="true"></span>
 							<span class="sr-only">Previous</span>
 						</a>
@@ -307,31 +312,41 @@
 		<div class = "col-0 col-md-1"></div>
 		<div class="col-12 col-md-10">
 			<div class="jumbotron border border-dark mb-4">
-				<h1 class="text-center display-4" style="font-family: 'Helvetica Neue'; ">What We Provide</h1>
+				<h2 class="text-center display-5" style="font-family: 'Helvetica Neue'; "><b>What We Provide</b></h2>
 				<hr style="border-top: 2px solid black;">
 				<div class="container text-center">
 					<div class="row content-justify-center">
 						<div class="col-12">
-							<div class="card" style="width: 18rem;">
-								<img src="#" class="card-img-top" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
-									<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-									<a href="#" class="btn btn-primary">Go somewhere</a>
-								</div>
-							</div>
-							<p class="lead text-center text-bold text-monospace">
-								5-0 Cab offers a number of vans at no additional charge.
-								Bought a lot of groceries? We can help with that.
-								Need to bring something big across town, we're here to help!.
-							</p>
-							<p class="lead text-center text-monospace">
-								As stated by the government, and on social media, we ask that if you are feeling unwell,
-								or are symptomatic that you get checked out as quickly as possible and follow the directions of your health care provider.
-							</p>
-							<p class="lead text-center text-monospace">
-								Until otherwise notified, we will continue to serve our city and our community with outstanding service 24 hours a day, 7 days a week.
-							</p>
+							<ul>
+								<li>
+									<p class="lead text-center " style="font-family: 'Helvetica Neue'; ">5-0 Cab offers a number of vans at no additional charge. Bought a lot of groceries? We can help with that. Need to bring something big across town, we're here to help!
+									</p>
+								</li>
+								<li>
+									<p class="lead text-center " style="font-family: 'Helvetica Neue';">For those customers wishing a car instead we have a number of cars in our fleet, all you need to do is ask by phone call, or specify in the extra details online.
+									</p>
+								</li>
+								<li>
+									<p class="lead text-center " style="font-family: 'Helvetica Neue'; ">5-0 Cab offers of additional added value: Personalized Out-of-Town service; In a rush to get somewhere because other arrangements fell through? The online booking system supports the following towns around North Bay:
+										<p style="font-family: 'Helvetica Neue'; ">Callander, Sturgeon, Corbiel, Mattawa, Astorfield, Temiskaming, Bonfield, Nipissing, Powassan, Redbridge</p>
+									</p>
+								</li>
+								<li>
+									<p class="lead text-center " style="font-family: 'Helvetica Neue'; ">
+										Car need a boost? We can help with that as well, often cheaper than calling a tow-truck. Let the dispatcher know!
+									</p>
+								</li>
+								<li>
+									<p class="lead text-center " style="font-family: 'Helvetica Neue'; ">
+										If you just need us to grab you something from the store and deliver it to you, we can handle it for you.
+									</p>
+								</li>
+								<li>
+									<p class="lead text-center " style="font-family: 'Helvetica Neue'; ">
+										5-0 Cab has been serving the North Bay and surrounding area for almost 40 years. We were founded in 1978 and to this day, still one of the most sought after taxis in the area.
+									</p>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>

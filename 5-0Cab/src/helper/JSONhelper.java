@@ -39,33 +39,4 @@ public class JSONhelper {
 		is.close();
 		}
 	}
-	
-	/*
- *  FOR READING FROM DATABASE HELPER. NOT NECCESARY IF USING HISTORICAL DATA (REFER TO DR. ZHU)
- *    @INCOMPLETE
- *    
-public JSONObject requestJSON(ResultSet res, int row)
-{
-	JSONObject jsonObject = new JSONObject();
-	
-	try {
-		if(row>res.getMetaData().getColumnCount())
-			return null;
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	// To do: https://stackoverflow.com/questions/11202934/get-latitude-longitude-from-given-address-name-not-geocoder
-	String lat_valueString =
-	jsonObject.put("latitude", "");
-	jsonObject.put("lat_hem", value);
-	jsonObject.put("longitude", value);
-	jsonObject.put("long_hem", value);
-	jsonObject.put("num_pas", value);
-	jsonObject.put("timestamp", value);
-		
-	return jsonObject;
-	
-}
-*/
 }

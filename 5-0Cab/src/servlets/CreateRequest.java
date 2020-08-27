@@ -7,6 +7,7 @@ import java.time.LocalTime;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,20 +42,22 @@ public class CreateRequest extends HttpServlet{
 		
 		// Error check
 		if(coordinates==null||Integer.parseInt(size)<1) {
-			req.setAttribute("error", "Error in Upload: Please use Bing AutoSuggest to fill in Location");
+			req.getSession().setAttribute("error", "Error in Upload: Please use Bing AutoSuggest to fill in Location");
 			req.getRequestDispatcher("/uploadRequest.jsp").forward(req, res);
 			return;
 		}
+		// Check location
 		if(!(loc.contains("North Bay")||loc.contains("Callander")||loc.contains("Sturgeon")||
 				loc.contains("Corbiel")||loc.contains("Mattawa")||loc.contains("Astorfield")||
 				loc.contains("Temiskaming")||loc.contains("Bonfield")||loc.contains("Nipissing")||
 				loc.contains("Powassan")||loc.contains("Redbridge")
 				)) {
 			System.out.println("Bad Location");
-			req.setAttribute("error", "Error in Location:"+loc+". Try calling us to book for your location! Or Provide a North Bay Address");
+			req.getSession().setAttribute("error", "Error in Location:"+loc+". Try calling us to book for your location! Or Provide a North Bay Address");
 			req.getRequestDispatcher("/uploadRequest.jsp").forward(req, res);
 			return;
 		}
+		// Check Recaptcha
 		LocalDateTime time = LocalDateTime.now();
 		String dateFormat[] = time.toString().split("T");
 		// request bean
@@ -91,21 +94,22 @@ public class CreateRequest extends HttpServlet{
 			boolean result = db.create_req(rb);
 			if(!result)
 			{
-				req.setAttribute("error", "upload_fail");
+				req.getSession().setAttribute("error", "upload_fail");
 				req.getRequestDispatcher("/uploadRequest.jsp").forward(req, res);
 				return;
 			}
 			else {
 				db.create_log(new LogBean("New Request to: "+loc, ip, logtype.EndUser));
-				req.setAttribute("cookie", id);
-				req.setAttribute("success", "Successful Request made");
-				req.setAttribute("lat", coordinates[0]);
-				req.setAttribute("lon", coordinates[1]);
-				req.getRequestDispatcher("/HelloMap.jsp").forward(req, res);
+				req.getSession().setAttribute("cookie", id);
+				req.getSession().setAttribute("success", "Successful Request made");
+				req.getSession().setAttribute("lat", coordinates[0]);
+				req.getSession().setAttribute("lon", coordinates[1]);
+				req.getRequestDispatcher("/activeRequest.jsp").forward(req, res);
+				res.addCookie(new Cookie("5-0CabRequestID",id));
 				return;
 			}
 		} catch (Exception e) {
-			req.setAttribute("error", "database connection error refresh and try again");
+			req.getSession().setAttribute("error", "database connection error refresh and try again");
 			req.getRequestDispatcher("/uploadRequest.jsp").forward(req, res);
 		} finally {
 			db.closeConnection();
