@@ -2,6 +2,7 @@ package helper;
 
 import org.json.JSONObject;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -11,7 +12,7 @@ import java.net.URL;
 
 public class HTTPHelper {
 
-    public synchronized boolean isCaptchaValid(String secretKey, String response) {
+    public static boolean isCaptchaValid(String secretKey, String response) {
         try {
             String url = "https://www.google.com/recaptcha/api/siteverify",
                     params = "secret=" + secretKey + "&response=" + response;
@@ -42,5 +43,13 @@ public class HTTPHelper {
             //e.printStackTrace();
         }
         return false;
+    }
+
+    public static String getBaseUrl(HttpServletRequest request) {
+        String scheme = request.getScheme() + "://";
+        String serverName = request.getServerName();
+        String serverPort = (request.getServerPort() == 80) ? "" : ":" + request.getServerPort();
+        String contextPath = request.getContextPath();
+        return scheme + serverName + serverPort + contextPath;
     }
 }

@@ -16,6 +16,8 @@ import beans.LogBean;
 import beans.RequestBean;
 import beans.LogBean.logtype;
 import helper.DBHelper;
+import helper.EnviromentVariables;
+import helper.HTTPHelper;
 
 public class CreateRequest extends HttpServlet{
 	private static final long serialVersionUID = 1L;
@@ -58,6 +60,15 @@ public class CreateRequest extends HttpServlet{
 			return;
 		}
 		// Check Recaptcha
+		if(!HTTPHelper.isCaptchaValid(EnviromentVariables.reCaptchaSecretKey, req.getParameter("recaptcha") )){
+			// not valid
+			System.out.println("Bad Recaptcha");
+			req.getSession().setAttribute("error", "Error in Recpatcha:");
+			req.getRequestDispatcher("/uploadRequest.jsp").forward(req, res);
+		}
+		else
+			System.out.println("Good Recaptcha");
+
 		LocalDateTime time = LocalDateTime.now();
 		String dateFormat[] = time.toString().split("T");
 		// request bean
@@ -100,12 +111,11 @@ public class CreateRequest extends HttpServlet{
 			}
 			else {
 				db.create_log(new LogBean("New Request to: "+loc, ip, logtype.EndUser));
-				req.getSession().setAttribute("cookie", id);
-				req.getSession().setAttribute("success", "Successful Request made");
+				req.getSession().setAttribute("requestID", id);
+				//req.getSession().setAttribute("success", "Successful Request made");
 				req.getSession().setAttribute("lat", coordinates[0]);
 				req.getSession().setAttribute("lon", coordinates[1]);
-				req.getRequestDispatcher("/activeRequest.jsp").forward(req, res);
-				res.addCookie(new Cookie("5-0CabRequestID",id));
+				res.sendRedirect(HTTPHelper.getBaseUrl(req)+"/activeRequest.jsp");
 				return;
 			}
 		} catch (Exception e) {

@@ -1,7 +1,19 @@
 <%@ page import="helper.EnviromentVariables" %>
 <%@ page import="org.json.JSONWriter" %>
+<%@ page import="helper.HTTPHelper" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 		 pageEncoding="ISO-8859-1"%>
+<%
+	for(Cookie c : request.getCookies()){
+		if(c.getName().contains("5_0Cab")){
+			session.setAttribute("requestID",c.getValue());
+			System.out.println();
+		}
+	}
+%>
+<% if(request.getSession().getAttribute("requestID")!=null){
+response.sendRedirect(HTTPHelper.getBaseUrl(request)+"/activeRequest.jsp");
+}%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,8 +37,8 @@
 <div class="d-none d-sm-block pt-5 pb-4"></div>
 
 <!-- All Things Navbar -->
-<nav class="navbar border border-dark navbar-expand-sm  fixed-bottom navbar-light bg-light" id="navbarContainer">
-	<div class="navbar-brand border border-secondary">
+<nav class="navbar border border-dark navbar-expand-sm  fixed-bottom navbar-light bg-light " id="navbarContainer" style="padding-right: 0">
+	<div class="navbar-brand border border-secondary mr-0">
 		<img class="ml-0 pl-0 mt-1 mr-3" src="${pageContext.request.contextPath}/images/Logo.png" alt="cab" width="90" height="45">
 	</div>
 
