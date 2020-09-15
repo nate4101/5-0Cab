@@ -32,6 +32,7 @@ Get: ...\RetrieveRequests\? {param id} = [param value] & key=[your_key]
 - [ ] Update all Servlets to properly server data. Json for retreive all/ retreive select, plain text for dispatcherOnline, and cab serial and cabnums
 - [ ] Add logs to all endpoints
 - [ ] Overhaul old login system for java using: PBKDF2 with hashing for passwords. Set an envrioment variable in request object and check against database secure value.
+- ??? https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/ could be useful  if migrating to JWT
 - [x] Gitignore including a class with public static private enviroment variable to keep hidden for End-User
 - [x] Using new database C.R.U.D schema rewrite DBHelper
 - [x] Add logging features to each DBHelper Method
